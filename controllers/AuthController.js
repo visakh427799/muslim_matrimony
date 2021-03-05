@@ -1,5 +1,6 @@
 const user = require("../models/user_model");
-var C_Codes = require("../utils/datas");
+const C_Codes = require("../utils/datas");
+const tokenCreate= require('../utils/tokeCreate');
 
 exports.Register = async function (req, res) {
   const { role, uname, gender, phonenum, code, email, password } = req.body;
@@ -19,6 +20,12 @@ exports.Register = async function (req, res) {
           Error: err,
         });
       } else {
+
+
+      
+        let token=tokenCreate.CreateToken({email:email,id:data._id},'shhhh');
+        res.cookie('usertoken',token);
+        // console.log(token)
         res.redirect("/complete_profile1");
       }
     });
@@ -27,4 +34,12 @@ exports.Register = async function (req, res) {
 
 exports.Complete_profile1=function(req,res){
     console.log(req.body);
+    if(res.user){
+      let userdata=res.user;
+      let id=userdata.id;
+   
+    let personal={...req.body,id}
+    console.log(personal);
+  res.redirect('/complete_profile2')  ;
+}  
 }
