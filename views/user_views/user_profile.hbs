@@ -1,0 +1,570 @@
+<body>
+    <div class="wrapper">
+        <!-- Header Start -->
+        <div class="header fp">
+            <div class="container-fluid">
+                <div class="header-top row align-items-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="brand">
+                            <a href="#">
+                                <img src="/assets/images/logo.PNG" alt="Logo" />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="mySidebar" class="new-sidebar">
+            <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
+            <a href="/User/view-my-profile.html">View My Profile</a>
+            <a href="/User/edit-my-profile.html">Edit My Profile</a>
+            <a href="/User/change-my-password.html">Change My Password</a>
+            <a href="/User/delete-my-account.html">Delete My Account</a>
+            <a href="#">Log out</a>
+        </div>
+        <div class=" call-to-action-my after-login-nav">
+            <div class="container  ">
+                <div class="menu-sp  ">
+                    <div class="  ">
+                        <a href="/User/view-all-profile.html" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
+                            </i><span class="hide-sp-icon">&nbsp;Profiles</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/profile-search.html" class=" p-2 "><i class="fa fa-search   .btn"></i><span
+                                class="hide-icon">&nbsp;Search</span></a>
+                    </div>
+                    <div>
+                        <a href="/User/shortlisted-Profile.html" class=" p-2 "><i class="fa fa-sort .btn"></i><span
+                                class="hide-icon">&nbsp;Shortlist</span></a>
+
+                    </div>
+                    <div>
+                        <div class="menu-sp-sec  ">
+                            <a class="  p-2 " onclick="openNav()"><i class=" fas fa-user fa-1x"></i><span
+                                    class="  hide-icon">&nbsp;Account</span></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Profile View section  -->
+        <!-- v-profile Start -->
+        <div class="v-profile">
+            <div class="container">
+                <div class="row view-profile-cnt">
+                    <!-- profile picture -->
+                    <div class="col-md-4">
+                        <div class="view-profile-img mt-3 item-center-all"> 
+                            <div class="pr-img">
+                                <img src="  " class="img-fluid rounded user-profile-bg "  >
+                            </div>
+                            <div class="p-id ">
+                                <h3>Profile ID : {{id}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- sample discription -->
+                    <div class="col-md-8">
+                        <div class="view-profile-img view-profile mt-3">
+                            <!-- <h6 class="premium"><span class="premium"><i class="fa fa-heart fa-2x"></i> </span></h6> -->
+                            <div class="">
+
+                                <div class=" cnt-edit-prf border-bottom ">
+
+                                    <a href="/User/edit-my-profile.html" class=" btn bg-danger     btn-block">
+                                        <i class="v-align-m fa fa-edit fa-2x .btn"></i><span class=" ">&nbsp;&nbsp; Edit
+                                            my profile</span>
+                                    </a>
+
+                                </div>
+                                <div class="cnt-test-div border-bottom">
+                                    <h3>About Myself</h3>
+                                    <p>
+                                        Smart,well mannered,educated both academically and
+                                        religiously. Studied and brought up in saudi arabia Also
+                                        humorous and active personality...
+                                    </p>
+                                </div>
+                                <div class="cnt-test-div border-top border-bottom">
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Profile Created by</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Father</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cnt-test-div border-top border-bottom">
+                                    <h3>Besic Information</h3>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Name</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Muhammad Ijas</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Gender</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Male</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Date Of Birth</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>18-09-1996</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Religion</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Muslim</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Sect</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Sunni</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Height</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>157</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Weight</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>56</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Marital Status</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Divorce</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Children</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Yes</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Number of Children</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>1</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Complexion</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>fair</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Body type</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>average</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Physical Status</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>average</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Mother Tongue</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>average</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Education</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>average</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Job</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>average</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="cnt-test-div border-bottom">
+                                    <h3>location Information</h3>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Country</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>India</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>State</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>India</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>District</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>India</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Place</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>India</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cnt-test-div border-bottom">
+                                    <h3>Family Information</h3>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Financial Status</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Middle class</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Home Type</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Own Home</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Father Details</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> Alive</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Mother Details </p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> Alive</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Number Of Sisters</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>2</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Number Of Brothers</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>3</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cnt-test-div border-bottom  p-2 alert-warning">
+
+                                    </p>
+                                    <h3>Contact Information</h3>
+                                    <!-- ---------------------------------------------- -->
+                                    <!-- dont add contact number & contact details here -->
+                                    <!-- ---------------------------------------------- -->
+                                    <div class="row user-contact-info">
+                                        <div class="col">
+                                            <p>Contact Number</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-contact-info">
+                                        <div class="col">
+                                            <p>Second Contact Number</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-contact-info">
+                                        <div class="col">
+                                            <p>WhatsApp Number</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-contact-info">
+                                        <div class="col">
+                                            <p>E-mail</p>
+                                        </div>
+                                        <div class="col ">
+                                            <p><strong>:&nbsp;<em></strong>profile owner email</em></p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-contact-info">
+                                        <div class="col">
+                                            <p>Full Adress</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;<em></strong>profile owner adress</em></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ----------------------------------------------- -->
+                                <!-- ----------Partner Prefrence section------------ -->
+                                <!-- ----------------------------------------------- -->
+                                <div class=" cnt-edit-prf border-bottom ">
+
+                                    <a href="/User/edit-my-profile.html" class=" btn bg-danger     btn-block">
+                                        <i class="v-align-m fa fa-edit fa-2x .btn"></i><span class=" ">&nbsp;&nbsp; Edit
+                                            Partner Prefrence</span>
+                                    </a>
+
+                                </div>
+                                <div class="cnt-test-div border-bottom">
+                                    <h3>Partner Prefrence</h3>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Age</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> 18 to 25</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Height</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> 154 to 167</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Marital Status</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> unmarried</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Physical Status</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> Normal Person</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Sect</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> Sunni</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Education</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> mbbs ,ma cs vtcy Hdr klut</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Financial Status</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> upper middile class family</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Present Country</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> India</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Present State</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong> Kerala</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Present District</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>Malapauram</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Place</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>padikkal</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Other Preferred Location</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>padikkal</p>
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Tell About your Partner</p>
+                                        </div>
+                                        <div class="col">
+                                            <p>
+                                                <strong>:&nbsp;</strong>We expecting a good partner
+                                                from a decent family We expecting a good partner from
+                                                a decent family
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile View section  -->
+
+    </div>
+
+
+
+
+    <!-- after footer start -->
+    <div class="footer  hide-max">
+        <div class="container">
+            <div class="row footer-contact ">
+                <div class="row z-lgn  ">
+                    <!-- <h4 class="ml-5">Get In Touch</h4> -->
+                    <div class=" d-flex justify-content-around ft-align-center">
+                        <div class="col ft-align-center">
+                            <p><i class="fa fa-map-marker"></i>Padikkal, Malappuram, Kerala</p>
+                        </div>
+                        <div class="col">
+                            <p><i class="fa fa-phone"></i><a href="https://wa.me/919746900055">+91 97469
+                                    00055</a>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p><i class="fa fa-envelope"></i>info@keralamuslimmarry.com</p>
+                        </div>
+                        <div class="col z-lgn">
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a href="https://facebook.com/keralamuslimmarry" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/keralamuslimmarry/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-menu">
+            <div class="f-menu">
+                <a href="/terms_and_conditions.html">Terms of use</a>
+                <a href="privacy_policy.html">Privacy policy</a>
+                <a>Cookies</a>
+                <a>Help & FQAs</a>
+                <a href="/contact.html">Contact us</a>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="https://keralamuslimmarry.com/">Kerala Muslim Marry</a>- All Right Reserved.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>Theme Designed By <a href="https://htmlcodex .com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- after footer start -->
+
+
+ 
+</body>

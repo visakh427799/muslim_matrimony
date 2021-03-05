@@ -1,11 +1,11 @@
 const jwt =require('jsonwebtoken')
 const tokenVerify=(req,res,next)=>{
 
-   let token=req.cookies.usertoken;
+   let token=req.cookies.user_token;
 //    console.log(token)
    if(token===undefined){
             console.log("No token ")
-            res.render('user_views/complete_profile1');
+           res.redirect('/');
     }
 
 else{
@@ -14,7 +14,7 @@ else{
  jwt.verify(token,'shhhh',(err,decoded)=>{
        if(err){
              console.log("Token validity expired")
-             res.render('user_views/complete_profile1')
+             res.redirect('/');
        }
        else{
             console.log(decoded)

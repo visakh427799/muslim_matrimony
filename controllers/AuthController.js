@@ -1,6 +1,9 @@
+const mongoose = require('mongoose');
 const user = require("../models/user_model");
+const personal = require("../models/user_details_1");
+const extra    =require("../models/user_details_2");
 const C_Codes = require("../utils/datas");
-const tokenCreate= require('../utils/tokeCreate');
+const tokenCreate = require("../utils/tokeCreate");
 
 exports.Register = async function (req, res) {
   const { role, uname, gender, phonenum, code, email, password } = req.body;
@@ -20,11 +23,8 @@ exports.Register = async function (req, res) {
           Error: err,
         });
       } else {
-
-
-      
-        let token=tokenCreate.CreateToken({email:email,id:data._id},'shhhh');
-        res.cookie('usertoken',token);
+        // let token=tokenCreate.CreateToken({email:email,id:data._id},'shhhh');
+        res.cookie("userid", data._id);
         // console.log(token)
         res.redirect("/complete_profile1");
       }
@@ -32,14 +32,58 @@ exports.Register = async function (req, res) {
   }
 };
 
-exports.Complete_profile1=function(req,res){
-    console.log(req.body);
-    if(res.user){
-      let userdata=res.user;
-      let id=userdata.id;
+exports.Complete_profile1 = async function (req, res) {
+  // console.log(req.body);
+  if (req.cookies) {
+    let user_id = req.cookies.userid;
+  
+    user_id=String(user_id) ;
+    let personalData = { ...req.body,user_id};
+    console.log(personalData);
+     
+      await personal.create(personalData,(err,data)=>{
+
+        if(data){
+          console.log(data)
+          res.redirect("/complete_profile2");
+        }
+        else{
+          console.log(err)
+          res.redirect("/complete_profile1");
+        }
+
+      })
+
    
-    let personal={...req.body,id}
-    console.log(personal);
-  res.redirect('/complete_profile2')  ;
-}  
-}
+  }
+};
+
+exports.Complete_profile2 = async function (req, res) {
+  console.log(req.body);
+  if (req.cookies) {
+    let user_id = req.cookies.userid;
+  
+    user_id=String(user_id) ;
+    let personalData = { ...req.body,user_id};
+    console.log(personalData);
+
+    let token=tokenCreate.CreateToken({id:user_id},'shhhh');
+    res.clearCookie('userid'); 
+    res.cookie("user_token", token);
+     
+      await extra.create(personalData,(err,data)=>{
+
+        if(data){
+          console.log(data)
+          res.redirect("/user/profile");
+        }
+        else{
+          console.log(err)
+          res.redirect("/complete_profile2");
+        }
+
+      })
+
+   
+  }
+};

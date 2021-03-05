@@ -1,3 +1,5 @@
+    <script src="/javascripts/country-select.js"></script>
+    
 <body>
     <div class="wrapper">
         <!-- Header Start -->
@@ -54,21 +56,22 @@
                             Tell us about your basic details; to finding your love
                         </p>
                     </div>
-
-                    <form action="" class="m-0">
+                    
+                    <form action="/complete_profile2" method="POST" class="m-0">
                         <div class="form-row text-white  ">
                             <div class="col-md-6">
                                 <label for="">Country</label>
                                 <div class="control-group">
-                                    <select id="countySel" size="1" class="custom-select" required>
+                                    <select  name="country" id="countySel" size="1" class="custom-select" required>
                                         <option value="" selected="selected">Select Country</option>
+                                        
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">State</label>
                                 <div class="control-group">
-                                    <select class="custom-select" id="stateSel" size="1">
+                                    <select name="state" class="custom-select" id="stateSel" size="1">
 
                                         <option value="" selected="selected">Select State</option>
 
@@ -78,7 +81,7 @@
                             <div class="col-md-6">
                                 <label for="">Districts</label>
                                 <div class="control-group">
-                                    <select class="custom-select" id="districtSel" size="1">
+                                    <select name="district" class="custom-select" id="districtSel" size="1">
                                         <option value="" selected="selected">Select </option>
                                     </select>
                                 </div>
@@ -86,7 +89,7 @@
                             <div class="col-md-6">
                                 <label for="">Place</label>
                                 <div class="control-group">
-                                    <select class="custom-select" id="placeSel">
+                                    <select class="custom-select" name="place" >
                                         <option value="" selected="selected">Select Place</option>
                                     </select>
                                 </div>
@@ -94,50 +97,50 @@
                             <div class="col-md-6">
                                 <label for="">Financial Status</label>
                                 <div class="control-group">
-                                    <select class="custom-select" required>
+                                    <select class="custom-select" name="financial_status" required>
                                         <option value="">select</option>
-                                        <option value="">Rich Family</option>
-                                        <option value="">Upper Middle Class Family</option>
-                                        <option value="">Middle Class Family</option>
-                                        <option value="">Lower Middle Class Family</option>
-                                        <option value="">Poor Family</option>
+                                        <option value="Rich Family">Rich Family</option>
+                                        <option value="Upper Middle Class Family">Upper Middle Class Family</option>
+                                        <option value="Middle Class Family">Middle Class Family</option>
+                                        <option value="Lower Middle Class Family">Lower Middle Class Family</option>
+                                        <option value="Poor Family">Poor Family</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Home Type</label>
                                 <div class="control-group">
-                                    <select class="custom-select" required>
+                                    <select class="custom-select" required name="home_type">
                                         <option value="">select</option>
-                                        <option value="">Own House</option>
-                                        <option value="">Rented House</option>
-                                        <option value="">Own Appartement/flat</option>
-                                        <option value="">Rented Appartement/flat</option>
-                                        <option value="">Colony</option>
-                                        <option value="">Village</option>
-                                        <option value="">Twon</option>
+                                        <option value="Own House">Own House</option>
+                                        <option value="Rented House">Rented House</option>
+                                        <option value="Own Appartement/flat">Own Appartement/flat</option>
+                                        <option value="Rented Appartement/flat">Rented Appartement/flat</option>
+                                        <option value="Colony">Colony</option>
+                                        <option value="Village">Village</option>
+                                        <option value="Town">Town</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Father Details</label>
                                 <div class="control-group">
-                                    <select class="custom-select">
+                                    <select class="custom-select" name="father_details">
                                         <option value="">select</option>
-                                        <option value="">Alive</option>
-                                        <option value="">Not living together</option>
-                                        <option value="">Died</option>
+                                        <option value="Alive">Alive</option>
+                                        <option value="Not living together">Not living together</option>
+                                        <option value="Died">Died</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Mother Details</label>
                                 <div class="control-group">
-                                    <select class="custom-select">
+                                    <select class="custom-select" name="mother_details">
                                         <option value="">select</option>
-                                        <option value="">Alive</option>
-                                        <option value="">Not living together</option>
-                                        <option value="">Died</option>
+                                        <option value="Alive">Alive</option>
+                                        <option value="Not living together">Not living together</option>
+                                        <option value="Died">Died</option>
                                     </select>
                                 </div>
                             </div>
@@ -147,26 +150,26 @@
                                     <div class="col ">
                                         <label for="">Number Of Sisters</label>
                                         <div class="control-group">
-                                            <select class="custom-select">
+                                            <select class="custom-select" name="no_sisters">
                                                 <option value="">select</option>
-                                                <option value="">0</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                                <option value="">3</option>
-                                                <option value="">Above 3</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">Above 3</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class=" col">
                                         <label for="">Number of Brother</label>
                                         <div class="control-group">
-                                            <select class="custom-select">
+                                            <select class="custom-select" name="no_brothers">
                                                 <option value="">select</option>
-                                                <option value="">0</option>
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                                <option value="">3</option>
-                                                <option value="">Above 3</option>
+                                                <option value="0">0</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">Above 3</option>
                                             </select>
                                         </div>
                                     </div>
@@ -175,23 +178,23 @@
                             
                             <div class="col-md-6">
                                 <label for="">Full Adress</label>
-                                <input type="text" value="" name="" class="form-control" placeholder="" required />
+                                <input type="text" value="" name="address" class="form-control" placeholder="" required />
                             </div>
                             <div class="col-md-6">
                                 <label for="">Second Contact Number</label>
                                 <div class="row  z-control-group ">
                                     <div class="col-4">
                                         <label for="" class="mb-0 ">Code</label>
-                                        <select class=" form-control" name="" id="" required>
+                                        <select class=" form-control" name="p_code" id="" required>
                                             <option value="">select</option>
-                                            <option value="">+91</option>
-                                            <option value="">+966</option>
-                                            <option value="">+91</option>
+                                              {{#each newArr}}
+                                                <option name="code" value="{{this.dial_code}}">{{this.dial_code}}- {{this.name}}</option>
+                                              {{/each}}
                                         </select>
                                     </div>
                                     <div class=" col">
                                         <label for="" class="mb-0">Phone Number</label>
-                                        <input type="text" name="" id="" class=" form-control " required>
+                                        <input type="text" name="phone_second" id="" class=" form-control " required>
                                     </div>
                                 </div>
                             </div>
@@ -201,16 +204,17 @@
                                 <div class="row  z-control-group ">
                                     <div class="col-4">
                                         <label for="" class="mb-0">Code</label>
-                                        <select class=" form-control" name="" id="" required>
+                                        <select class=" form-control" name="w_code" id="" required>
                                             <option value="">Code</option>
-                                            <option value="">+91</option>
-                                            <option value="">+966</option>
-                                            <option value="">+91</option>
+                                            <option value="">select</option>
+                                              {{#each newArr}}
+                                                <option name="code" value="{{this.dial_code}}">{{this.dial_code}}- {{this.name}}</option>
+                                              {{/each}}
                                         </select>
                                     </div>
                                     <div class=" col">
                                         <label for="" class="mb-0">Phone Number</label>
-                                        <input type="text" name="" id="" class=" form-control " required>
+                                        <input type="text" name="whatsapp_number" id="" class=" form-control " required>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +222,7 @@
 
                             <div class="col-md-12">
                                 <label for="">Tell About your Self</label>
-                                <textarea name="" id="" class="form-control" maxlength="170 " cols="58"
+                                <textarea name="about" id="" class="form-control" maxlength="170 " cols="58"
                                     rows="2"></textarea>
                             </div>
                         </div>
@@ -368,6 +372,7 @@
         </div>
         <!-- <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a> -->
     </div>
+     <script src="/javascripts/f.js"></script>
+ 
 
-    
 </body>
