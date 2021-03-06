@@ -22,13 +22,13 @@
             <a href="/User/edit-my-profile.html">Edit My Profile</a>
             <a href="/User/change-my-password.html">Change My Password</a>
             <a href="/User/delete-my-account.html">Delete My Account</a>
-            <a href="#">Log out</a>
+            <a href="/logout">Log out</a>
         </div>
         <div class=" call-to-action-my after-login-nav">
             <div class="container  ">
                 <div class="menu-sp  ">
                     <div class="  ">
-                        <a href="/User/view-all-profile.html" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
+                        <a href="/" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
                             </i><span class="hide-sp-icon">&nbsp;Profiles</span>
                         </a>
                     </div>
@@ -57,6 +57,7 @@
 
         <!-- Profile View section  -->
         <!-- v-profile Start -->
+        
         <div class="v-profile">
             <div class="container">
                 <div class="row view-profile-cnt">
@@ -67,7 +68,7 @@
                                 <img src="  " class="img-fluid rounded user-profile-bg "  >
                             </div>
                             <div class="p-id ">
-                                <h3>Profile ID : {{id}}</h3>
+                                <h3>Profile ID : {{_id}}</h3>
                             </div>
                         </div>
                     </div>
@@ -86,6 +87,7 @@
 
                                 </div>
                                 <div class="cnt-test-div border-bottom">
+                                   
                                     <h3>About Myself</h3>
                                     <p>
                                         Smart,well mannered,educated both academically and
@@ -96,10 +98,11 @@
                                 <div class="cnt-test-div border-top border-bottom">
                                     <div class="row user-inf">
                                         <div class="col">
+                                          
                                             <p>Profile Created by</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Father</p>
+                                            <p><strong>:&nbsp;</strong>{{role}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -110,23 +113,28 @@
                                             <p>Name</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Muhammad Ijas</p>
+                                            <p><strong>:&nbsp;</strong>{{uname}}</p>
                                         </div>
+                                      
                                     </div>
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Gender</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Male</p>
+                                            <p><strong>:&nbsp;</strong>{{gender}}</p>
                                         </div>
+                                       
                                     </div>
+
+
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Date Of Birth</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>18-09-1996</p>
+                                            <p><strong>:&nbsp;{{dob}}</strong></p>
+                                           
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -134,7 +142,7 @@
                                             <p>Religion</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Muslim</p>
+                                            <p><strong>:&nbsp;</strong>{{religion}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -142,7 +150,7 @@
                                             <p>Sect</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Sunni</p>
+                                            <p><strong>:&nbsp;</strong>{{sect}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -235,7 +243,7 @@
                                     </div>
 
                                 </div>
-
+                           
                                 <div class="cnt-test-div border-bottom">
                                     <h3>location Information</h3>
                                     <div class="row user-inf">

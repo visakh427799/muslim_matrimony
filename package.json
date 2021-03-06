@@ -14,8 +14,10 @@
     "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
+    "localStorage": "^1.0.4",
     "mongoose": "^5.11.15",
     "morgan": "~1.9.1",
+    "node-sessionstorage": "^1.0.0",
     "nodemon": "^2.0.7"
   }
 }
