@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const userDetailSchema_2=new mongoose.Schema(
     {
         country: { type: String, default: null },
@@ -21,12 +20,10 @@ const userDetailSchema_2=new mongoose.Schema(
         about: { type: String, default: null },
         user_id:{ type: String, default: null },
       }
-      
-   
+       
 )
 
 const extra=mongoose.model('extra',userDetailSchema_2);
-
 module.exports=extra;
 
 

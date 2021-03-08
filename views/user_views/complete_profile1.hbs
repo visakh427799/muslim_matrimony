@@ -100,9 +100,23 @@
                                 </div>
                             </div>
                         </div>
+
+                        
                         <div class="col-md-6  ">
                             <label for="">Date Of Birth</label>
-                            <input type="date" value="" name="dob" class="form-control" placeholder="" required />
+                            <input id="db" type="date" value="" name="dob" class="form-control" placeholder="" required />
+                        </div>
+
+                        
+                        <div class="col-md-6   ">
+                            <label for="">Religion</label>
+                            <div class="control-group">
+                                <select class="custom-select"  onfocus="fi();" required name="religion">
+                                    <option value="">Select</option>
+                                    <option value="Islam">Islam</option>
+
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
@@ -110,13 +124,14 @@
                                     <label for="">Height</label>
                                     <!--   -->
                                     <div class="control-group">
-                                        <select class="custom-select" name="height" required>
+                                        <select class="custom-select" name="height"  required>
                                             <option value="">Select</option>
                                            {{#each heights}}
                                                <option value="{{this.height}}">{{this.height}}</option>
                                            {{/each}}
                                         </select>
                                     </div>
+                                   
                                 </div>
                                 <div class="col-md-6   ">
                                     <label for="">Weight</label>
@@ -133,16 +148,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6   ">
-                            <label for="">Religion</label>
-                            <div class="control-group">
-                                <select class="custom-select" required name="religion">
-                                    <option value="">Select</option>
-                                    <option value="Islam">Islam</option>
+                        
 
-                                </select>
-                            </div>
-                        </div>
+
+
+
+
+
+
+
                         <div class="col-md-6   ">
                             <label for="">Sect</label>
                             <div class="control-group">
@@ -234,9 +248,30 @@
                         </div>
                         <div class="col-md-6   ">
                             <label for="">Job</label>
-                            <input type="text" value="" name="job" class="form-control" placeholder="" required />
+                            <input type="text" id="ab" value="" name="job" class="form-control" placeholder="" required />
                         </div>
                     </div>
+                     <script>
+                                        function fi(){
+
+                                           var d = new Date();
+                                           var CurrentYr = d.getFullYear();
+                                           let dob=document.getElementById("db").value;
+                                           let Yr=dob.slice(0,4);
+                                           let age=CurrentYr-Number(Yr);
+                                           console.log(age);
+
+                                           if(age<18){
+                                                  Swal.fire(
+                                                    'Age should be  greaterthan 18')
+                                       
+                                               document.getElementById("db").value="";
+                                               
+                                           }
+                                          
+                                           
+                                        } 
+                                    </script>
                     <div class=" d-flex justify-content-center mt-4">
 
                         <button type="submit" class="btn gnrl-btn  ">
