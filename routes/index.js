@@ -46,7 +46,6 @@ router.post("/login", Auth.Login);
 router.get("/logout", Auth.Logout);
 router.post("/complete_profile1", Auth.Complete_profile1);
 router.post("/complete_profile2", Auth.Complete_profile2);
-router.post("/profile_photo", (req, res) => {
-  console.log(req.files);
-})
+router.post("/partner_preference", Auth.Partner_preference);
+router.post("/profile_photo",Auth.Profile_photo)
 module.exports = router;

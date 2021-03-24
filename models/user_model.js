@@ -10,8 +10,12 @@ const UserSchema = new mongoose.Schema({
         email: { type: String, default: null },
         password: { type: String, default: null },
         status: { type: String, enum: ['Active', 'Inactive'], default: null },
+        profile_id:{type:String,default:null},
+        profile_pic:{type:String,default:null},
+        profile_pic_status:{ type: String, enum: ['Active', 'Inactive'], default: null },
         created_at: { type: Date, default: Date.now },
         deleted_at: { type: Date, default: null },
+
 })
 
 const user=mongoose.model('user',UserSchema);

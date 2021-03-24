@@ -53,7 +53,7 @@
 
                     </div>
 
-                    <form action="">
+                    <form action="/partner_preference" method="POST">
                         <div class="form-row   text-white  fplabel  ">
                             <div class="col-md-6  mb-3">
                                 <label for="">Age</label>
@@ -140,27 +140,27 @@
                                 <div class="control-group">
                                     <ul class="ks-cboxtags">
                                         <li>
-                                            <input type="checkbox" id="ms-any" value="Cotton Candy" checked>
+                                            <input name="m1" type="checkbox" id="ms-any" value="Cotton Candy" checked>
                                             <label for="ms-any">Any</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="unmarried" value="Rainbow Dash">
+                                            <input name="m2" type="checkbox" id="unmarried" value="Unmarried">
                                             <label for="unmarried">Unmarried</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="n_divorce" value="Cotton Candy">
+                                            <input name="m3"  type="checkbox" id="n_divorce" value="Nikah Divorce">
                                             <label for="n_divorce">Nikah Divorce</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="divorce" value="Cotton Candy">
+                                            <input name="m4" type="checkbox" id="divorce" value="Divorce">
                                             <label for="divorce">Divorce</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="a_divorce" value="Cotton Candy">
+                                            <input name="m5" type="checkbox" id="a_divorce" value="Awaiting Divorce">
                                             <label for="a_divorce">Awaiting Divorce</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="widow" value="Cotton Candy">
+                                            <input name="m6" type="checkbox" id="widow" value="Widow/Widows">
                                             <label for="widow">Widow/Widower</label>
                                         </li>
 
@@ -319,7 +319,7 @@
                             <div class="col-md-6">
                                 <label for="">Country</label>
                                 <div class="control-group">
-                                    <select id="countySel" size="1" class="custom-select" required>
+                                    <select id="countySel" size="1" class="custom-select" >
                                         <option value="" selected="selected">Select</option>
                                     </select>
                                 </div>

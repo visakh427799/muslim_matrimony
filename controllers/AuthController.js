@@ -10,9 +10,27 @@ exports.Register = async function (req, res) {
   const { role, uname, gender, phonenum, code, email, password } = req.body;
   let phone = code + phonenum;
   let status = "Active";
-  let newUser = { role, uname, gender, phone, email, password, status };
+  
+  let profile_id="MM1999";
+  let profile_pic="";
+  let profile_pic_status="Inactive";
+  let last_user="";
+  await user.find({},(err,data)=>{
+    if(data) {  
+      
+      data.map((usr)=>{
+        return(
+          // console.log(usr.profile_id)
+
+          profile_id=usr.profile_id+1
+        ) 
+    })
+  }
+  });
+   
+  let newUser = { role, uname, gender, phone, email, password, status,profile_id,profile_pic,profile_pic_status };
   let newArr = C_Codes.CountryCodes();
-  // console.log(newObj);
+  console.log(newUser);
   let data = await user.findOne({ email: email });
   if (data) {
     let message = "Account with this email id already exist ";
@@ -93,7 +111,7 @@ exports.Complete_profile2 = async function (req, res) {
       if (data) {
         console.log(data);
 
-        res.redirect("/profile");
+        res.redirect("/profile_photo");
       } else {
         console.log(err);
         res.redirect("/complete_profile2");
@@ -102,9 +120,20 @@ exports.Complete_profile2 = async function (req, res) {
   }
 };
 
+exports.Profile_photo = function (req, res) {
+  //
+  let { img } = req.files;
 
-exports.UploadPhoto=function(req,res){
+  img.mv("./public/images/profile_images/" + img.name, (err) => {
+    if (err) return console.log(err);
+    else {
+      console.log("File uploaded");
 
-  
-    console.log(req.files);
-}
+      //db query mongo
+      res.redirect("/partner_Preference");
+    }
+  });
+};
+exports.Partner_preference = function (req, res) {
+  console.log(req.body);
+};
