@@ -60,77 +60,42 @@
                                 <!-- age 18 to 70 -->
                                 <div class="row  z-control-group ">
                                     <div class="col ">
-                                        <select class=" form-control" name="" id="" required>
+                                        <select class=" form-control" name="age_from" id="" required>
                                             <option value="">from</option>
-                                            <option value="">18</option>
-                                            <option value="">19</option>
-                                            <option value="">20</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
                                         </select>
                                     </div>
                                     <div class=" col ">
-                                        <select class=" form-control" name="" id="" required>
+                                        <select class=" form-control" name="age_to" id="" required>
                                             <option value="">to</option>
-                                            <option value="">18</option>
-                                            <option value="">19</option>
-                                            <option value="">20</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6  mb-3">
-                                <label for="">Height</label>
+                                  <label for="">Height</label>
                                 <div class="row  z-control-group ">
                                     <div class="col ">
-                                        <select class=" form-control" name="" id="" required>
-                                            <option value="">from</option>
-                                            <option value="">below 4.5ft - 137cm,</option>
-                                            <option value="">4.6ft - 140cm,</option>
-                                            <option value="">4.7ft - 143cm,</option>
-                                            <option value="">4.8ft - 146cm,</option>
-                                            <option value="">4.9ft - 149cm,</option>
-                                            <option value="">5.0ft - 152cm,</option>
-                                            <option value="">5.1ft - 155cm,</option>
-                                            <option value="">5.2ft - 158cm,</option>
-                                            <option value="">5.3ft - 162cm,</option>
-                                            <option value="">5.4ft - 164cm,</option>
-                                            <option value="">5.5ft - 167cm,</option>
-                                            <option value="">5.6ft - 171cm,</option>
-                                            <option value="">5.7ft - 174cm,</option>
-                                            <option value="">5.8ft - 177cm,</option>
-                                            <option value="">5.9ft - 180cm,</option>
-                                            <option value="">6.0ft - 181cm,</option>
-                                            <option value="">6.1ft - 186cm,</option>
-                                            <option value="">6.2ft - 189cm,</option>
-                                            <option value="">6.3ft - 192cm,</option>
-                                            <option value="">6.4ft - 195cm,</option>
-                                            <option value="">Above 6.5ft - 198cm </option>
+                                        <select class=" form-control" name="height" id="" required>
+                                            <option value="">Select</option>
+                                           {{#each heights}}
+                                               <option value="{{this.height}}">{{this.height}}</option>
+                                           {{/each}}
                                         </select>
                                     </div>
-
-                                    <div class=" col ">
-                                        <select class=" form-control" name="" id="" required>
-                                            <option value="">to</option>
-                                            <option value="">below 4.5ft - 137cm,</option>
-                                            <option value="">4.6ft - 140cm,</option>
-                                            <option value="">4.7ft - 143cm,</option>
-                                            <option value="">4.8ft - 146cm,</option>
-                                            <option value="">4.9ft - 149cm,</option>
-                                            <option value="">5.0ft - 152cm,</option>
-                                            <option value="">5.1ft - 155cm,</option>
-                                            <option value="">5.2ft - 158cm,</option>
-                                            <option value="">5.3ft - 162cm,</option>
-                                            <option value="">5.4ft - 164cm,</option>
-                                            <option value="">5.5ft - 167cm,</option>
-                                            <option value="">5.6ft - 171cm,</option>
-                                            <option value="">5.7ft - 174cm,</option>
-                                            <option value="">5.8ft - 177cm,</option>
-                                            <option value="">5.9ft - 180cm,</option>
-                                            <option value="">6.0ft - 181cm,</option>
-                                            <option value="">6.1ft - 186cm,</option>
-                                            <option value="">6.2ft - 189cm,</option>
-                                            <option value="">6.3ft - 192cm,</option>
-                                            <option value="">6.4ft - 195cm,</option>
-                                            <option value="">Above 6.5ft - 198cm </option>
+                               
+                                    <div class=" col-md-6 mb-3  ">
+                                        <label for="">Weight</label>
+                                        <select class=" form-control" name="weight" id="" required>
+                                             <option value="">Select</option>
+                                             {{#each weights}}
+                                               <option value="{{this.weight}}">{{this.weight}}</option>
+                                           {{/each}}
                                         </select>
                                     </div>
                                 </div>
@@ -140,7 +105,7 @@
                                 <div class="control-group">
                                     <ul class="ks-cboxtags">
                                         <li>
-                                            <input name="m1" type="checkbox" id="ms-any" value="Cotton Candy" checked>
+                                            <input name="m1" type="checkbox" id="ms-any" value="Any" checked >
                                             <label for="ms-any">Any</label>
                                         </li>
                                         <li>
@@ -174,15 +139,15 @@
                                 <div class="control-group">
                                     <ul class="ks-cboxtags">
                                         <li>
-                                            <input type="checkbox" id="ps-any" value="Cotton Candy" checked>
+                                            <input type="checkbox" id="ps-any" value="Any" name="p1" checked>
                                             <label for="ps-any">Any</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="ps-normal_person" value="Cotton Candy">
+                                            <input type="checkbox" id="ps-normal_person" value="Normal person" name="p2">
                                             <label for="ps-normal_person">Normal Person</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="ps-unnormal_person" value="Cotton Candy">
+                                            <input type="checkbox" id="ps-unnormal_person" value="Physically Challenged Person" name="p3">
                                             <label for="ps-unnormal_person">Physically Challenged Person</label>
                                         </li>
                                     </ul>
@@ -194,47 +159,47 @@
                                 <div class="control-group">
                                     <ul class="ks-cboxtags">
                                         <li>
-                                            <input type="checkbox" id="sect-any" value="Cotton Candy" checked>
+                                            <input type="checkbox" id="sect-any" value="Any" name="s1" checked>
                                             <label for="sect-any">Any</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-sunni" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-sunni" value="Sunni" name="s2" >
                                             <label for="sect-sunni">Sunni</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-sunni_ek" value="Cotton Candy" c>
+                                            <input type="checkbox" id="sect-sunni_ek" value="Sunni-Ek"  name="s3">
                                             <label for="sect-sunni_ek">Sunni-Ek</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-sunni_ap" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-sunni_ap" value="Sunni-AP" name="s4">
                                             <label for="sect-sunni_ap">Sunni-AP</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-shafisunni" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-shafisunni" value="Shafi-Sunni" name="s5" >
                                             <label for="sect-shafisunni">Shafi-Sunni</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-hanafisunni" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-hanafisunni" value="Hanafi-Sunni" name="s6">
                                             <label for="sect-hanafisunni">Hanafi-Sunni</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-hanafi" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-hanafi" value="Hanafi"  name="s7">
                                             <label for="sect-hanafi">Hanafi</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-shafi" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-shafi" value="Shafi" name="s8" >
                                             <label for="sect-shafi">Shafi</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-slafi" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-slafi" value="Salafi" name='s9'>
                                             <label for="sect-slafi">Salafi</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-j_e_islami" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-j_e_islami" value="Jamaat e Islami" name="s10">
                                             <label for="sect-j_e_islami">Jamaat e Islami</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sect-tablighi" value="Cotton Candy" >
+                                            <input type="checkbox" id="sect-tablighi" value="Tablighi Jamaat" name="s11" >
                                             <label for="sect-tablighi">Tablighi Jamaat</label>
                                         </li>
                                     </ul>
@@ -245,40 +210,40 @@
                                 <div class="control-group">
                                     <ul class="ks-cboxtags">
                                         <li>
-                                            <input type="checkbox" id="education-any" value="Cotton Candy" checked>
+                                            <input type="checkbox" id="education-any" value="Any" name="e1" checked>
                                             <label for="education-any">Any</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-doctorate" value="Cotton Candy">
+                                            <input type="checkbox" id="education-doctorate" value="Doctorate" name="e2">
                                             <label for="education-doctorate">Doctorate</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-masters" value="Cotton Candy">
+                                            <input type="checkbox" id="education-masters" value="Masters" name="e3">
                                             <label for="education-masters">Masters</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-bachelors" value="Cotton Candy">
+                                            <input type="checkbox" id="education-bachelors" value="Bachelors" name="e4">
                                             <label for="education-bachelors">Bachelors</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-diploma" value="Cotton Candy">
+                                            <input type="checkbox" id="education-diploma" value="Diploma" name="e5"> 
                                             <label for="education-diploma">Diploma</label>
                                         </li>
                                         <li>
                                             <input type="checkbox" id="education-religious_education"
-                                                value="Cotton Candy">
+                                                value="Religious Education" name="e6">
                                             <label for="education-religious_education">Religious Education</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-plus2" value="Cotton Candy">
+                                            <input type="checkbox" id="education-plus2" value="Plus Two / Pre Degree" name="e7">
                                             <label for="education-plus2"> Plus Two / Pre Degree</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-sslc" value="Cotton Candy">
+                                            <input type="checkbox" id="education-sslc" value="SSLC">
                                             <label for="education-sslc">SSLC</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="education-b_sslc" value="Cotton Candy">
+                                            <input type="checkbox" id="education-b_sslc" value="Below SSLC" name="e8">
                                             <label for="education-b_sslc">Below SSLC</label>
                                         </li>
 
@@ -290,27 +255,27 @@
                                 <div class="control-group">
                                     <ul class="ks-cboxtags"> 
                                         <li>
-                                            <input type="checkbox" id="fs-any" value="Cotton Candy" checked>
+                                            <input type="checkbox" id="fs-any" value="Any" name="f1" checked>
                                             <label for="fs-any">Any</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="fs-rich" value="Cotton Candy">
+                                            <input type="checkbox" id="fs-rich" value="Rich Family" name="f2">
                                             <label for="fs-rich">Rich Family</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="fs-upper" value="Cotton Candy">
+                                            <input type="checkbox" id="fs-upper" value="Upper Middle Class Family" name="f3">
                                             <label for="fs-upper">Upper Middle Class Family</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="fs-middle" value="Cotton Candy">
+                                            <input type="checkbox" id="fs-middle" value="Middle Class Family" name="f4">
                                             <label for="fs-middle">Middle Class Family</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="fs-lower_middle" value="Cotton Candy">
+                                            <input type="checkbox" id="fs-lower_middle" value="Lower Middle Class Family" name="f5">
                                             <label for="fs-lower_middle">Lower Middle Class Family</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="fs-poor" value="Cotton Candy">
+                                            <input type="checkbox" id="fs-poor" value="Poor Family" name="f6">
                                             <label for="fs-poor">Poor Family</label>
                                         </li>
                                     </ul>
@@ -319,7 +284,7 @@
                             <div class="col-md-6">
                                 <label for="">Country</label>
                                 <div class="control-group">
-                                    <select id="countySel" size="1" class="custom-select" >
+                                    <select id="countySel" size="1" class="custom-select" name="country" >
                                         <option value="" selected="selected">Select</option>
                                     </select>
                                 </div>
@@ -327,7 +292,7 @@
                             <div class="col-md-6">
                                 <label for="">State</label>
                                 <div class="control-group"> 
-                                    <select class="custom-select" id="stateSel" size="1">
+                                    <select class="custom-select" id="stateSel" size="1" name="state">
                                         <option value="" selected="selected">Select</option>
                                     </select>
                                 </div>
@@ -335,7 +300,7 @@
                             <div class="col-md-6">
                                 <label for="">Districts</label>
                                 <div class="control-group">
-                                    <select class="custom-select" id="districtSel" multiple>
+                                    <select class="custom-select" id="districtSel" multiple name="district">
                                         <option value="" selected="selected">Select</option>
                                     </select>
                                 </div>
@@ -343,7 +308,7 @@
                             <div class="col-md-6">
                                 <label for="">Place</label>
                                 <div class="control-group">
-                                    <select class="custom-select" id="placeSel">
+                                    <select class="custom-select" id="placeSel" name="place">
                                         <option value="" selected="selected">Select Place</option>
                                     </select>
                                 </div>
@@ -351,8 +316,8 @@
                             <div class="col-md-6 mb-3  ">
                                 <label for="">Tell About your Partner</label>
 
-                                <textarea name="" id="" class="form-control" maxlength="170 " cols="58"
-                                    rows="1"></textarea>
+                                <textarea name="about" id="" class="form-control" maxlength="170 " cols="58"
+                                    rows="1" name="tell"></textarea>
                             </div>
 
                         </div>

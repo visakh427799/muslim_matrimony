@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 const user = require("../models/user_model");
 const personal = require("../models/user_details_1");
 const extra = require("../models/user_details_2");
+const partner= require("../models/partner_preference")
 const C_Codes = require("../utils/datas");
 const tokenCreate = require("../utils/tokeCreate");
+const profileCode= require("../utils/profileCodeGenerator");
 const storage = require("node-sessionstorage");
 
 exports.Register = async function (req, res) {
@@ -14,7 +16,7 @@ exports.Register = async function (req, res) {
   let profile_id="MM1999";
   let profile_pic="";
   let profile_pic_status="Inactive";
-  let last_user="";
+
   await user.find({},(err,data)=>{
     if(data) {  
       
@@ -22,18 +24,21 @@ exports.Register = async function (req, res) {
         return(
           // console.log(usr.profile_id)
 
-          profile_id=usr.profile_id+1
+          profile_id=profileCode.proCode(usr.profile_id)
         ) 
     })
   }
   });
    
+  // console.log(profile_id);
+
+  
   let newUser = { role, uname, gender, phone, email, password, status,profile_id,profile_pic,profile_pic_status };
   let newArr = C_Codes.CountryCodes();
   console.log(newUser);
   let data = await user.findOne({ email: email });
   if (data) {
-    let message = "Account with this email id already exist ";
+    let message = "Account with this email id already exist...!!! ";
     res.render("index", { title: "Express", newArr, message });
   } else {
     await user.create(newUser, (err, data) => {
@@ -54,17 +59,28 @@ exports.Register = async function (req, res) {
 
 exports.Login = async function (req, res) {
   let { username, password } = req.body;
-
+  try{
   let data = await user.findOne({
     $or: [{ email: username }, { phone: username }],
     password: password,
   });
+
 
   if (data) {
     let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
     await res.cookie("user_token", token);
     await res.redirect("/profile");
   }
+  else{
+    let message = "Invalid Credentials...!!! ";
+    res.render("user_views/user_login", {message });
+  }
+}
+catch(error){
+  let msg=error;
+  res.render("user_views/user_login", {msg });
+
+}
 };
 
 exports.Logout = async function (req, res) {
@@ -130,10 +146,61 @@ exports.Profile_photo = function (req, res) {
       console.log("File uploaded");
 
       //db query mongo
-      res.redirect("/partner_Preference");
+
+      let user_id = req.cookies.userid;
+    
+     user.findByIdAndUpdate({_id:user_id},{profile_pic:img.name},(err,data)=>{
+
+      if(err)    console.log(err)
+      else{
+        res.redirect("/partner_Preference");
+      }
+     });
+   
+      
     }
   });
 };
 exports.Partner_preference = function (req, res) {
   console.log(req.body);
+  let user_id = req.cookies.userid;
+  console.log(user_id);
+
+const{age_from,age_to,height,weight,m1,m2,m3,m4,m5,m6,p1,p2,p3,s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,e1,e2,e3,e4,e5,e6,e7,e8,f1,f2,f3,f4,f5,f6,country,state,district,place,about}=req.body;
+let m_status=[m1,m2,m3,m4,m5,m6].filter(function( element ) {
+  return element !== undefined;
+});
+let p_status=[p1,p2,p3].filter(function( element ) {
+  return element !== undefined;
+});
+let p_sect=[s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11].filter(function( element ) {
+  return element !== undefined;
+});
+let education =[e1,e2,e3,e4,e5,e6,e7,e8].filter(function( element ) {
+  return element !== undefined;
+});
+let fin_status=[f1,f2,f3,f4,f5,f6].filter(function( element ) {
+  return element !== undefined;
+});
+
+let partnerObj={
+  age_from,age_to,height,weight,m_status,p_status,p_sect,education,fin_status,country,state,district,place,about,user_id
+}
+console.log(partnerObj);
+partner.create(partnerObj,(err,data)=>{
+   if(data){
+     console.log(data);
+     res.redirect('/profile')
+   }
+   else{
+     console.log(err)
+   }
+})
+
+
+
+
+
+
+
 };

@@ -65,10 +65,10 @@
                     <div class="col-md-4">
                         <div class="view-profile-img mt-3 item-center-all"> 
                             <div class="pr-img">
-                                <img src="  " class="img-fluid rounded user-profile-bg "  >
+                                <img src="/images/profile_images/{{userObj.profile_pic}}" alt="  Profile image pending..." class="img-fluid rounded user-profile-bg "  >
                             </div>
                             <div class="p-id ">
-                                <h3>Profile ID : {{_id}}</h3>
+                                <h3>Profile ID : {{userObj.profile_id}}</h3>
                             </div>
                         </div>
                     </div>
@@ -88,11 +88,9 @@
                                 </div>
                                 <div class="cnt-test-div border-bottom">
                                    
-                                    <h3>About Myself</h3>
+                                    <h3 class="text-primary">About Myself</h3>
                                     <p>
-                                        Smart,well mannered,educated both academically and
-                                        religiously. Studied and brought up in saudi arabia Also
-                                        humorous and active personality...
+                                        {{userExtra.about}}
                                     </p>
                                 </div>
                                 <div class="cnt-test-div border-top border-bottom">
@@ -102,18 +100,18 @@
                                             <p>Profile Created by</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>{{role}}</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.role}}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="cnt-test-div border-top border-bottom">
-                                    <h3>Besic Information</h3>
+                                    <h3 class="text-primary">Besic Information</h3>
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Name</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>{{uname}}</p>
+                                            <p><strong>:&nbsp;{{userObj.uname}}</strong></p>
                                         </div>
                                       
                                     </div>
@@ -122,7 +120,7 @@
                                             <p>Gender</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>{{gender}}</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.gender}}</p>
                                         </div>
                                        
                                     </div>
@@ -133,7 +131,7 @@
                                             <p>Date Of Birth</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;{{dob}}</strong></p>
+                                            <p>:&nbsp;{{userObj.dob}}</p>
                                            
                                         </div>
                                     </div>
@@ -142,7 +140,7 @@
                                             <p>Religion</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>{{religion}}</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.religion}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -150,7 +148,7 @@
                                             <p>Sect</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>{{sect}}</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.sect}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -158,7 +156,7 @@
                                             <p>Height</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>157</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.height}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -166,7 +164,7 @@
                                             <p>Weight</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>56</p>
+                                        <p><strong>:&nbsp;</strong>{{userObj.weight}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -174,7 +172,7 @@
                                             <p>Marital Status</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Divorce</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.marital_status}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -182,7 +180,7 @@
                                             <p>Children</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Yes</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.children}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -190,7 +188,7 @@
                                             <p>Number of Children</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>1</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.no_children}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -198,7 +196,7 @@
                                             <p>Complexion</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>fair</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.complexion}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -206,7 +204,7 @@
                                             <p>Body type</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>average</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.body_type}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -214,7 +212,7 @@
                                             <p>Physical Status</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>average</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.physical_status}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -222,7 +220,7 @@
                                             <p>Mother Tongue</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>average</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.mother_tongue}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -230,7 +228,7 @@
                                             <p>Education</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>average</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.education}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -238,7 +236,7 @@
                                             <p>Job</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>average</p>
+                                            <p><strong>:&nbsp;</strong>{{userObj.job}}</p>
                                         </div>
                                     </div>
 
@@ -251,7 +249,7 @@
                                             <p>Country</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>India</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.country}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -259,7 +257,7 @@
                                             <p>State</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>India</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.state}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -267,7 +265,7 @@
                                             <p>District</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>India</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.district}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -275,7 +273,7 @@
                                             <p>Place</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>India</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.place}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +284,7 @@
                                             <p>Financial Status</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Middle class</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.financial_status}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -294,7 +292,7 @@
                                             <p>Home Type</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Own Home</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.home_type}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -302,7 +300,7 @@
                                             <p>Father Details</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> Alive</p>
+                                            <p><strong>:&nbsp;</strong> {{userExtra.father_details}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -310,7 +308,7 @@
                                             <p>Mother Details </p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> Alive</p>
+                                            <p><strong>:&nbsp;</strong> {{userExtra.mother_details}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -318,7 +316,7 @@
                                             <p>Number Of Sisters</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>2</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.no_sisters}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -326,7 +324,7 @@
                                             <p>Number Of Brothers</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>3</p>
+                                            <p><strong>:&nbsp;</strong>{{userExtra.no_brothers}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -339,7 +337,7 @@
                                     <!-- ---------------------------------------------- -->
                                     <div class="row user-contact-info">
                                         <div class="col">
-                                            <p>Contact Number</p>
+                                            <p></p>
                                         </div>
                                         <div class="col">
                                             <p><strong>:&nbsp;<em></strong>profile owner number</em></p>

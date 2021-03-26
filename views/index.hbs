@@ -61,6 +61,7 @@
         <div class="col-md-5">
           <div class="form">
             <h3>Register Free</h3>
+             <span class="text-danger">{{message}}</span>
             <form class="" action="/register" method="POST">
               <label for="">Profile Created by</label>
               <div class="control-group">
@@ -104,7 +105,7 @@
               <label for="">Email</label>
               <input class="form-control" name="email" id="" type="text" placeholder="Enter your Email" required>
  
-               <span class="text-danger">{{message}}</span>
+              
         
               <label for="">Create Login Password</label>
               <input class="form-control" name="password" id="" type="password" placeholder="" required minlength="5" maxlength="19">

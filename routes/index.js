@@ -8,6 +8,8 @@ var ShowAll = require("../controllers/ShowAllprofileController");
 
 /* GET home page. */
 const newArr = C_Codes.CountryCodes();
+const heights = C_Codes.Heights();
+const weights = C_Codes.Weights();
 
 router.get("/", Verify, function (req, res, next) {
   res.render("user_views/all_profiles");
@@ -22,8 +24,7 @@ router.get("/login", Verify, function (req, res, next) {
 router.get("/profile", Verify, ShowAll.ShowAllprofile);
 
 router.get("/complete_profile1", function (req, res, next) {
-  const heights = C_Codes.Heights();
-  const weights = C_Codes.Weights();
+ 
 
   res.render("user_views/complete_profile1", { heights, weights });
 });
@@ -35,7 +36,7 @@ router.get("/complete_profile2", function (req, res, next) {
 
 
 router.get('/partner_preference',(req,res)=>{
-  res.render("user_views/partner_preference")
+  res.render("user_views/partner_preference",{ heights, weights})
 })
 router.get('/profile_photo',(req,res)=>{
   res.render("user_views/profile_photo")
