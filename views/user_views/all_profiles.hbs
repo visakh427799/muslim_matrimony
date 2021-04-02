@@ -62,16 +62,17 @@
                 <!-- 15 profile in one page -->
                 <!-- 15 profile in one page -->
                 <div class="row">
+                    {{#each data}}
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item ">
                             <!-- open this profile link -->
                             <a href="">
                                 <div class="pr-img">
-                                    <img src="">
+                                    <img src="/images/profile_images/{{this.profile_pic}}">
                                 </div>
                                 <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
                                 <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
+                                    <h3>{{this.uname}}</h3>
                                     <p>27 Yrs, 157-CM</p>
                                     <p>Malappuram, Kerala, India</p>
                                 </div>
@@ -80,103 +81,7 @@
                     </div>
 
 
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img img-fluid">
-                                    <img src="/assets/images/sample (1).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="/assets/images/sample (2).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src=" ">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img img-fluid">
-                                    <img src="/assets/images/sample (1).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="/assets/images/sample (2).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="/assets/images/sample (3).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-
-
-
-                </div>
-            </div>
+                {{/each}}   
         </div>
 
         <!-- Previous-Next -->

@@ -3,7 +3,7 @@ var router = express.Router();
 var C_Codes = require("../utils/datas");
 var Auth = require("../controllers/AuthController");
 var Verify = require("../controllers/MiddleWaresController"); //Middleware for token verify
-var ShowAll = require("../controllers/ShowAllprofileController");
+var ShowProf = require("../controllers/ShowAllprofileController");
 
 
 /* GET home page. */
@@ -11,9 +11,7 @@ const newArr = C_Codes.CountryCodes();
 const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
 
-router.get("/", Verify, function (req, res, next) {
-  res.render("user_views/all_profiles");
-});
+router.get("/", Verify, ShowProf.showAllProfile);
 
 router.get("/register", function (req, res, next) {
   res.render("index", { title: "Express", newArr });
@@ -21,7 +19,7 @@ router.get("/register", function (req, res, next) {
 router.get("/login", Verify, function (req, res, next) {
   res.redirect("/");
 });
-router.get("/profile", Verify, ShowAll.ShowAllprofile);
+router.get("/profile", Verify, ShowProf.ShowProfile);
 
 router.get("/complete_profile1", function (req, res, next) {
  

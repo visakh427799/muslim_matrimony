@@ -18,10 +18,10 @@
         </div>
         <div id="mySidebar" class="new-sidebar">
             <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
-            <a href="/User/view-my-profile.html">View My Profile</a>
-            <a href="/User/edit-my-profile.html">Edit My Profile</a>
-            <a href="/User/change-my-password.html">Change My Password</a>
-            <a href="/User/delete-my-account.html">Delete My Account</a>
+            <a href="/profile">View My Profile</a>
+            <a href="/">Edit My Profile</a>
+            <a href="/">Change My Password</a>
+            <a href="/">Delete My Account</a>
             <a href="/logout">Log out</a>
         </div>
         <div class=" call-to-action-my after-login-nav">
@@ -337,7 +337,7 @@
                                     <!-- ---------------------------------------------- -->
                                     <div class="row user-contact-info">
                                         <div class="col">
-                                            <p></p>
+                                           <p>Primary Contact Number</p>
                                         </div>
                                         <div class="col">
                                             <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
@@ -394,7 +394,7 @@
                                             <p>Age</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> 18 to 25</p>
+                                            <p><strong>:&nbsp;</strong> {{userPrefer.age_from}} to {{userPrefer.age_to}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -402,48 +402,58 @@
                                             <p>Height</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> 154 to 167</p>
+                                    <p><strong>:&nbsp;</strong> {{userPrefer.weight}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
                                         <div class="col">
-                                            <p>Marital Status</p>
+                                            <p>Marital Status:</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> unmarried</p>
-                                        </div>
-                                    </div>
-                                    <div class="row user-inf">
-                                        <div class="col">
-                                            <p>Physical Status</p>
-                                        </div>
-                                        <div class="col">
-                                            <p><strong>:&nbsp;</strong> Normal Person</p>
+                                          {{#each userPrefer.m_status}}
+                                            <p><strong>&nbsp;</strong> {{this}}</p>
+                                            {{/each}}
                                         </div>
                                     </div>
                                     <div class="row user-inf">
                                         <div class="col">
-                                            <p>Sect</p>
+                                            <p>Physical Status:</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> Sunni</p>
+                                            {{#each userPrefer.p_status}}
+                                            <p><strong>&nbsp;</strong> {{this}}</p>
+                                            {{/each}}
                                         </div>
                                     </div>
                                     <div class="row user-inf">
                                         <div class="col">
-                                            <p>Education</p>
+                                            <p>Sect:</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> mbbs ,ma cs vtcy Hdr klut</p>
+                                            {{#each userPrefer.p_sect}}
+                                            <p><strong>&nbsp;</strong> {{this}}</p>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Education:</p>
+                                        </div>
+                                        <div class="col">
+                                            {{#each userPrefer.education}}
+                                            <p><strong>&nbsp;</strong> {{this}}</p>
+                                            {{/each}}
                                         </div>
                                     </div>
 
                                     <div class="row user-inf">
                                         <div class="col">
-                                            <p>Financial Status</p>
+                                            <p>Financial Status:</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> upper middile class family</p>
+                                            {{#each userPrefer.education}}
+                                            <p><strong>&nbsp;</strong> {{this}}</p>
+                                            {{/each}}
                                         </div>
                                     </div>
 
@@ -452,7 +462,7 @@
                                             <p>Present Country</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> India</p>
+                                            <p><strong>:&nbsp;</strong> {{userPrefer.country}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -460,7 +470,7 @@
                                             <p>Present State</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong> Kerala</p>
+                                            <p><strong>:&nbsp;</strong> {{userPrefer.state}}</p>
                                         </div>
                                     </div>
 
@@ -469,7 +479,7 @@
                                             <p>Present District</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>Malapauram</p>
+                                            <p><strong>:&nbsp;</strong>{{userPrefer.district}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -477,7 +487,7 @@
                                             <p>Place</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>padikkal</p>
+                                            <p><strong>:&nbsp;</strong>{{userPrefer.place}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -485,7 +495,7 @@
                                             <p>Other Preferred Location</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;</strong>padikkal</p>
+                                            <p><strong>:&nbsp;</strong>{{userPrefer.place}}</p>
                                         </div>
                                     </div>
                                     <div class="row user-inf">
@@ -494,9 +504,7 @@
                                         </div>
                                         <div class="col">
                                             <p>
-                                                <strong>:&nbsp;</strong>We expecting a good partner
-                                                from a decent family We expecting a good partner from
-                                                a decent family
+                                                <strong>:&nbsp;</strong>{{userPrefer.about}}
                                             </p>
                                         </div>
                                     </div>

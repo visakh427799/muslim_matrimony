@@ -14,8 +14,7 @@ exports.Register = async function (req, res) {
   let status = "Active";
   
   let profile_id="MM1999";
-  let profile_pic="";
-  let profile_pic_status="Inactive";
+  
 
   await user.find({},(err,data)=>{
     if(data) {  
@@ -33,7 +32,7 @@ exports.Register = async function (req, res) {
   // console.log(profile_id);
 
   
-  let newUser = { role, uname, gender, phone, email, password, status,profile_id,profile_pic,profile_pic_status };
+  let newUser = { role, uname, gender, phone, email, password, status,profile_id };
   let newArr = C_Codes.CountryCodes();
   console.log(newUser);
   let data = await user.findOne({ email: email });
@@ -114,26 +113,44 @@ exports.Complete_profile1 = async function (req, res) {
 exports.Complete_profile2 = async function (req, res) {
   // console.log(req.body);
   if (req.cookies) {
-    let user_id = req.cookies.userid;
+    let user_id =mongoose.Types.ObjectId(req.cookies.userid);
+    console.log(user_id,typeof user_id)
+    
+    let data = await user.findOne({ _id: user_id });
+    let data1= await personal.findOne({user_id:user_id})
+   console.log(data);
+   console.log(data1);
+  var d = new Date();
+  var CurrentYr = d.getFullYear();
+  let dob=data1.dob;
+  let Yr=dob.slice(0,4);
+  let age=CurrentYr-Number(Yr);
+  let username=data.uname;
+  let height=data1.height;
+  
+  
+ 
 
-    user_id = String(user_id);
-    let personalData = { ...req.body, user_id };
+   user_id = String(user_id);
+   let profile_pic="";
+  let profile_pic_status="Inactive";
+   let personalData = { ...req.body, user_id ,age,username,height,profile_pic,profile_pic_status};
     console.log(personalData);
 
-    let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
-    // await res.clearCookie('userid');
-    await res.cookie("user_token", token);
-    await extra.create(personalData, (err, data) => {
-      if (data) {
-        console.log(data);
+  //   let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
+  //   // await res.clearCookie('userid');
+  //   await res.cookie("user_token", token);
+  //   await extra.create(personalData, (err, data) => {
+  //     if (data) {
+  //       console.log(data);
 
-        res.redirect("/profile_photo");
-      } else {
-        console.log(err);
-        res.redirect("/complete_profile2");
-      }
-    });
-  }
+  //       res.redirect("/profile_photo");
+  //     } else {
+  //       console.log(err);
+  //       res.redirect("/complete_profile2");
+  //     }
+  //   });
+   }
 };
 
 exports.Profile_photo = function (req, res) {
@@ -149,7 +166,7 @@ exports.Profile_photo = function (req, res) {
 
       let user_id = req.cookies.userid;
     
-     user.findByIdAndUpdate({_id:user_id},{profile_pic:img.name},(err,data)=>{
+     extra.findByIdAndUpdate({user_id:user_id},{profile_pic:img.name},(err,data)=>{
 
       if(err)    console.log(err)
       else{
