@@ -1,0 +1,881 @@
+<body>
+    <div class="wrapper">
+        <!-- Header Start -->
+        <div class="header fp">
+            <div class="container-fluid">
+                <div class="header-top row align-items-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="brand">
+                            <a href="#">
+                                <img src="/assets/images/logo.PNG" alt="Logo" />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div id="mySidebar" class="new-sidebar">
+            <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
+            <a href="/User/view-my-profile.html">View My Profile</a>
+            <a href="/User/edit-my-profile.html">Edit My Profile</a>
+            <a href="/User/change-my-password.html">Change My Password</a>
+            <a href="/User/delete-my-account.html">Delete My Account</a>
+            <a href="#">Log out</a>
+        </div>
+        <div class=" call-to-action-my after-login-nav">
+            <div class="container  ">
+                <div class="menu-sp  ">
+                    <div class="  ">
+                        <a href="/User/view-all-profile.html" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
+                            </i><span class="hide-sp-icon">&nbsp;Profiles</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="/profile-search.html" class=" p-2 "><i class="fa fa-search   .btn"></i><span
+                                class="hide-icon">&nbsp;Search</span></a>
+                    </div>
+                    <div>
+                        <a href="/User/shortlisted-Profile.html" class=" p-2 "><i class="fa fa-sort .btn"></i><span
+                                class="hide-icon">&nbsp;Shortlist</span></a>
+
+                    </div>
+                    <div>
+                        <div class="menu-sp-sec  ">
+                            <a class="  p-2 " onclick="openNav()"><i class=" fas fa-user fa-1x"></i><span
+                                    class="  hide-icon">&nbsp;Account</span></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+
+
+
+
+        <!-- Profile View section  -->
+        <!-- v-profile Start -->
+        <div class="v-profile">
+            <div class="container">
+                <div class="row view-profile-cnt">
+                    <!-- profile picture -->
+                    <div class="col-md-4">
+                        <div class="view-profile-img mt-3 item-center-all">
+                            <div class="pr-img">
+                                <img src="/assets/images/sample (3).jpeg " class="img-fluid rounded user-profile-bg ">
+                            </div>
+                            <div class="p-id ">
+                                <h3>Profile ID : MM1245</h3>
+                                <a href="/User/edit-my-picture.html">Edit my
+                                    Profile Picture</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- sample discription -->
+                    <div class="col-md-8">
+                        <div class="view-profile-img view-profile mt-3"> 
+                                <form action=""> 
+                                    <div class="cnt-test-div border-bottom">
+                                        <h3>About Myself</h3>
+                                        <textarea name="" id="" class="form-control" maxlength="170 " cols="58"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="cnt-test-div border-top border-bottom">
+                                        <h3>Besic Information</h3>
+                                        <div class="  user-inf">
+                                            <div class="col">
+                                                <p>Profile Created by</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                   <select class="custom-select" name="role" required>
+                                                    <option name="role" value="">Select</option>
+                                                    <option name="role" value="My self">My Self</option>
+                                                    <option name="role" value="Parents">Parents</option>
+                                                    <option name="role" value="Sister">Sister</option>
+                                                    <option name="role" value="Brother">Brother</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="  user-inf">
+                                            <div class="col">
+                                                <p>Name</p>
+                                            </div>
+                                            <div class="col">
+                                        <input class="form-control" type="text" placeholder="Name" id="" name="uname" required>
+
+                                            </div>
+                                        </div>
+                                        <div class="  user-inf">
+                                            <div class="col">
+                                                <p>Date Of Birth</p>
+                                            </div>
+                                            <div class="col">
+                                        <input id="db" type="date" value="" name="dob" class="form-control" placeholder="" required />
+                                           <script>
+                                        function fi(){
+
+                                           var d = new Date();
+                                           var CurrentYr = d.getFullYear();
+                                           let dob=document.getElementById("db").value;
+                                           let Yr=dob.slice(0,4);
+                                           let age=CurrentYr-Number(Yr);
+                                           console.log(age);
+
+                                           if(age<18){
+                                                  Swal.fire(
+                                                    'Age should be  greaterthan 18')
+                                       
+                                               document.getElementById("db").value="";
+                                               
+                                           }
+                                          
+                                           
+                                        } 
+                                    </script>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Religion</p>
+                                            </div>
+                                            <div class="col"> 
+                                                <div class="control-group">
+                                                    <select class="custom-select"  onfocus="fi();" required name="religion">
+                                                    <option value="">Select</option>
+                                                    <option value="Islam">Islam</option>
+
+                                             </select>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Sect</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                   <select onfocus="fi();" class="custom-select" required name="sect">
+                                    <option>Select</option>
+                                    <option value="Sunni">Sunni</option>
+                                    <option value="Sunni EK">Sunni EK</option>
+                                    <option value="Sunni AP">Sunni AP</option>
+                                    <option value="Shafi Sunni">Shafi Sunni</option>
+                                    <option value="Hanafi Sunni">Hanafi Sunni</option>
+                                    <option value="Hanafi">Hanafi</option>
+                                    <option value="Shafi">Shafi</option>
+                                    <option value="Salafi">Salafi</option>
+                                    <option value="Jamaat e Islami">Jamaat e Islami</option>
+                                    <option value="Tablighi Jamaat">Tablighi Jamaat</option>
+                                    <option value="Muslim">Muslim</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Height</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                   <select class="custom-select" name="height"  required>
+                                            <option value="">Select</option>
+                                           {{#each heights}}
+                                               <option value="{{this.height}}">{{this.height}}</option>
+                                           {{/each}}
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Weight</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select" name="weight" required>
+                                            <option value="">Select</option>
+                                             {{#each weights}}
+                                               <option value="{{this.weight}}">{{this.weight}}</option>
+                                           {{/each}}
+                                           
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Marital Status</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                   <select name="marital_status" class="custom-select" required>
+                                                <option value="">Select</option>
+                                                <option value="Unmarried" >Unmarried</option>
+                                                <option value="Nikah Divorce">Nikah Divorce </option>
+                                                <option value="Widowed/Widower">Widowed/Widower</option>
+                                                <option value="Divorced">Divorced</option>
+                                                <option value="Awaiting divorce">Awaiting divorce</option>
+
+                                            </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Children</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select name="children"  class="custom-select" required>
+                                      
+                                            <option value="">Select</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Number of Children</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select name="no_children"  class="custom-select" required>
+                                            <option value="">Select</option>
+                                            <option value="nil" >nil</option>
+                                            <option value="1" >1</option>
+                                            <option value="2" >2</option>
+                                            <option value="3" >3</option>
+                                            <option value="Above 3" >Above 3</option>
+                                        </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Complexion</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select" name="complexion" required>
+                                    <option value="">select</option>
+                                    <option value="Very Fair">Very Fair</option>
+                                    <option value="Fair">Fair</option>
+                                    <option value="Wheatish">Wheatish</option>
+                                    <option value="Medium Brown">Medium Brown</option>
+                                    <option value="Dark Brown">Dark Brown</option>
+                                </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Body type</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Physical Status</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Mother Tongue</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Education</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Job</p>
+                                            </div>
+                                            <div class="col">
+                                                <input class="form-control" type="text" placeholder=" " required>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                    <div class="cnt-test-div border-bottom">
+                                        <h3>location Information</h3>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Country</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>State</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>District</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Place</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cnt-test-div border-bottom">
+                                        <h3>Family Information</h3>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Financial Status</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Home Type</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select" required>
+                                                        <option value="">select</option>
+                                                        <option value="">Own House</option>
+                                                        <option value="">Rented House</option>
+                                                        <option value="">Own Appartement/flat</option>
+                                                        <option value="">Rented Appartement/flat</option>
+                                                        <option value="">Colony</option>
+                                                        <option value="">Village</option>
+                                                        <option value="">Twon</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Father Details</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " >
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Mother Details </p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Number Of Brother</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Number Of Sisters</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cnt-test-div border-bottom  p-2 alert-warning"> 
+                                        <h3>Contact Information</h3> 
+                                        <div class=" col text-small user-contact-info  ">
+                                            <p>Contact Number</p>
+                                            <div class=" row  ">
+                                                <div class=" col-md-4    ">
+                                                    <label for="" class="mb-0">Country Code</label>
+                                                    <select class="w-100 form-control" name="" id="" required>
+                                                        <option value="">india +91</option>
+                                                        <option value="">india +91</option>
+                                                        <option value="">india +91</option>
+                                                    </select>
+                                                </div>
+                                                <div class=" col-md-8      ">
+                                                    <label for="" class="mb-0">Phone Number</label>
+                                                    <input type="text" name="" id="" class="w-100 form-control " required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" col text-small user-contact-info  ">
+                                            <p>Second Contact Number</p>
+                                            <div class=" row  ">
+                                                <div class=" col-md-4    ">
+                                                    <label for="" class="mb-0">Country Code</label>
+                                                    <select class="w-100 form-control" name="" id="" required>
+                                                        <option value="">india +91</option>
+                                                        <option value="">india +91</option>
+                                                        <option value="">india +91</option>
+                                                    </select>
+                                                </div>
+                                                <div class=" col-md-8      ">
+                                                    <label for="" class="mb-0">Phone Number</label>
+                                                    <input type="text" name="" id="" class="w-100 form-control " required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" col text-small user-contact-info  ">
+                                            <p>WhatsApp Number</p>
+                                            <div class=" row  ">
+                                                <div class=" col-md-4    ">
+                                                    <label for="" class="mb-0">Country Code</label>
+                                                    <select class="w-100 form-control" name="" id="" required>
+                                                        <option value="">india +91</option>
+                                                        <option value="">india +91</option>
+                                                        <option value="">india +91</option>
+                                                    </select>
+                                                </div>
+                                                <div class=" col-md-8      ">
+                                                    <label for="" class="mb-0">Phone Number</label>
+                                                    <input type="text" name="" id="" class="w-100 form-control " required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class=" user-contact-info">
+                                            <div class="col">
+                                                <p>E-mail</p>
+                                            </div>
+                                            <div class="col ">
+                                                <input class="form-control" type="text" placeholder="" required>
+                                            </div>
+                                        </div>
+                                        <div class=" user-contact-info">
+                                            <div class="col">
+                                                <p>Full Adress</p>
+                                            </div>
+                                            <div class="col ">
+                                                <textarea name="" id="" class="form-control" required  maxlength="80 " cols="58"
+                                                    rows="2"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class=" d-flex justify-content-center mt-2 mb-2">
+                                        <button type="submit" class="btn  ml-2 mr-2 btn-warning btn-block ">Save</button>
+                                        <button type="" class="btn  ml-2 mr-2 btn-light btn-block">Cancel</button>
+                                    </div>
+                                </form>
+                                <!-- ----------------------------------------------- -->
+                                <!-- ----------Partner Prefrence section------------ -->
+                                <!-- ----------------------------------------------- -->
+                                <form action="">
+                                    <div class="cnt-test-div border-bottom border-top">
+                                        <h3>Partner Prefrence</h3>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Age</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Height</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Marital Status</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Physical Status</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Sect</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Education</p>
+                                            </div>
+                                            <div class="col">
+                                                <input class="form-control" type="text" placeholder=" " required>
+                                            </div>
+                                        </div>
+
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Financial Status</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select ">
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Present Country</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Present State</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Present District</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group">
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Place</p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="control-group"> 
+                                                    <select class="custom-select " required>
+                                                        <option value="">Option 1</option>
+                                                        <option value="">Option 2</option>
+                                                        <option value="">Option 3</option>
+                                                        <option value="">Option 4</option>
+                                                        <option value="">Option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Other Preferred Location</p>
+                                            </div>
+                                            <div class="col">
+                                                <input class="form-control" type="text" placeholder=" " >
+                                            </div>
+                                        </div>
+                                        <div class="user-inf">
+                                            <div class="col">
+                                                <p>Tell About your Partner</p>
+                                            </div>
+                                            <div class="col">
+                                                <textarea name="" id="" class="form-control" maxlength="170 " cols="58"
+                                                    rows="2"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class=" d-flex justify-content-center">
+                                            <button type="submit" class="btn  ml-2 mr-2 btn-warning btn-block ">Save</button>
+                                            <button type="" class="btn  ml-2 mr-2 btn-light btn-block">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form> 
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile View section  -->
+
+
+
+
+    </div>
+
+    <!-- after footer start -->
+    <div class="footer  hide-max">
+        <div class="container">
+            <div class="row footer-contact ">
+                <div class="row z-lgn  ">
+                    <!-- <h4 class="ml-5">Get In Touch</h4> -->
+                    <div class=" d-flex justify-content-around ft-align-center">
+                        <div class="col ft-align-center">
+                            <p><i class="fa fa-map-marker"></i>Padikkal, Malappuram, Kerala</p>
+                        </div>
+                        <div class="col">
+                            <p><i class="fa fa-phone"></i><a href="https://wa.me/919746900055">+91 97469
+                                    00055</a>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <p><i class="fa fa-envelope"></i>info@keralamuslimmarry.com</p>
+                        </div>
+                        <div class="col z-lgn">
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a href="https://facebook.com/keralamuslimmarry" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/keralamuslimmarry/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-menu">
+            <div class="f-menu">
+                <a href="/terms_and_conditions.html">Terms of use</a>
+                <a href="privacy_policy.html">Privacy policy</a>
+                <a>Cookies</a>
+                <a>Help & FQAs</a>
+                <a href="/contact.html">Contact us</a>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="https://keralamuslimmarry.com/">Kerala Muslim Marry</a>- All Right Reserved.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>Theme Designed By <a href="https://htmlcodex .com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- after footer start -->
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/easing/easing.min.js"></script>
+    <script src="/assets/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/assets/libs/js/main.js"></script>
+    <script src="/assets/libs/js/mystyle.js"></script>
+</body>

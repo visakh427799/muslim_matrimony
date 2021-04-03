@@ -18,17 +18,17 @@
         </div>
         <div id="mySidebar" class="new-sidebar">
             <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
-            <a href="/profile">View My Profile</a>
-            <a href="/User/edit-my-profile.html">Edit My Profile</a>
-            <a href="/User/change-my-password.html">Change My Password</a>
-            <a href="/User/delete-my-account.html">Delete My Account</a>
+            <a href="/my_profile">View My Profile</a>
+            <a href="/">Edit My Profile</a>
+            <a href="/">Change My Password</a>
+            <a href="/">Delete My Account</a>
             <a href="/logout">Log out</a>
         </div>
         <div class=" call-to-action-my after-login-nav">
             <div class="container  ">
-                <div class="menu-sp ">
+                <div class="menu-sp  ">
                     <div class="  ">
-                        <a href="#" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
+                        <a href="/" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
                             </i><span class="hide-sp-icon">&nbsp;Profiles</span>
                         </a>
                     </div>
@@ -52,8 +52,6 @@
             </div>
         </div>
 
-        <!-- Header End -->
-
 
         <!-- Profile View section  -->
         <div class="service">
@@ -66,15 +64,15 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="service-item ">
                             <!-- open this profile link -->
-                            <a href="">
+                            <a href="/profile/{{this.user_id}}">
                                 <div class="pr-img">
                                     <img src="/images/profile_images/{{this.profile_pic}}">
                                 </div>
                                 <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
                                 <div class="pro-text-up mt-3 pb-2">
-                                    <h3>{{this.uname}}</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
+                                    <h3>{{this.username}}</h3>
+                                    <p>{{this.age}} Yrs, {{this.height}}</p>
+                                    <p> {{this.district}}, {{this.state}},{{this.country}}</p>
                                 </div>
                             </a>
                         </div>

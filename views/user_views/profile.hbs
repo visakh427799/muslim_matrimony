@@ -1,5 +1,5 @@
 <body>
-    <div class="wrapper">
+    <div class="wrapper"> 
         <!-- Header Start -->
         <div class="header fp">
             <div class="container-fluid">
@@ -17,14 +17,14 @@
             </div>
         </div>
         <div id="mySidebar" class="new-sidebar">
-            <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
+             <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
             <a href="/my_profile">View My Profile</a>
             <a href="/">Edit My Profile</a>
             <a href="/">Change My Password</a>
             <a href="/">Delete My Account</a>
             <a href="/logout">Log out</a>
         </div>
-        <div class=" call-to-action-my after-login-nav">
+       <div class=" call-to-action-my after-login-nav">
             <div class="container  ">
                 <div class="menu-sp  ">
                     <div class="  ">
@@ -52,13 +52,12 @@
             </div>
         </div>
 
-
+        <!-- Header End -->
 
 
         <!-- Profile View section  -->
         <!-- v-profile Start -->
-        
-        <div class="v-profile">
+       <div class="v-profile">
             <div class="container">
                 <div class="row view-profile-cnt">
                     <!-- profile picture -->
@@ -78,14 +77,13 @@
                             <!-- <h6 class="premium"><span class="premium"><i class="fa fa-heart fa-2x"></i> </span></h6> -->
                             <div class="">
 
-                                <div class=" cnt-edit-prf border-bottom ">
-
-                                    <a href="/edit_profile" class=" btn bg-danger     btn-block">
-                                        <i class="v-align-m fa fa-edit fa-2x .btn"></i><span class=" ">&nbsp;&nbsp; Edit
-                                            my profile</span>
-                                    </a>
-
-                                </div>
+                               <div class="container">
+                                        <a href="" class="btn text-small gnrl-btn btn-block" data-target="#pwdModal"
+                                            data-toggle="modal">
+                                            <i class="v-align-m fa fa-phone fa-2x .btn"></i><span class=" "> View
+                                                Contact Informations</span>
+                                        </a>
+                                    </div>
                                 <div class="cnt-test-div border-bottom">
                                    
                                     <h3 class="text-primary">About Myself</h3>
@@ -335,12 +333,23 @@
                                     <!-- ---------------------------------------------- -->
                                     <!-- dont add contact number & contact details here -->
                                     <!-- ---------------------------------------------- -->
+                                    <div class="cnt-test-div border-bottom  p-2 alert-warning">
+                                    <div class="alert alert-success ">
+                                        <p style="text-align: center;">Contact Number ലഭിക്കുവാൻ നിങ്ങളുടെ മാര്യേജ്
+                                            അസിസ്റ്റന്റിനെ കോൺടാക്ട് ചെയ്യുക. '<a href="" data-target="#pwdModal"
+                                                data-toggle="modal">click here</a>'</p>
+                                    </div>
+
+                                    <h3>Contact Information</h3>
+                                    <!-- ---------------------------------------------- -->
+                                    <!-- dont add contact number & contact details here -->
+                                    <!-- ---------------------------------------------- -->
                                     <div class="row user-contact-info">
                                         <div class="col">
-                                           <p>Primary Contact Number</p>
+                                            <p>Contact Number</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
+                                            <p><strong>:&nbsp;<em></strong>Upgrade Your Plan</em></p>
                                         </div>
                                     </div>
                                     <div class="row user-contact-info">
@@ -348,7 +357,7 @@
                                             <p>Second Contact Number</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
+                                            <p><strong>:&nbsp;<em></strong>Upgrade Your Plan</em></p>
                                         </div>
                                     </div>
                                     <div class="row user-contact-info">
@@ -356,15 +365,7 @@
                                             <p>WhatsApp Number</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;<em></strong>profile owner number</em></p>
-                                        </div>
-                                    </div>
-                                    <div class="row user-contact-info">
-                                        <div class="col">
-                                            <p>E-mail</p>
-                                        </div>
-                                        <div class="col ">
-                                            <p><strong>:&nbsp;<em></strong>profile owner email</em></p>
+                                            <p><strong>:&nbsp;<em></strong>Upgrade Your Plan</em></p>
                                         </div>
                                     </div>
                                     <div class="row user-contact-info">
@@ -372,23 +373,19 @@
                                             <p>Full Adress</p>
                                         </div>
                                         <div class="col">
-                                            <p><strong>:&nbsp;<em></strong>profile owner adress</em></p>
+                                            <p><strong>:&nbsp;<em></strong>Upgrade Your Plan</em></p>
                                         </div>
                                     </div>
                                 </div>
+                              </div>
                                 <!-- ----------------------------------------------- -->
                                 <!-- ----------Partner Prefrence section------------ -->
                                 <!-- ----------------------------------------------- -->
                                 <div class=" cnt-edit-prf border-bottom ">
 
-                                    <a href="/User/edit-my-profile.html" class=" btn bg-danger     btn-block">
-                                        <i class="v-align-m fa fa-edit fa-2x .btn"></i><span class=" ">&nbsp;&nbsp; Edit
-                                            Partner Prefrence</span>
-                                    </a>
-
                                 </div>
                                 <div class="cnt-test-div border-bottom">
-                                    <h3>Partner Prefrence</h3>
+                                    <h2 class="text-primary text-center">Partner Prefrence</h2>
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Age</p>
@@ -523,8 +520,6 @@
     </div>
 
 
-
-
     <!-- after footer start -->
     <div class="footer  hide-max">
         <div class="container">
@@ -580,5 +575,14 @@
     <!-- after footer start -->
 
 
- 
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/easing/easing.min.js"></script>
+    <script src="/assets/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/assets/libs/js/main.js"></script>
 </body>

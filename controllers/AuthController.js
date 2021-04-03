@@ -13,7 +13,7 @@ exports.Register = async function (req, res) {
   let phone = code + phonenum;
   let status = "Active";
   
-  let profile_id="MM1999";
+  let profile_id="MM1000";
   
 
   await user.find({},(err,data)=>{
@@ -68,7 +68,7 @@ exports.Login = async function (req, res) {
   if (data) {
     let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
     await res.cookie("user_token", token);
-    await res.redirect("/profile");
+    await res.redirect("/my_ profile");
   }
   else{
     let message = "Invalid Credentials...!!! ";
@@ -137,19 +137,19 @@ exports.Complete_profile2 = async function (req, res) {
    let personalData = { ...req.body, user_id ,age,username,height,profile_pic,profile_pic_status};
     console.log(personalData);
 
-  //   let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
-  //   // await res.clearCookie('userid');
-  //   await res.cookie("user_token", token);
-  //   await extra.create(personalData, (err, data) => {
-  //     if (data) {
-  //       console.log(data);
+    let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
+    // await res.clearCookie('userid');
+    await res.cookie("user_token", token);
+    await extra.create(personalData, (err, data) => {
+      if (data) {
+        console.log(data);
 
-  //       res.redirect("/profile_photo");
-  //     } else {
-  //       console.log(err);
-  //       res.redirect("/complete_profile2");
-  //     }
-  //   });
+        res.redirect("/profile_photo");
+      } else {
+        console.log(err);
+        res.redirect("/complete_profile2");
+      }
+    });
    }
 };
 
@@ -166,7 +166,7 @@ exports.Profile_photo = function (req, res) {
 
       let user_id = req.cookies.userid;
     
-     extra.findByIdAndUpdate({user_id:user_id},{profile_pic:img.name},(err,data)=>{
+     extra.findOneAndUpdate({user_id:user_id},{profile_pic:img.name},{useFindAndModify: false},(err,data)=>{
 
       if(err)    console.log(err)
       else{
@@ -207,7 +207,7 @@ console.log(partnerObj);
 partner.create(partnerObj,(err,data)=>{
    if(data){
      console.log(data);
-     res.redirect('/profile')
+     res.redirect('/my_profile')
    }
    else{
      console.log(err)

@@ -19,8 +19,11 @@ router.get("/register", function (req, res, next) {
 router.get("/login", Verify, function (req, res, next) {
   res.redirect("/");
 });
-router.get("/profile", Verify, ShowProf.ShowProfile);
-
+router.get("/my_profile", Verify, ShowProf.ShowProfile);
+router.get("/profile/:id",Verify,ShowProf.showUserProfile);
+router.get("/edit_profile",(req,res)=>{
+  res.render("user_views/edit_profile",{heights,weights});
+})
 router.get("/complete_profile1", function (req, res, next) {
  
 
