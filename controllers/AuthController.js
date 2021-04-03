@@ -68,7 +68,7 @@ exports.Login = async function (req, res) {
   if (data) {
     let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
     await res.cookie("user_token", token);
-    await res.redirect("/my_ profile");
+    await res.redirect("/my_profile");
   }
   else{
     let message = "Invalid Credentials...!!! ";
