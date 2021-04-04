@@ -14,9 +14,10 @@ exports.ShowProfile = async function (req, res, next) {
     let data4= await partner.findOne({user_id: id})
     const { dob, religion, sect,height,weight,marital_status,children,no_children,complexion,body_type,job,physical_status,mother_tongue,education } = data2;
     let{age,username,profile_pic,profile_pic_status,country,state,place,district,financial_status,home_type,father_details,mother_details,no_sisters,no_brothers,address,about }=data3;
-    if(profile_pic_status=="Inactive"){
-      profile_pic=""
-    }
+    let pro_img=profile_pic;
+    // if(profile_pic_status=="Inactive"){
+    //   profile_pic=""
+    // }
 
 
     let userObj={
@@ -65,7 +66,9 @@ exports.ShowProfile = async function (req, res, next) {
 
     let userPrefer={...data4};
     userPrefer=userPrefer._doc;
-    
+    // console.log(userPrefer)
+    res.cookie("user_img",pro_img);
+    res.cookie("pr_id",profile_id);
     
     res.render("user_views/user_profile", {
     

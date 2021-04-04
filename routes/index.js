@@ -4,12 +4,14 @@ var C_Codes = require("../utils/datas");
 var Auth = require("../controllers/AuthController");
 var Verify = require("../controllers/MiddleWaresController"); //Middleware for token verify
 var ShowProf = require("../controllers/ShowAllprofileController");
-
+let EditProf= require("../controllers/EditProfileController");
 
 /* GET home page. */
 const newArr = C_Codes.CountryCodes();
 const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
+const countries = C_Codes.ListOfCountries();
+
 
 router.get("/", Verify, ShowProf.showAllProfile);
 
@@ -22,15 +24,20 @@ router.get("/login", Verify, function (req, res, next) {
 router.get("/my_profile", Verify, ShowProf.ShowProfile);
 router.get("/profile/:id",Verify,ShowProf.showUserProfile);
 router.get("/edit_profile",(req,res)=>{
-  res.render("user_views/edit_profile",{heights,weights});
+  let img=req.cookies.user_img;
+  let pr_id=req.cookies.pr_id;
+  res.render("user_views/edit_profile",{heights,weights,img,pr_id,newArr});
 })
+// router.get('/edit_profile_image',(req,res)=>{
+//   res.render('user_views/edit_profile_image')
+// })
 router.get("/complete_profile1", function (req, res, next) {
  
 
   res.render("user_views/complete_profile1", { heights, weights });
 });
 router.get("/complete_profile2", function (req, res, next) {
-  const countries = C_Codes.ListOfCountries();
+ 
 
   res.render("user_views/complete_profile2", { countries, newArr });
 });
@@ -49,5 +56,7 @@ router.get("/logout", Auth.Logout);
 router.post("/complete_profile1", Auth.Complete_profile1);
 router.post("/complete_profile2", Auth.Complete_profile2);
 router.post("/partner_preference", Auth.Partner_preference);
-router.post("/profile_photo",Auth.Profile_photo)
+router.post("/profile_photo",Auth.Profile_photo);
+router.post("/edit_profile",EditProf.EditProfile);
+router.post("/edit_profile_pic",Verify,EditProf.EditProfilePic);
 module.exports = router;
