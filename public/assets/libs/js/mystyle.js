@@ -43,3 +43,4 @@ function previewPic() {
         reader.readAsDataURL(file);
     }
 }
+

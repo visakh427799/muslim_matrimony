@@ -1,55 +1,7 @@
 <body>
     <div class="wrapper">
         <!-- Header Start -->
-        <div class="header fp">
-            <div class="container-fluid">
-                <div class="header-top row align-items-center">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="brand">
-                            <a href="#">
-                                <img src="/assets/images/logo.PNG" alt="Logo" />
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-        <div id="mySidebar" class="new-sidebar">
-            <i href="javascript:void(0)" class="closebtn fa fa-close closebtn-icon" onclick="closeNav()"></i>
-            <a href="/User/view-my-profile.html">View My Profile</a>
-            <a href="/User/edit-my-profile.html">Edit My Profile</a>
-            <a href="/User/change-my-password.html">Change My Password</a>
-            <a href="/User/delete-my-account.html">Delete My Account</a>
-            <a href="#">Log out</a>
-        </div>
-        <div class=" call-to-action-my after-login-nav">
-            <div class="container  ">
-                <div class="menu-sp  ">
-                    <div class="  ">
-                        <a href="/User/view-all-profile.html" class=" p-2 "><i class=" fa fa-address-card fa-1x .btn">
-                            </i><span class="hide-sp-icon">&nbsp;Profiles</span>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="/profile-search.html" class=" p-2 "><i class="fa fa-search   .btn"></i><span
-                                class="hide-icon">&nbsp;Search</span></a>
-                    </div>
-                    <div>
-                        <a href="/User/shortlisted-Profile.html" class=" p-2 "><i class="fa fa-sort .btn"></i><span
-                                class="hide-icon">&nbsp;Shortlist</span></a>
-
-                    </div>
-                    <div>
-                        <div class="menu-sp-sec  ">
-                            <a class="  p-2 " onclick="openNav()"><i class=" fas fa-user fa-1x"></i><span
-                                    class="  hide-icon">&nbsp;Account</span></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+         {{>header}}
         </div>
         <!-- Header End -->
 
@@ -69,7 +21,7 @@
                         <div class="view-profile-img mt-3 item-center-all">
                           
                             <div class="pr-img">
-                                <img src="/images/profile_images/{{img}}" id="user-profile" class="img-fluid rounded user-profile-bg ">
+                                <img src="/images/profile_images/{{img}}" id="user-profile" class="img-fluid rounded user-profile-bg "  width="250px" height="200px">
                             </div>
                             <div class="p-id ">
                                 <h3>Profile ID :<span class="text-success">{{pr_id}}</span> </h3>

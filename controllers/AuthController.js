@@ -50,7 +50,7 @@ exports.Register = async function (req, res) {
         res.cookie("userid", data._id);
 
         // console.log(token)
-        res.redirect("/complete_profile1");
+        res.redirect("/user/complete_profile1");
       }
     });
   }
@@ -58,9 +58,11 @@ exports.Register = async function (req, res) {
 
 exports.Login = async function (req, res) {
   let { username, password } = req.body;
+
+
   try{
   let data = await user.findOne({
-    $or: [{ email: username }, { phone: username }],
+    $or: [{ email: username }, { phone: username },{ profile_id: username }],
     password: password,
   });
 
@@ -68,7 +70,7 @@ exports.Login = async function (req, res) {
   if (data) {
     let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
     await res.cookie("user_token", token);
-    await res.redirect("/my_profile");
+    await res.redirect("/user/my_profile");
   }
   else{
     let message = "Invalid Credentials...!!! ";
@@ -85,8 +87,9 @@ catch(error){
 exports.Logout = async function (req, res) {
   res.clearCookie("userid");
   res.clearCookie("user_token");
-
-  res.redirect("/login");
+  res.clearCookie("user_img");
+  res.clearCookie("pr_id");
+  res.redirect("/user/login");
 };
 
 exports.Complete_profile1 = async function (req, res) {
@@ -101,10 +104,10 @@ exports.Complete_profile1 = async function (req, res) {
     await personal.create(personalData, (err, data) => {
       if (data) {
         console.log(data);
-        res.redirect("/complete_profile2");
+        res.redirect("/user/complete_profile2");
       } else {
         console.log(err);
-        res.redirect("/complete_profile1");
+        res.redirect("/user/complete_profile1");
       }
     });
   }
@@ -144,10 +147,10 @@ exports.Complete_profile2 = async function (req, res) {
       if (data) {
         console.log(data);
 
-        res.redirect("/profile_photo");
+        res.redirect("/user/profile_photo");
       } else {
         console.log(err);
-        res.redirect("/complete_profile2");
+        res.redirect("/user/complete_profile2");
       }
     });
    }
@@ -170,7 +173,7 @@ exports.Profile_photo = function (req, res) {
 
       if(err)    console.log(err)
       else{
-        res.redirect("/partner_Preference");
+        res.redirect("/user/partner_Preference");
       }
      });
    
@@ -207,7 +210,7 @@ console.log(partnerObj);
 partner.create(partnerObj,(err,data)=>{
    if(data){
      console.log(data);
-     res.redirect('/my_profile')
+     res.redirect('/user/my_profile')
    }
    else{
      console.log(err)
