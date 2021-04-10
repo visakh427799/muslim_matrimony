@@ -57,11 +57,15 @@ router.get("/user/delete_account",Verify,(req,res)=>{
 })
 
 router.get('/user/change_password',Verify,(req,res)=>{
-  res.render("user_views/change_password")
+  let id=res.user.id;
+  res.render("user_views/change_password",{id})
  
 })
-router.get('/user/forgot_password/:id',Verify,(req,res)=>{
-  res.render('user_views/forgot_password')
+router.get('/user/forgot_password/:id/:token',(req,res)=>{
+  let id=req.params.id;
+  let token=req.params.token;
+
+  res.render('user_views/forgot_password',{id,token})
 })
 router.post("/register", Auth.Register);
 router.post("/login", Auth.Login);
@@ -72,6 +76,6 @@ router.post("/profile_photo",Auth.Profile_photo);
 router.post("/edit_profile",EditProf.EditProfile);
 router.post("/edit_profile_pic",Verify,EditProf.EditProfilePic);
 router.post("/delete_account",Verify,EditProf.deleteAccount);
-router.post("/change_password",Verify,EditProf.changePassword);
+router.post("/change_password",EditProf.changePassword);
 router.post("/forgot_password",EditProf.forgotPassword);
 module.exports = router;

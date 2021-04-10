@@ -4,6 +4,7 @@ const extra = require("../models/user_details_2");
 const partner= require("../models/partner_preference")
 const fs= require("fs");
 const nodemailer=require("nodemailer");
+const jwt= require('jsonwebtoken');
 
 exports.EditProfile=function(req,res){
 
@@ -95,10 +96,24 @@ exports.deleteAccount=async function(req,res){
 }
 
 exports.changePassword=async function (req,res){
-console.log(req.body)
+let data=req.body.obj;
+await user.findOneAndUpdate({_id:data.id},{password:data.password},{useFindAndModify: false},(err,data)=>{
+        
+  if(data)    {
+   
+    res.json({"success":true});
+  }
+  else{
+    res.json({"success":false,
+    "message":"password has not been changed"});
+    
+  }
+
+})
+ 
 
 //if Success
-res.json({"success":true});
+
 
 
 }
@@ -106,12 +121,32 @@ exports.forgotPassword=async function (req,res){
 
   
   //if Success
-  let token='gt4t4ggg3g73h3h';
-  var mailOptions={
+  // let token='gt4t4ggg3g73h3h';
+let data=req.body.obj;
+// console.log(data.email);
+
+let d1=await user.findOne({email:data.email});
+
+if(d1) {
+
+   let id=d1._id;
+   let secret=d1.profile_id;
+   let email=d1.email;
+   let obj={id,email}
+
+  //  console.log(obj,secret)
+   let token=jwt.sign(
+    obj,secret,{
+      algorithm: "HS256",
+      expiresIn: "60",
+    }
+   )
+   console.log(token);
+   var mailOptions={
     from:'visakhsanthosh69@gmail.com',
     to:data.email,
     subject:'From Muslim Matrimony',
-    text:`http://localhost:8000/user/forgot_password/${token}`,
+    text:`http://localhost:8000/user/forgot_password/${id}/${token}`,
    
     
   }
@@ -140,6 +175,19 @@ exports.forgotPassword=async function (req,res){
   }))
 
 
+}
+
+else{
+  res.json({"success":false,
+  "message":"No account with this email id exist"});
+   }
+
+}
+
+
+
+  
+
 
 
 
@@ -147,4 +195,4 @@ exports.forgotPassword=async function (req,res){
 
   
   
-  }
+  
