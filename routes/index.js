@@ -55,6 +55,14 @@ router.get("/user/delete_account",Verify,(req,res)=>{
   res.render("user_views/delete_account",{u_id});
 
 })
+
+router.get('/user/change_password',Verify,(req,res)=>{
+  res.render("user_views/change_password")
+ 
+})
+router.get('/user/forgot_password/:id',Verify,(req,res)=>{
+  res.render('user_views/forgot_password')
+})
 router.post("/register", Auth.Register);
 router.post("/login", Auth.Login);
 router.post("/complete_profile1", Auth.Complete_profile1);
@@ -64,4 +72,6 @@ router.post("/profile_photo",Auth.Profile_photo);
 router.post("/edit_profile",EditProf.EditProfile);
 router.post("/edit_profile_pic",Verify,EditProf.EditProfilePic);
 router.post("/delete_account",Verify,EditProf.deleteAccount);
+router.post("/change_password",Verify,EditProf.changePassword);
+router.post("/forgot_password",EditProf.forgotPassword);
 module.exports = router;

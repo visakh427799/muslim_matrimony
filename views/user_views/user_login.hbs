@@ -59,11 +59,41 @@
 
                                 <div
                                     class="col-md-12 form-row ml-auto align-items-center d-flex justify-content-between">
-                                    <div class=" ">
+                                    
+                                   
+                                    <div class="">
+                                        <button type="submit" class="btn  btn-block">Login Now</button>
+                                    </div>
+                                     <span class="text-danger">{{message}}</span>
+                           </form>
+                           <div class=" ">
                                         <a href="#" class="text-small text-white" data-target="#pwdModal"
                                             data-toggle="modal">Forgot Password?</a>
                                     </div>
-                                    <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog"
+
+                                <br>
+                                <div class="col-md-12 form-row ml-auto align-items-center">
+
+                                    <div class="col-md-12 mt-3">
+                                        <label for="" style="color:white" class="text-small">New member?</label>
+                                        <a class="btn  btn-block "href="/user/register">Register Free Now</a>
+                                    </div> 
+                                    
+                                </div>
+                            </div> 
+                     
+                    </div>
+                    <div class="col-md-5">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- login end -->
+
+
+ 
+                            <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog"
                                         aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -86,14 +116,48 @@
                                                                         <fieldset class="fieldset-fgt-pass">
                                                                             <div class="form-group  pop-fgt-pass ">
                                                                                 <input class="form-control"
+                                                                                id="forgot"
                                                                                     placeholder="E-mail Address"
                                                                                     name="email" type="email"  >
                                                                             </div>
                                                                             <button
-                                                                                class="btn btn-lg btn-primary btn-block"
-                                                                                value="" type="submit">Send My
-                                                                                Password</button>
+                                                                                class="btn btn-lg btn-success btn-block"
+                                                                                onclick="changePassword()"
+                                                                                value="" >Send 
+                                                                                Password reset link</button>
                                                                         </fieldset>
+                                                                        <script>
+                                                                            async function changePassword(){
+                                                    let spn = document.getElementById("spin");
+                                            spn.className = "spinner-border text-primary";
+                                            let bt = document.getElementById("bt");
+                                            let email=document.getElementById("forgot").value;
+                                            let obj={email}
+                                            bt.disabled = true;
+                                                        try {
+                                        let res = await axios.post('http://localhost:8000/forgot_password', { obj })
+                                        if (res.data.success) {
+                                            Swal.fire('Success...', 'Password link has been send successfully ', 'success');
+
+                                           
+                                        }
+
+                                    }
+                                    catch (error) {
+                                        console.log(error)
+                                    }
+                                        }
+
+
+
+
+
+
+                                                                            }
+
+                                                                        </script>
+                                                                        
+                                  
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -110,33 +174,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="">
-                                        <button type="submit" class="btn  btn-block">Login Now</button>
-                                    </div>
-                                     <span class="text-danger">{{message}}</span>
-                           </form>
                                 </div>
-                                <br>
-                                <div class="col-md-12 form-row ml-auto align-items-center">
-
-                                    <div class="col-md-12 mt-3">
-                                        <label for="" style="color:white" class="text-small">New member?</label>
-                                        <a class="btn  btn-block "href="/user/register">Register Free Now</a>
-                                    </div> 
-                                </div>
-                            </div> 
-                     
-                    </div>
-                    <div class="col-md-5">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- login end -->
-
-
- 
 
         <!-- Call to Action Start -->
         <div class="call-to-action row">

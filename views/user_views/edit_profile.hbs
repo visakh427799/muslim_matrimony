@@ -41,6 +41,29 @@
                         </div>
                          </form>
                     </div>
+{{!-- 
+                    <script>
+
+                        async function photoUpload(){
+                            alert("hii")
+                             var formData = new FormData()
+                             let img=document.getElementById('img').files[0];
+                             console.log(img ,typeof img);
+                             /*formData.append('img',img);
+                              const entries = formData.entries();
+                              const data = Object.fromEntries(entries);
+                             console.log(data,typeof data);*/
+
+
+                              axios({
+                                        method: 'post',
+                                        url: 'http://localhost:8000/edit_profile_pic',
+                                        data: {
+                                            img
+                                        }
+                                        });
+                        }
+                    </script> --}}
                     <!-- sample discription -->
                     <div class="col-md-8">
                         <div class="view-profile-img view-profile mt-3">

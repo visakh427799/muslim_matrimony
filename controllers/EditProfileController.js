@@ -3,6 +3,8 @@ const personal = require("../models/user_details_1");
 const extra = require("../models/user_details_2");
 const partner= require("../models/partner_preference")
 const fs= require("fs");
+const nodemailer=require("nodemailer");
+
 exports.EditProfile=function(req,res){
 
    console.log(req.body);
@@ -10,9 +12,11 @@ exports.EditProfile=function(req,res){
 }
 exports.EditProfilePic=async function(req,res){
 
-    console.log("let's update ");
+    console.log(req.files);
 
-    let { img } = req.files;
+  
+  let img=req.files.img;
+   
     let prevImage=req.cookies.user_img;
     const pathToFile=`./public/images/profile_images/${prevImage}`;
     console.log(pathToFile);
@@ -51,7 +55,7 @@ exports.EditProfilePic=async function(req,res){
         }
       })
 
-    // console.log(req.files);
+  //   // console.log(req.files);
 
    
     
@@ -89,3 +93,58 @@ exports.deleteAccount=async function(req,res){
 
   
 }
+
+exports.changePassword=async function (req,res){
+console.log(req.body)
+
+//if Success
+res.json({"success":true});
+
+
+}
+exports.forgotPassword=async function (req,res){
+
+  
+  //if Success
+  let token='gt4t4ggg3g73h3h';
+  var mailOptions={
+    from:'visakhsanthosh69@gmail.com',
+    to:data.email,
+    subject:'From Muslim Matrimony',
+    text:`http://localhost:8000/user/forgot_password/${token}`,
+   
+    
+  }
+
+
+  var transport=nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user:'visakhsanthosh69@gmail.com',
+        pass:'427799@TVS',
+    }
+
+  })
+
+  transport.sendMail(mailOptions,((error,info)=>{
+
+       if(error)
+       {
+         console.log(error)
+        res.json({"success":false,
+      "message":"No accoumt with this email id exist"});
+       }
+       else{
+        res.json({"success":true});
+       }
+  }))
+
+
+
+
+
+
+
+  
+  
+  }
