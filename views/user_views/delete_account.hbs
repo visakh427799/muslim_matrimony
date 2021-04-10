@@ -74,7 +74,7 @@
    let obj={
        id:id,
    }
-        let res=await axios.post('http://localhost:8000/delete_account',obj);
+        let res=await axios.post('https://muslim-matrimony.herokuapp.com/delete_account',obj);
         let data=res.data;
 
         if(data.delete){

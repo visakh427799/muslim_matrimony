@@ -130,7 +130,7 @@
                                                 let obj = { email }
                                                 
                                                 try {
-                                                    let res = await axios.post('http://localhost:8000/forgot_password', { obj })
+                                                    let res = await axios.post('https://muslim-matrimony.herokuapp.com/forgot_password', { obj })
                                                     if (res.data.success) {
                                                         spn.className =""
                                                         bt.disabled = true;
