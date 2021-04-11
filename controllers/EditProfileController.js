@@ -152,7 +152,7 @@ if(d1) {
     from:'visakhsanthosh69@gmail.com',
     to:data.email,
     subject:'From Muslim Matrimony',
-    text:`http://localhost:8000/user/forgot_password/${id}/${token}`,
+    text:`https://muslim-matrimony.herokuapp.com/user/forgot_password/${id}/${token}`,
    
     
   }
