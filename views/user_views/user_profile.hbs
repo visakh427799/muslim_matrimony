@@ -20,8 +20,12 @@
                                 <img src="/images/profile_images/{{userObj.profile_pic}}" alt="  Profile image pending..." class="img-fluid rounded user-profile-bg " width="250px" height="200px"  >
                             </div>
                             <div class="p-id ">
-                                <h2 class="text-center ">{{userObj.uname}}</h2>
-                                <h3>Profile ID :<span class="text-success">{{userObj.profile_id}}</span> </h3>
+                                <h2 class="text-center " style="color:rgb(108, 39, 187)" >{{userObj.uname}}</h2>
+                                <h3>Profile ID :<span style="color:rgb(108, 39, 187)">{{userObj.profile_id}}</span> </h3>
+                                <a    style="text-decoration:none"href="/user/edit_profile" role="button" class=" btn btn-info  mt-2   btn-block">
+                                        <i class="v-align-m fa fa-edit fa-2x .btn text-white"></i><span class=" text-white">Edit
+                                            Profile picture</span>
+                                    </a>
                             </div>
                         </div>
                     </div>
@@ -33,8 +37,8 @@
 
                                 <div class=" cnt-edit-prf border-bottom ">
 
-                                    <a href="/user/edit_profile" class=" btn bg-danger     btn-block">
-                                        <i class="v-align-m fa fa-edit fa-2x .btn"></i><span class=" ">&nbsp;&nbsp; Edit
+                                    <a href="/user/edit_profile" class="mt-2 btn bg-success     btn-block">
+                                        <i class="v-align-m fa fa-edit fa-2x .btn text-white"></i><span class=" text-white">&nbsp;&nbsp; Edit
                                             my profile</span>
                                     </a>
 
@@ -58,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="cnt-test-div border-top border-bottom">
-                                    <h3 class="text-primary">Besic Information</h3>
+                                    <h3 class="text-primary">Basic Information</h3>
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Name</p>
@@ -74,6 +78,15 @@
                                         </div>
                                         <div class="col">
                                             <p><strong>:&nbsp;</strong>{{userObj.gender}}</p>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="row user-inf">
+                                        <div class="col">
+                                            <p>Age</p>
+                                        </div>
+                                        <div class="col">
+                                            <p><strong>:&nbsp;</strong>{{userObj.age}}</p>
                                         </div>
                                        
                                     </div>
@@ -196,7 +209,7 @@
                                 </div>
                            
                                 <div class="cnt-test-div border-bottom">
-                                    <h3>location Information</h3>
+                                    <h3 class="text-primary">Location Information</h3>
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Country</p>
@@ -231,7 +244,7 @@
                                     </div>
                                 </div>
                                 <div class="cnt-test-div border-bottom">
-                                    <h3>Family Information</h3>
+                                    <h3 class="text-primary" >Family Information</h3>
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Financial Status</p>
@@ -284,7 +297,7 @@
                                 <div class="cnt-test-div border-bottom  p-2 alert-warning">
 
                                     </p>
-                                    <h3>Contact Information</h3>
+                                    <h3 class="text-primary" >Contact Information</h3>
                                     <!-- ---------------------------------------------- -->
                                     <!-- dont add contact number & contact details here -->
                                     <!-- ---------------------------------------------- -->
@@ -334,9 +347,9 @@
                                 <!-- ----------------------------------------------- -->
                                 <div class=" cnt-edit-prf border-bottom ">
 
-                                    <a href="/user/edit_profile" class=" btn bg-danger     btn-block">
-                                        <i class="v-align-m fa fa-edit fa-2x .btn"></i><span class=" ">&nbsp;&nbsp; Edit
-                                            Partner Prefrence</span>
+                                     <a href="/user/edit_profile" class=" btn bg-success     btn-block">
+                                        <i class="v-align-m fa fa-edit fa-2x .btn text-white"></i><span class=" text-white">&nbsp;&nbsp; Edit
+                                            partner preference</span>
                                     </a>
 
                                 </div>
@@ -404,7 +417,7 @@
                                             <p>Financial Status:</p>
                                         </div>
                                         <div class="col">
-                                            {{#each userPrefer.education}}
+                                            {{#each userPrefer.fin_status}}
                                             <p><strong>&nbsp;</strong> {{this}}</p>
                                             {{/each}}
                                         </div>

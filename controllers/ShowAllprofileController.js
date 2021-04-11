@@ -1,7 +1,8 @@
 const user = require("../models/user_model");
 const personal = require("../models/user_details_1");
 const extra = require("../models/user_details_2");
-const partner=require("../models/partner_preference")
+const partner=require("../models/partner_preference");
+
 
 exports.ShowProfile = async function (req, res, next) {
   if (res.user) {
@@ -13,7 +14,7 @@ exports.ShowProfile = async function (req, res, next) {
     let data3= await extra.findOne({user_id: id});
     let data4= await partner.findOne({user_id: id})
     const { dob, religion, sect,height,weight,marital_status,children,no_children,complexion,body_type,job,physical_status,mother_tongue,education } = data2;
-    let{age,username,profile_pic,profile_pic_status,country,state,place,district,financial_status,home_type,father_details,mother_details,no_sisters,no_brothers,address,about }=data3;
+    let{age,username,profile_pic,profile_pic_status,country,state,place,district,financial_status,home_type,father_details,mother_details,no_sisters,no_brothers,address,about}=data3;
     let pro_img=profile_pic;
     // if(profile_pic_status=="Inactive"){
     //   profile_pic=""
@@ -43,6 +44,7 @@ exports.ShowProfile = async function (req, res, next) {
       mother_tongue:mother_tongue,
       education:education,
       job:job,
+      age:age
       
     }
 

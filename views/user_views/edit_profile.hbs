@@ -19,12 +19,13 @@
                     <div class="col-md-4">
                           <form action="/edit_profile_pic" method="POST" enctype="multipart/form-data">
                         <div class="view-profile-img mt-3 item-center-all">
+                            <h3 class="text-center text-info">Update profile picture</h3>
                           
                             <div class="pr-img">
                                 <img src="/images/profile_images/{{img}}" id="user-profile" class="img-fluid rounded user-profile-bg "  width="250px" height="200px">
                             </div>
                             <div class="p-id ">
-                                <h3>Profile ID :<span class="text-success">{{pr_id}}</span> </h3>
+                                <h3 class="text-primary">Profile ID :<span class="text-success">{{pr_id}}</span> </h3>
                                
                             </div>
                             
@@ -36,7 +37,7 @@
                         <div class="">
                             <input  type="file"  accept="image/png, image/jpeg" required name="img" onchange="previewFile()" class="form-control form-control-lg mt-3  ">
                         </div>
-                        <button type="submit" class="btn n mt-3  ml-2 mr-2 btn-warning btn-block ">Save</button>
+                        <button type="submit" class="btn n mt-3  ml-2 mr-2 btn-info btn-block text-white ">Update</button>
                    
                         </div>
                          </form>
@@ -67,14 +68,15 @@
                     <!-- sample discription -->
                     <div class="col-md-8">
                         <div class="view-profile-img view-profile mt-3">
+                            <h2 class="text-center text-info ">Update profile</h2>
                             <form action="/edit_profile" method="POST">
                                 <div class="cnt-test-div border-bottom">
-                                    <h3>About Myself</h3>
+                                    <h3 class="text-primary">About Myself</h3>
                                     <textarea name="" id="" class="form-control" maxlength="170 " cols="58"
                                         rows="3"></textarea>
                                 </div>
                                 <div class="cnt-test-div border-top border-bottom">
-                                    <h3>Besic Information</h3>
+                                    <h3 class="text-primary">Basic Information</h3>
                                     <div class="  user-inf">
                                         <div class="col">
                                             <p>Profile Created by</p>
@@ -352,7 +354,7 @@
                                     </div>
                                 </div>
                                 <div class="cnt-test-div border-bottom">
-                                    <h3>location Information</h3>
+                                    <h3 class="text-primary">location Information</h3>
                                     <div class="user-inf">
                                         <div class="col">
                                             <p>Country</p>
@@ -407,7 +409,7 @@
                                     </div>
                                 </div>
                                 <div class="cnt-test-div border-bottom">
-                                    <h3>Family Information</h3>
+                                    <h3 class="text-primary">Family Information</h3>
                                     <div class="user-inf">
                                         <div class="col">
                                             <p>Financial Status</p>
@@ -514,7 +516,7 @@
                                     </div>
                                 </div>
                                 <div class="cnt-test-div border-bottom  p-2 alert-warning">
-                                    <h3>Contact Information</h3>
+                                    <h3 class="text-primary">Contact Information</h3>
                                     <div class=" col text-small user-contact-info  ">
                                         <p>Contact Number</p>
                                         <div class=" row  ">
@@ -610,7 +612,7 @@
                             <!-- ----------------------------------------------- -->
                      
                                 <div class="cnt-test-div border-bottom border-top">
-                                    <h3>Partner Prefrence</h3>
+                                    <h3 class="text-primary">Partner Prefrence</h3>
                                     <div class="user-inf">
                                         <div class="col">
                                             <p>Age</p>

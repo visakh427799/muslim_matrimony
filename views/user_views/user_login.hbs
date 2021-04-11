@@ -21,7 +21,7 @@
                         </div>
                         <div class=" col-2  ">
                             <div class=" btn-new-for-all  ">
-                                <a href="/user/login" class="  btn-login ">Login</a>
+                                <a href="/user/register" class="  btn-login ">Register</a>
                             </div>
                         </div>
                     </div>
@@ -49,11 +49,11 @@
 
                                 <div class="col-md-12 mt-3">
                                     <label for="" style="color:white">Profile ID / Email / Mobile Number.</label>
-                                    <input type="text" class="form-control" placeholder="" name="username" required>
+                                    <input type="text" class="form-control text-white" placeholder="" name="username" required>
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label for="" style="color:white">Password</label>
-                                    <input type="password" class="form-control" placeholder="" name="password" required>
+                                    <input type="password" class="form-control text-white " placeholder="" name="password" required>
                                 </div>
 
 
@@ -130,16 +130,16 @@
                                                 let obj = { email }
                                                 
                                                 try {
-                                                    let res = await axios.post('https://muslim-matrimony.herokuapp.com/forgot_password', { obj })
+                                                    let res = await axios.post('http://localhost:8000/forgot_password', { obj })
                                                     if (res.data.success) {
                                                         spn.className =""
-                                                        bt.disabled = true;
+                                                        
                                                         Swal.fire('Success...', 'Password link has been send successfully ', 'success');
 
 
                                                     }
                                                     else{
-                                                        bt.disabled = true;
+                                                       
                                                              spn.className =""
                                                        Swal.fire({
                                                         icon: 'error',
@@ -186,7 +186,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-12">
-                        <a class="" style="color: black;" data-dismiss="modal" aria-hidden="true">Cancel</a>
+                        <a class=""href="/user/login" style="color: black;" data-dismiss="modal" aria-hidden="true">Cancel</a>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
                                 <li>-Other Saved Details</li>
                             </ul>
                             <div class="d-flex justify-content-center mt-4">
-                                <button class="gnrl-btn btn text-small " data-target="#pwdModal"
+                                <button class=" btn text-white btn-danger " data-target="#pwdModal"
                                     data-toggle="modal">Delete
                                     Account</button>
                             </div>
@@ -30,11 +30,15 @@
                                                 aria-hidden="true">×</button>
                                         </div>
                                         <div class="modal-body  ">
-                                            <p style="color: black;">Are you sure, you want to Delete your profile?</p>
+                                            <p style="color: black;">Are you sure, Do you want to Delete your profile? When you click ok you will lose all information related to your profilr...<span class="text-danger">!!!!!</span></p>
 
-                                            <button class="btn gnrl-btn bg-warning ml-2 " onclick="deleteAccount('{{u_id}}')">Yes</button>
-                                            <button class="btn gnrl-btn bg-danger  ml-2	" >No</button>
-                                            
+                                            <button class="btn gnrl-btn bg-success ml-2 text-white " onclick="deleteAccount('{{u_id}}')">Yes</button>
+                                            <button class="btn gnrl-btn bg-danger  ml-2	text-white" onclick="goBack()">No</button>
+                                            <script>
+                                                function goBack(){
+                                                    location.href="/user/my_profile"
+                                                }
+                                            </script>
                                         </div>
                                         
                                     </div>
@@ -74,7 +78,7 @@
    let obj={
        id:id,
    }
-        let res=await axios.post('https://muslim-matrimony.herokuapp.com/delete_account',obj);
+        let res=await axios.post('http://localhost:8000/delete_account',obj);
         let data=res.data;
 
         if(data.delete){

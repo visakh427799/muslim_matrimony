@@ -19,14 +19,19 @@ exports.EditProfilePic=async function(req,res){
   let img=req.files.img;
    
     let prevImage=req.cookies.user_img;
-    const pathToFile=`./public/images/profile_images/${prevImage}`;
-    console.log(pathToFile);
-    fs.unlink(pathToFile, async function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Successfully deleted the file.")
 
+    if(prevImage!=="null"){
+              const pathToFile=`./public/images/profile_images/${prevImage}`;
+              console.log(pathToFile);
+              fs.unlink(pathToFile, async function(err) {
+                        if (err) {
+                          console.log(err);
+                        } else {
+                          console.log("Successfully deleted the file.")
+
+                        }
+                })
+        }
 
           img.mv("./public/images/profile_images/" + img.name,async (err) => {
             if (err) return console.log(err);
@@ -50,11 +55,12 @@ exports.EditProfilePic=async function(req,res){
             
           })
         }
+        
       })
 
 
-        }
-      })
+        
+      
 
   //   // console.log(req.files);
 
@@ -167,7 +173,7 @@ if(d1) {
        {
          console.log(error)
         res.json({"success":false,
-      "message":"No accoumt with this email id exist"});
+      "message":"Oops something went wrong please try again"});
        }
        else{
         res.json({"success":true});
