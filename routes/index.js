@@ -67,6 +67,16 @@ router.get('/user/forgot_password/:id/:token',(req,res)=>{
 
   res.render('user_views/forgot_password',{id,token})
 })
+router.get("/user/shortlist",Verify,ShowProf.shortlisted);
+
+
+
+
+
+
+
+
+//post
 router.post("/register", Auth.Register);
 router.post("/login", Auth.Login);
 router.post("/complete_profile1", Auth.Complete_profile1);
@@ -78,4 +88,7 @@ router.post("/edit_profile_pic",Verify,EditProf.EditProfilePic);
 router.post("/delete_account",Verify,EditProf.deleteAccount);
 router.post("/change_password",EditProf.changePassword);
 router.post("/forgot_password",EditProf.forgotPassword);
+router.post("/shortlist",Verify,EditProf.shortList);
+router.post("/delete_shortlist",Verify,EditProf.deleteShortlist);
+
 module.exports = router;

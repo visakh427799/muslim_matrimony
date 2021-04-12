@@ -63,7 +63,7 @@
                             <div class="control-group">
                                 <select name="marital_status" class="custom-select" required>
                                     <option value="">Select</option>
-                                    <option value="Unmarried" >Unmarried</option>
+                                    <option value="Unmarried">Unmarried</option>
                                     <option value="Nikah Divorce">Nikah Divorce </option>
                                     <option value="Widowed/Widower">Widowed/Widower</option>
                                     <option value="Divorced">Divorced</option>
@@ -77,8 +77,8 @@
                                 <div class="col-md-6   ">
                                     <label for="">Children</label>
                                     <div class="control-group">
-                                        <select name="children"  class="custom-select" required>
-                                      
+                                        <select name="children" class="custom-select" required>
+
                                             <option value="">Select</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -88,30 +88,31 @@
                                 <div class="col-md-6   ">
                                     <label for="">Number of Children</label>
                                     <div class="control-group">
-                                        <select name="no_children"  class="custom-select" required>
+                                        <select name="no_children" class="custom-select" required>
                                             <option value="">Select</option>
-                                            <option value="nil" >nil</option>
-                                            <option value="1" >1</option>
-                                            <option value="2" >2</option>
-                                            <option value="3" >3</option>
-                                            <option value="Above 3" >Above 3</option>
+                                            <option value="nil">nil</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="Above 3">Above 3</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        
+
                         <div class="col-md-6  ">
                             <label for="">Date Of Birth</label>
-                            <input id="db" type="date" value="" name="dob" class="form-control" placeholder="" required />
+                            <input id="db" type="date" value="" name="dob" class="form-control" placeholder=""
+                                required />
                         </div>
 
-                        
+
                         <div class="col-md-6   ">
                             <label for="">Religion</label>
                             <div class="control-group">
-                                <select class="custom-select"  onfocus="fi();" required name="religion">
+                                <select class="custom-select" onfocus="fi();" required name="religion">
                                     <option value="">Select</option>
                                     <option value="Islam">Islam</option>
 
@@ -124,14 +125,14 @@
                                     <label for="">Height</label>
                                     <!--   -->
                                     <div class="control-group">
-                                        <select class="custom-select" name="height"  required>
+                                        <select class="custom-select" name="height" required>
                                             <option value="">Select</option>
-                                           {{#each heights}}
-                                               <option value="{{this.height}}">{{this.height}}</option>
-                                           {{/each}}
+                                            {{#each heights}}
+                                            <option value="{{this.height}}">{{this.height}}</option>
+                                            {{/each}}
                                         </select>
                                     </div>
-                                   
+
                                 </div>
                                 <div class="col-md-6   ">
                                     <label for="">Weight</label>
@@ -139,16 +140,16 @@
                                     <div class="control-group">
                                         <select class="custom-select" name="weight" required>
                                             <option value="">Select</option>
-                                             {{#each weights}}
-                                               <option value="{{this.weight}}">{{this.weight}}</option>
-                                           {{/each}}
-                                           
+                                            {{#each weights}}
+                                            <option value="{{this.weight}}">{{this.weight}}</option>
+                                            {{/each}}
+
                                         </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
 
 
 
@@ -248,30 +249,31 @@
                         </div>
                         <div class="col-md-6   ">
                             <label for="">Job</label>
-                            <input type="text" id="ab" value="" name="job" class="form-control" placeholder="" required />
+                            <input type="text" id="ab" value="" name="job" class="form-control" placeholder=""
+                                required />
                         </div>
                     </div>
-                     <script>
-                                        function fi(){
+                    <script>
+                        function fi() {
 
-                                           var d = new Date();
-                                           var CurrentYr = d.getFullYear();
-                                           let dob=document.getElementById("db").value;
-                                           let Yr=dob.slice(0,4);
-                                           let age=CurrentYr-Number(Yr);
-                                           console.log(age);
+                            var d = new Date();
+                            var CurrentYr = d.getFullYear();
+                            let dob = document.getElementById("db").value;
+                            let Yr = dob.slice(0, 4);
+                            let age = CurrentYr - Number(Yr);
+                            console.log(age);
 
-                                           if(age<18){
-                                                  Swal.fire(
-                                                    'Age should be  greaterthan 18')
-                                       
-                                               document.getElementById("db").value="";
-                                               
-                                           }
-                                          
-                                           
-                                        } 
-                                    </script>
+                            if (age < 18) {
+                                Swal.fire(
+                                    'Age should be  greaterthan 18')
+
+                                document.getElementById("db").value = "";
+
+                            }
+
+
+                        }
+                    </script>
                     <div class=" d-flex justify-content-center mt-4">
 
                         <button type="submit" class="btn gnrl-btn  ">
@@ -327,102 +329,5 @@
 
 
 <!-- Footer Start -->
-<div class="footer hide-max">
-    <div class="container">
-        <div class="row  ">
-            <div class="d-flex justify-content-around col-md-6 col-lg-3 ">
-                <div class="footer-form  ft-logo-sec ">
-                    <img src="/assets/images/ft_logo.PNG" class="ftr-img" alt="Footer Logo"> <br>
-                    <h6 class="ft-align-center text-small">The Complete Muslim Matrimony</h6>
-                </div>
-            </div>
-
-            <div class="d-flex justify-content-around col-md-6 col-lg-3 ">
-                <div class="hide-ft">
-                    <div class="footer-link">
-                        <h2>Useful Link</h2>
-                        <a href="/about.html">About Us</a>
-                        <a>Our Services</a>
-                        <a>Our Branchs</a>
-                        <a href="/contact.html">Contact Us</a>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-around col-md-6 col-lg-3  ">
-                <div class="hide-ft">
-                    <div class="footer-link">
-                        <h2>Useful Link</h2>
-                        <a>Clients Review</a>
-                        <a>Customer Support</a>
-                        <a>FAQs</a>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-around col-md-6 col-lg-3">
-                <div class="footer-contact ft-align-center">
-                    <h2>Get In Touch</h2>
-                    <p><i class="fa fa-map-marker-alt"></i>Padikkal, Malappuram, Kerala</p>
-                    <p><i class="fa fa-phone-alt"></i><a href="https://wa.me/919746900055">+91 97469 00055</a></p>
-                    <p><i class="fa fa-envelope"></i>info@keralamuslimmarry.com</p>
-                    <div class="footer-social">
-                        <a><i class="fab fa-twitter"></i></a>
-                        <a href="https://facebook.com/keralamuslimmarry" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a><i class="fab fa-youtube"></i></a>
-                        <a href="https://instagram.com/keralamuslimmarry/" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
-                        <a><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="container footer-menu">
-        <div class="f-menu">
-            <a href="/terms_and_conditions.html">Terms of use</a>
-            <a href="privacy_policy.html">Privacy policy</a>
-            <a>Cookies</a>
-            <a>Help & FQAs</a>
-            <a href="/contact.html">Contact us</a>
-        </div>
-    </div>
-    <div class="container copyright">
-        <div class="row">
-            <div class="col-md-6">
-                <p>&copy; <a href="https://keralamuslimmarry.com/">Kerala Muslim Marry</a>- All Right Reserved.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <p>Theme Designed By <a href="https://htmlcodex .com">HTML Codex</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="footer  footer-mv   hide-min">
-
-    <div class="container footer-menu">
-        <div class="f-menu">
-            <a href="terms_and_conditions.html">&nbsp;Terms of use</a>
-            <a href="privacy_policy.html">&nbsp;Privacy policy</a>
-            <a>&nbsp;Cookies</a><br>
-            <a>&nbsp;Help & FQAs</a>
-            <a href="contact.html">&nbsp;Contact us</a>
-        </div>
-    </div>
-
-</div>
-
-
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/vendor/easing/easing.min.js"></script>
-<script src="/assets/vendor/owlcarousel/owl.carousel.min.js"></script>
-<script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
-<script src="/assets/vendor/lightbox/js/lightbox.min.js"></script>
-
-<!-- Template Javascript -->
-<script src="/assets/libs/js/main.js"></script>
-<script src="/assets/libs/js/meritalstatus-select.js"></script>
+{{>footer}}
 </body>

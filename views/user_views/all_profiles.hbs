@@ -2,109 +2,108 @@
     <div class="wrapper">
         <!-- Header Start -->
         {{>header}}
-        </div>
-
-
-        <!-- Profile View section  -->
-        <div class="service">
-            <div class="container">
-                <!-- 15 profile in one page -->
-                <!-- 15 profile in one page -->
-                <!-- 15 profile in one page -->
-                <div class="row">
-                    {{#each data}}
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <!-- open this profile link -->
-                            <a href="/user/profile/{{this.user_id}}">
-                                <div class="pr-img">
-                                    <img src="/images/profile_images/{{this.profile_pic}}">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>{{this.username}}</h3>
-                                    <p>{{this.age}} Yrs, {{this.height}}</p>
-                                    <p> {{this.district}}, {{this.state}},{{this.country}}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                {{/each}}   
-        </div>
-
-        <!-- Previous-Next -->
-        <div class="container">
-            <div class="  d-flex justify-content-between  ">
-                <div class="">
-                    <a href="" class="  btn  text-small  next-btn ">
-                        <i class="v-align-m fas fa-caret-square-left fa-2x .btn"></i>
-                        <span class="">Previous</span>
-                    </a>
-                </div>
-                <div>
-                    <a href="" class="  btn  text-small  next-btn ">
-                        <span class="">Next</span>
-                        <i class="v-align-m fas fa-caret-square-right fa-2x .btn"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- after footer start -->
-    <div class="footer  hide-max">
+
+    <!-- Profile View section  -->
+    <div class="service">
         <div class="container">
-            <div class="row footer-contact ">
-                <div class="row z-lgn  ">
-                    <!-- <h4 class="ml-5">Get In Touch</h4> -->
-                    <div class=" d-flex justify-content-around ft-align-center">
-                        <div class="col ft-align-center">
-                            <p><i class="fa fa-map-marker-alt"></i>Padikkal, Malappuram, Kerala</p>
-                        </div>
-                        <div class="col">
-                            <p><i class="fa fa-phone-alt"></i><a href="https://wa.me/919746900055">+91 97469
-                                    00055</a>
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p><i class="fa fa-envelope"></i>info@keralamuslimmarry.com</p>
-                        </div>
-                        <div class="col z-lgn">
-                            <a><i class="fab fa-twitter"></i></a>
-                            <a href="https://facebook.com/keralamuslimmarry" target="_blank"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a><i class="fab fa-youtube"></i></a>
-                            <a href="https://instagram.com/keralamuslimmarry/" target="_blank"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container footer-menu">
-            <div class="f-menu">
-                <a href="/terms_and_conditions.html">Terms of use</a>
-                <a href="privacy_policy.html">Privacy policy</a>
-                <a>Cookies</a>
-                <a>Help & FQAs</a>
-                <a href="/contact.html">Contact us</a>
-            </div>
-        </div>
-        <div class="container copyright">
+            <!-- 15 profile in one page -->
+            <!-- 15 profile in one page -->
+            <!-- 15 profile in one page -->
             <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; <a href="https://keralamuslimmarry.com/">Kerala Muslim Marry</a>- All Right Reserved.
-                    </p>
+                {{#each data}}
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-item ">
+                        <!-- open this profile link -->
+                       
+                            <div class="pr-img">
+                                <img src="/images/profile_images/{{this.profile_pic}}">
+                                <h6 class="" id="{{this.user_id}}"><span class=""><i  id="" class="fa fa-star fa-2x" onclick="shortList('{{this.user_id}}')"></i> </span></h6>
+                            </div>
+                            
+                            <a href="/user/profile/{{this.user_id}}"></a> <div class="pro-text-up mt-3 pb-2">
+                                <h3>{{this.username}}</h3>
+                                <p>{{this.age}} Yrs, {{this.height}}</p>
+                                <p> {{this.district}}, {{this.state}},{{this.country}}</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <p>Theme Designed By <a href="https://htmlcodex .com">HTML Codex</a></p>
+                <script>
+                   async function shortList(id){
+                       
+                        let star= document.getElementById(id);
+                        if(star.className=="text-success"){
+                           let obj={
+                                id:id
+                            }
+                            //axios call
+                            let res= await axios.post('http://localhost:8000/delete_shortlist',{obj})
+                            if(res.data.success){
+                                 star.className=""
+                                    Swal.fire('Success...', 'Profile removed from short list', 'success');
+
+                            }
+                            else{
+                                Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: res.data.message,
+                                            footer: '<a href>Why do I have this issue?</a>'
+                                        })
+                            }
+                            
+
+                        }
+                        else{
+                           
+                            //axios call
+                            let obj={
+                                id:id
+                            }
+                            let res= await axios.post('http://localhost:8000/shortlist',{obj})
+                            if(res.data.success){
+                                 star.className="text-success"
+                                     Swal.fire('Success...', 'Profile added to short list', 'success');
+                            }
+                            else{
+                                Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: res.data.message,
+                                            footer: '<a href>Why do I have this issue?</a>'
+                                        })
+                            }
+                             
+
+                        }
+                    }
+                </script>
+
+
+                {{/each}}
+            </div>
+
+            <!-- Previous-Next -->
+            <div class="container">
+                <div class="  d-flex justify-content-between  ">
+                    <div class="">
+                        <a href="" class="  btn  text-small  next-btn ">
+                            <i class="v-align-m fas fa-caret-square-left fa-2x .btn"></i>
+                            <span class="">Previous</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="" class="  btn  text-small  next-btn ">
+                            <span class="">Next</span>
+                            <i class="v-align-m fas fa-caret-square-right fa-2x .btn"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
 
+        <!-- after footer start -->
+        {{>footer}}
 </body>

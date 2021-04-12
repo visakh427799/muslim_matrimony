@@ -1,95 +1,99 @@
 <!-- fill profile details section start -->
-    <body>
-         <div class="wrapper"> 
+
+<body>
+    <div class="wrapper">
         <!-- Header Start -->
-         {{>header}}
-        </div>
-        <div class="cantainer-srch">
-            <div class="search-besic-details item-center-all">
-                
-                    <div class="  dlt-myacnt">
-                        <div class="   ">
-                            <h2>Delete Account ?</h2>
-                            <p>You'll permanently lose your:
-                            </p>
-                            <ul>
-                                <li>-Profile Information</li>
-                                <li>-Photos</li>
-                                <li>-Other Saved Details</li>
-                            </ul>
-                            <div class="d-flex justify-content-center mt-4">
-                                <button class=" btn text-white btn-danger " data-target="#pwdModal"
-                                    data-toggle="modal">Delete
-                                    Account</button>
-                            </div>
-                            <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div>
-                                            <button type="button" class="close ac-close-btn" data-dismiss="modal"
-                                                aria-hidden="true">×</button>
-                                        </div>
-                                        <div class="modal-body  ">
-                                            <p style="color: black;">Are you sure, Do you want to Delete your profile? When you click ok you will lose all information related to your profilr...<span class="text-danger">!!!!!</span></p>
+        {{>header}}
+    </div>
+    <div class="cantainer-srch">
+        <div class="search-besic-details item-center-all">
 
-                                            <button class="btn gnrl-btn bg-success ml-2 text-white " onclick="deleteAccount('{{u_id}}')">Yes</button>
-                                            <button class="btn gnrl-btn bg-danger  ml-2	text-white" onclick="goBack()">No</button>
-                                            <script>
-                                                function goBack(){
-                                                    location.href="/user/my_profile"
-                                                }
-                                            </script>
-                                        </div>
-                                        
-                                    </div>
-                                    
+            <div class="  dlt-myacnt">
+                <div class="   ">
+                    <h2>Delete Account ?</h2>
+                    <p>You'll permanently lose your:
+                    </p>
+                    <ul>
+                        <li>-Profile Information</li>
+                        <li>-Photos</li>
+                        <li>-Other Saved Details</li>
+                    </ul>
+                    <div class="d-flex justify-content-center mt-4">
+                        <button class=" btn text-white btn-danger " data-target="#pwdModal" data-toggle="modal">Delete
+                            Account</button>
+                    </div>
+                    <div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div>
+                                    <button type="button" class="close ac-close-btn" data-dismiss="modal"
+                                        aria-hidden="true">×</button>
                                 </div>
-                                   <div class="row">
-                                            <div class="col-md-4">
+                                <div class="modal-body  ">
+                                    <p style="color: black;">Are you sure, Do you want to Delete your profile? When you
+                                        click ok you will lose all information related to your profilr...<span
+                                            class="text-danger">!!!!!</span></p>
 
-                                            </div>
-                                            <div class="col-md-4 text-center">
-                                                <div class=" " role="status" id="spin">
-                                                   
-                                                    </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                
-                                            </div>
-                                        </div>
+                                    <button class="btn gnrl-btn bg-success ml-2 text-white "
+                                        onclick="deleteAccount('{{u_id}}')">Yes</button>
+                                    <button class="btn gnrl-btn bg-danger  ml-2	text-white"
+                                        onclick="goBack()">No</button>
+                                    <script>
+                                        function goBack() {
+                                            location.href = "/user/my_profile"
+                                        }
+                                    </script>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class=" " role="status" id="spin">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
 
                             </div>
                         </div>
+
                     </div>
-                 
-                               
-                                
-
+                </div>
             </div>
+
+
+
+
         </div>
+    </div>
 
 
-<script>
- async function deleteAccount(id){
-     let spn=document.getElementById("spin");
-     spn.className= "spinner-border text-primary";
+    <script>
+        async function deleteAccount(id) {
+            let spn = document.getElementById("spin");
+            spn.className = "spinner-border text-primary";
 
-        
-   let obj={
-       id:id,
-   }
-        let res=await axios.post('https://muslim-matrimony.herokuapp.com/delete_account',obj);
-        let data=res.data;
 
-        if(data.delete){
-            spn.className= "";
+            let obj = {
+                id: id,
+            }
+            let res = await axios.post('https://muslim-matrimony.herokuapp.com/delete_account', obj);
+            let data = res.data;
 
-            Swal.fire('Success...', 'Account deleted', 'success')
+            if (data.delete) {
+                spn.className = "";
+
+                Swal.fire('Success...', 'Account deleted', 'success')
+            }
+
+            location.href = "/user/register";
         }
-
-        location.href="/user/register";
-     }  
-</script>
+    </script>
 
 
 
@@ -99,57 +103,7 @@
     <!-- fill profile details section end -->
 
     <!-- after footer start -->
-    <div class="footer  hide-max">
-        <div class="container">
-            <div class="row footer-contact ">
-                <div class="row z-lgn  ">
-                    <!-- <h4 class="ml-5">Get In Touch</h4> -->
-                    <div class=" d-flex justify-content-around ft-align-center">
-                        <div class="col ft-align-center">
-                            <p><i class="fa fa-map-marker"></i>Padikkal, Malappuram, Kerala</p>
-                        </div>
-                        <div class="col">
-                            <p><i class="fa fa-phone"></i><a href="https://wa.me/919746900055">+91 97469
-                                    00055</a>
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p><i class="fa fa-envelope"></i>info@keralamuslimmarry.com</p>
-                        </div>
-                        <div class="col z-lgn">
-                            <a><i class="fab fa-twitter"></i></a>
-                            <a href="https://facebook.com/keralamuslimmarry" target="_blank"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a><i class="fab fa-youtube"></i></a>
-                            <a href="https://instagram.com/keralamuslimmarry/" target="_blank"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container footer-menu">
-            <div class="f-menu">
-                <a href="/terms_and_conditions.html">Terms of use</a>
-                <a href="privacy_policy.html">Privacy policy</a>
-                <a>Cookies</a>
-                <a>Help & FQAs</a>
-                <a href="/contact.html">Contact us</a>
-            </div>
-        </div>
-        <div class="container copyright">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; <a href="https://keralamuslimmarry.com/">Kerala Muslim Marry</a>- All Right Reserved.
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <p>Theme Designed By <a href="https://htmlcodex .com">HTML Codex</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{>footer}}
     <!-- after footer start -->
 
 
