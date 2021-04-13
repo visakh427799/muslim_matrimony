@@ -45,16 +45,17 @@
      <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-            <form class=" ">
+            <form class=" " action="/admin/login" method="POST">
             <div class="form-group">
                 <label for="">Admin Login ID</label>
-                <input class="form-control form-control-lg" id="" type="text" placeholder="" autocomplete="off">
+                <input class="form-control form-control-lg" name="id" id="" type="text" placeholder="" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="">Admin Login Password</label>
-                <input class="form-control form-control-lg" id="" type="password" placeholder="">
+                <input class="form-control form-control-lg" id="" name="pass" type="password" placeholder="">
             </div>
-
+            
+          <span class="text-danger">{{message}}</span>
             <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
         </form>
 
