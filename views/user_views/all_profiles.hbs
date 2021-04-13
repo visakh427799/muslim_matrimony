@@ -19,27 +19,30 @@
                        
                             <div class="pr-img">
                                 <img src="/images/profile_images/{{this.profile_pic}}">
-                                <h6 class="" id="{{this.user_id}}"><span class=""><i  id="" class="fa fa-star fa-2x" onclick="shortList('{{this.user_id}}')"></i> </span></h6>
+                                {{!-- <h6 class="" id="{{this.user_id}}"><span class=""><i  id="" class="fa fa-star fa-2x" ></i> </span></h6> --}}
                             </div>
                             
-                            <a href="/user/profile/{{this.user_id}}"></a> <div class="pro-text-up mt-3 pb-2">
+                            <a href="/user/profile/{{this.user_id}}"> 
+                            <div class="pro-text-up mt-3 pb-2">
                                 <h3>{{this.username}}</h3>
                                 <p>{{this.age}} Yrs, {{this.height}}</p>
-                                <p> {{this.district}}, {{this.state}},{{this.country}}</p>
+                                <p> {{this.district}}, {{this.state}},{{this.country}}</p>    </a>
+                                  <button onclick="shortList('{{this.user_id}}')" class="btn btn-info">Add to short list</button>
                             </div>
-                        </a>
+                          
+                    
                     </div>
                 </div>
                 <script>
                    async function shortList(id){
                        
-                        let star= document.getElementById(id);
+                       /* let star= document.getElementById(id);
                         if(star.className=="text-success"){
                            let obj={
                                 id:id
                             }
                             //axios call
-                            let res= await axios.post('https://muslim-matrimony.herokuapp.com/delete_shortlist',{obj})
+                            let res= await axios.post('http://localhost:8000/delete_shortlist',{obj})
                             if(res.data.success){
                                  star.className=""
                                     Swal.fire('Success...', 'Profile removed from short list', 'success');
@@ -55,8 +58,8 @@
                             }
                             
 
-                        }
-                        else{
+                        }*/
+                        //else{
                            
                             //axios call
                             let obj={
@@ -64,7 +67,7 @@
                             }
                             let res= await axios.post('https://muslim-matrimony.herokuapp.com/shortlist',{obj})
                             if(res.data.success){
-                                 star.className="text-success"
+                                 //star.className="text-success"
                                      Swal.fire('Success...', 'Profile added to short list', 'success');
                             }
                             else{
@@ -74,10 +77,10 @@
                                             text: res.data.message,
                                             footer: '<a href>Why do I have this issue?</a>'
                                         })
-                            }
+                               }
                              
 
-                        }
+                        //}
                     }
                 </script>
 

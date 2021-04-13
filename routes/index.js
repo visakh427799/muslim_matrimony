@@ -6,7 +6,7 @@ var Verify = require("../controllers/MiddleWaresController"); //Middleware for t
 var ShowProf = require("../controllers/ShowAllprofileController");
 let EditProf= require("../controllers/EditProfileController");
 
-/* GET home page. */
+/* GET routes. */
 const newArr = C_Codes.CountryCodes();
 const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
@@ -28,9 +28,7 @@ router.get("/user/edit_profile",Verify,(req,res)=>{
   let pr_id=req.cookies.pr_id;
   res.render("user_views/edit_profile",{heights,weights,img,pr_id,newArr});
 })
-// router.get('/edit_profile_image',(req,res)=>{
-//   res.render('user_views/edit_profile_image')
-// })
+
 router.get("/user/complete_profile1", function (req, res, next) {
  
 
@@ -70,13 +68,7 @@ router.get('/user/forgot_password/:id/:token',(req,res)=>{
 router.get("/user/shortlist",Verify,ShowProf.shortlisted);
 
 
-
-
-
-
-
-
-//post
+//post routes
 router.post("/register", Auth.Register);
 router.post("/login", Auth.Login);
 router.post("/complete_profile1", Auth.Complete_profile1);

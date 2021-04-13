@@ -4,8 +4,110 @@
     </div>
  
  
- <h2 style="text-align: center;">Shortlisted Profiles</h2>
+{{#if users}}
+<h2 style="text-align: center;">Shortlisted Profiles</h2>
+{{else}}
+<h2 style="text-align: center;">No Shortlisted Profiles</h2>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3"></div>
+    <div class="col-md-3"><a href="/" class="btn btn-info mr-3">Go to profiles</a></div>
+    <div class="col-md-3"></div>
+
+</div>
+
+{{/if}}
+
+        
+        <!-- Profile View section  -->
+        <div class="service">
+            <div class="container">
+                <!-- 15 profile in one page -->
+                <!-- 15 profile in one page -->
+                <!-- 15 profile in one page -->
+                <div class="row">
+                    {{#each users}}
+                 
+                    <div class="col-lg-3 col-md-6">
+                        <div class="service-item ">
+                            <!-- open this profile link -->
+                            <a href="/user/profile/{{this.partner_id}}">
+                                <div class="pr-img">
+                                    <img src="/images/profile_images/{{this.partner_img}}" >
+                                </div>
+                                {{!-- <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6> --}}
+                                <div class="pro-text-up mt-3 pb-2">
+                                    <h3>{{this.partner_name}}</h3>
+                                    <p>{{this.partner_age}} Yrs, 157-CM</p>
+                                    <p>{{this.partner_district}}, {{this.partner_state}}, {{this.partner_country}}</p>
+                                 </a>
+                                  <button onclick="shortList('{{this._id}}')" class="btn btn-danger">Remove from short list</button>
+                                
+                                </div>
+                           
+                        </div>
+                    </div>
+                    
+              {{/each}}
+                    </div>
+                    
+                  <script>
+                       async function shortList(id){
+                       
+                      
+                           let obj={
+                                id:id
+                            }
+                            //axios call
+                            let res= await axios.post('https://muslim-matrimony.herokuapp.com/delete_shortlist',{obj})
+                            if(res.data.success){
+                               
+                                    Swal.fire('Success...', 'Profile removed from short list', 'success');
+                                    location.href="/user/shortlist";
+                            }
+                            else{
+                                Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: res.data.message,
+                                            footer: '<a href>Why do I have this issue?</a>'
+                                        })
+                            }
+                            
+
+                        
+                       
+                    }
+            
+                  </script>  
+                   
+
+
+
+                
+
+        <!-- Previous-Next -->
         <div class="container">
+            <div class="  d-flex justify-content-between  ">
+                <div class="">
+                    <a href="" class="  btn  text-small  next-btn ">
+                        <i class="v-align-m fas fa-caret-square-left fa-2x .btn"></i>
+                        <span class="">Previous</span>
+                    </a>
+                </div>
+                <div>
+                    <a href="" class="  btn  text-small  next-btn ">
+                        <span class="">Next</span>
+                        <i class="v-align-m fas fa-caret-square-right fa-2x .btn"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="container">
             <div class="row  ">
                 <div class="alert alert-success col-md-6 mview-ph" id="notes">
                     <p style="text-align: center;" class="mview-ph">Short List ചെയ്ത പ്രൊഫൈലിന്റെ Contact Number
@@ -66,148 +168,4 @@
             </div>
         </div>
 
-        <!-- Profile View section  -->
-        <div class="service">
-            <div class="container">
-                <!-- 15 profile in one page -->
-                <!-- 15 profile in one page -->
-                <!-- 15 profile in one page -->
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <!-- open this profile link -->
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img img-fluid">
-                                    <img src="/assets/images/sample (1).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="/assets/images/sample (2).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src=" ">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img img-fluid">
-                                    <img src="/assets/images/sample (1).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="/assets/images/sample (2).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="service-item ">
-                            <a href="">
-                                <div class="pr-img">
-                                    <img src="/assets/images/sample (3).jpeg">
-                                </div>
-                                <h6 class="premium"><span class="premium"><i class="fa fa-star fa-2x"></i> </span></h6>
-                                <div class="pro-text-up mt-3 pb-2">
-                                    <h3>Sample Profile</h3>
-                                    <p>27 Yrs, 157-CM</p>
-                                    <p>Malappuram, Kerala, India</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-
-        <!-- Previous-Next -->
-        <div class="container">
-            <div class="  d-flex justify-content-between  ">
-                <div class="">
-                    <a href="" class="  btn  text-small  next-btn ">
-                        <i class="v-align-m fas fa-caret-square-left fa-2x .btn"></i>
-                        <span class="">Previous</span>
-                    </a>
-                </div>
-                <div>
-                    <a href="" class="  btn  text-small  next-btn ">
-                        <span class="">Next</span>
-                        <i class="v-align-m fas fa-caret-square-right fa-2x .btn"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
      {{>footer}}

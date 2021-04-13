@@ -155,64 +155,114 @@ exports.forgotPassword = async function (req, res) {
 exports.shortList=async function(req,res){
 let data=req.body.obj;
 let user_id=res.user.id;
+let flag=false;
+let d3=await shortlist.find({user_id:user_id})
 
-
-let d1=await shortlist.findOne({user_id:user_id});
-if(d1){
-  //update
-
-let d3=await shortlist.findOne({user_id:user_id});
 if(d3){
+    d3.forEach((shrt)=>{
+       if(shrt.partner_id==data.id){
+          flag=true;
+         
+       }
+   })
 
-   let oldShortlist=d3.shortlisted;
-   let newShortlist=[...oldShortlist,data.id];
-
-   
-   newShortlist=[...new Set(newShortlist)]
-   console.log(newShortlist);
-   await shortlist.findOneAndUpdate(
-    { user_id: user_id },
-    { shortlisted:newShortlist },
-    { useFindAndModify: false },
-    (err, data) => {
-      if (data) {
-        res.json({ success: true });
-      } else {
-        res.json({ success: false, message: "password has not been changed" });
-      }
-    }
-  );
 
 
 
 }
+if(flag){
 
-
+  res.json({success: false, message: "Profile already added...!!"})
 }
 else{
-  //create new shortlisted
-  let shortlisted=[data.id];
-  console.log(shortlisted)
-let obj={
-  user_id,
-  shortlisted
-}
-console.log(obj)
-   let d2=await shortlist.create(obj);
-   if(d2){
-     console.log(d2)
-    res.json({
-      "success":true
-    })
-   }
+let d1 = await extra.findOne({user_id:data.id});
 
-   else{
-    res.json({
-      "success":false,
-      "message":"Oops something went wrong...!!"
-    })
-   }
+//console.log(d1);
+
+let obj={
+    user_id:user_id,
+    partner_id:d1.user_id,
+    partner_name:d1.username,
+    partner_age:d1.age,
+    partner_height:d1.height,
+    partner_district:d1.district,
+    partner_state:d1.state,
+    partner_country:d1.country,
+    partner_img:d1.profile_pic,
+
 }
+
+//console.log(obj);
+
+let d2=await shortlist.create(obj);
+if(d2){
+  res.json({ success: true });
+}
+else{
+  res.json({ success: false, message: "Oops something went wrong ...!!" });
+}
+
+}
+
+// let d1=await shortlist.findOne({user_id:user_id});
+// if(d1){
+//   //update
+
+// let d3=await shortlist.findOne({user_id:user_id});
+// if(d3){
+
+//    let oldShortlist=d3.shortlisted;
+//    let newShortlist=[...oldShortlist,data.id];
+
+   
+//    newShortlist=[...new Set(newShortlist)]
+//    console.log(newShortlist);
+//    await shortlist.findOneAndUpdate(
+//     { user_id: user_id },
+//     { shortlisted:newShortlist },
+//     { useFindAndModify: false },
+//     (err, data) => {
+//       if (data) {
+       
+//         res.json({ success: true });
+//       } else {
+//         res.json({ success: false, message: "Oops something went wrong ...!!" });
+//       }
+//     }
+//   );
+
+
+
+// }
+
+
+// }
+// else{
+//   //create new shortlisted
+//   let shortlisted=[data.id];
+//   console.log(shortlisted);
+//   shortlisted_users=[];
+// let obj={
+//   user_id,
+//   shortlisted,
+//   shortlisted_users,
+// }
+// console.log(obj)
+//    let d2=await shortlist.create(obj);
+//    if(d2){
+//      console.log(d2)
+//     res.json({
+//       "success":true
+//     })
+//    }
+
+//    else{
+//     res.json({
+//       "success":false,
+//       "message":"Oops something went wrong...!!"
+//     })
+//    }
+// }
    
 
 
@@ -224,34 +274,16 @@ exports.deleteShortlist=async function(req,res){
   let user_id=res.user.id;
   let data=req.body.obj;
 
+  let d1=await shortlist.deleteOne({_id:data.id});
 
+  if(d1){
+    res.json({"success":true})
+  }
+  else{
+    res.json({"success":false,"message":"Oops something went wrong..!!"})
+  }
+  
 
-let d1=await shortlist.findOne({user_id:user_id});
-
-if(d1){
-  let currentShortlist=d1.shortlisted;
-  console.log(currentShortlist);
-  currentShortlist=currentShortlist.filter((element)=>{
-    if(element!=data.id)
-    return element;
-  })
- 
-  console.log(currentShortlist);
-  await shortlist.findOneAndUpdate(
-    { user_id: user_id },
-    { shortlisted:currentShortlist },
-    { useFindAndModify: false },
-    (err, data) => {
-      if (data) {
-        res.json({ success: true });
-      } else {
-        res.json({ success: false, message: "password has not been changed" });
-      }
-    }
-  );
-
-
-}
 
 
   

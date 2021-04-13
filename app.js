@@ -7,6 +7,7 @@ const cors= require('cors')
 var exphbs = require('express-handlebars');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 // const upload  =require('express-fileupload')
 var logger = require('morgan');
 const upload = require('express-fileupload');
@@ -34,7 +35,7 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 // app.use(upload());
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -109,6 +109,11 @@ exports.ShowProfile = async function (req, res, next) {
 
 exports.showAllProfile = async function (req, res) {
   let data = await extra.find({}).lean();
+  let id=res.user.id;
+   data=data.filter((elm)=>{
+    if(elm.user_id!=id)
+    return elm
+  })
   console.log(data);
 
   res.render("user_views/all_profiles", { data });
@@ -215,27 +220,21 @@ exports.showUserProfile = async function (req, res) {
 
 exports.shortlisted=async function(req,res){
   let u_id=res.user.id;
-  let users=[];
-  let d1=await shortlist.findOne({user_id:u_id});
-  if(d1){
-    let arr=d1.shortlisted;
+  
+  let users=await shortlist.find({user_id:u_id}).lean();
 
- 
-    arr.forEach(async (elm)=>{
+  // console.log(users)
+  
+    if(users){
+      res.render('user_views/shortlisted',{users});
+      }
+    else{
      
-
-      let d2=await extra.findOne({user_id:elm})
-     
-      users=[...users,d2];
-
-      //console.log(users);
-    })
-   
- 
-   
-
-   
-  }
+      res.render('user_views/shortlisted',{users});
+     }
+    
+    
+    
 
 
 
