@@ -13,7 +13,7 @@ exports.Register = async function (req, res) {
   let phone = code + phonenum;
   let status = "Active";
 
-  let profile_id="MM1000";
+  let profile_id="";
 
   await user.find({}, (err, data) => {
     if (data) {
@@ -134,7 +134,7 @@ exports.Complete_profile2 = async function (req, res) {
     let age = CurrentYr - Number(Yr);
     let username = data.uname;
     let height = data1.height;
-
+    let gender=data.gender;
     user_id = String(user_id);
     let profile_pic = "";
     let profile_pic_status = "Inactive";
@@ -142,6 +142,7 @@ exports.Complete_profile2 = async function (req, res) {
       ...req.body,
       user_id,
       age,
+      gender,
       username,
       height,
       profile_pic,

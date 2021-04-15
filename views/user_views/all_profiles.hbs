@@ -8,6 +8,8 @@
     <!-- Profile View section  -->
     <div class="service">
         <div class="container">
+            {{# if data}}
+           
             <!-- 15 profile in one page -->
             <!-- 15 profile in one page -->
             <!-- 15 profile in one page -->
@@ -87,7 +89,12 @@
 
                 {{/each}}
             </div>
-
+{{else}}
+ <div class="text-center text-danger">
+     <h2>No profiles to show</h2>
+        <a href="/user/my_profile" class="btn btn-info mr-3">Go to profile</a>
+     </div>
+ {{/if}}
             <!-- Previous-Next -->
             <div class="container">
                 <div class="  d-flex justify-content-between  ">

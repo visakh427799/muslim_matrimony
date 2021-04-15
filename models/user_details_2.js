@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const userDetailSchema_2=new mongoose.Schema(
     {   age:{ type: String, default: null },
+        gender:{type:String,default:null},
         username:{type: String, default: null},
         profile_pic:{type:String,default:null},
         profile_pic_status:{ type: String, enum: ['Active', 'Inactive'], default: null },

@@ -109,14 +109,20 @@ exports.ShowProfile = async function (req, res, next) {
 
 exports.showAllProfile = async function (req, res) {
   let data = await extra.find({}).lean();
-  let id=res.user.id;
-   data=data.filter((elm)=>{
-    if(elm.user_id!=id)
-    return elm
-  })
-  console.log(data);
-
-  res.render("user_views/all_profiles", { data });
+  
+    let id=res.user.id;
+    let d1=await user.findOne({_id:id});
+    console.log(d1.gender)
+     data=data.filter((elm)=>{
+       console.log(elm.user_id,id)
+      if( elm.user_id!==id&&elm.gender!==d1.gender)
+      return elm
+    })
+    console.log(data);
+  
+    res.render("user_views/all_profiles", { data });
+  
+ 
 };
 
 exports.showUserProfile = async function (req, res) {
