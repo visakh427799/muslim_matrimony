@@ -13,7 +13,7 @@ exports.Register = async function (req, res) {
   let phone = code + phonenum;
   let status = "Active";
 
-  let profile_id="";
+  let profile_id="MM1000";
 
   await user.find({}, (err, data) => {
     if (data) {

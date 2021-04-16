@@ -61,13 +61,13 @@
                         <div class="col-md-6  ">
                             <label for="">Marital Status</label>
                             <div class="control-group">
-                                <select name="marital_status" class="custom-select" required>
+                                <select name="marital_status" class="custom-select" id="mar" required>
                                     <option value="">Select</option>
-                                    <option value="Unmarried">Unmarried</option>
+                                    {{!-- <option value="Unmarried">Unmarried</option>
                                     <option value="Nikah Divorce">Nikah Divorce </option>
                                     <option value="Widowed/Widower">Widowed/Widower</option>
                                     <option value="Divorced">Divorced</option>
-                                    <option value="Awaiting divorce">Awaiting divorce</option>
+                                    <option value="Awaiting divorce">Awaiting divorce</option> --}}
 
                                 </select>
                             </div>
@@ -77,18 +77,18 @@
                                 <div class="col-md-6   ">
                                     <label for="">Children</label>
                                     <div class="control-group">
-                                        <select name="children" class="custom-select" required>
+                                        <select name="children"  class="custom-select" id="chil" required>
 
                                             <option value="">Select</option>
-                                            <option value="Yes">Yes</option>
-                                            <option value="No">No</option>
+                                            {{!-- <option value="Yes">Yes</option>
+                                            <option value="No">No</option> --}}
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6   ">
                                     <label for="">Number of Children</label>
                                     <div class="control-group">
-                                        <select name="no_children" class="custom-select" required>
+                                        <select name="no_children" class="custom-select" id="num" required>
                                             <option value="">Select</option>
                                             <option value="nil">nil</option>
                                             <option value="1">1</option>
