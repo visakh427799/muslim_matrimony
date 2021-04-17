@@ -75,9 +75,9 @@
                             else{
                                 Swal.fire({
                                             icon: 'error',
-                                            title: 'Oops...',
+                                            title: res.data.message||'Something went wrong',
                                             text: res.data.message,
-                                            footer: '<a href>Why do I have this issue?</a>'
+                                            
                                         })
                                }
                              

@@ -23,7 +23,7 @@
                 </div>
                 <div class=" col-2  ">
                     <div class=" btn-new-for-all  ">
-                        <a href="/User/login.html" class="  btn-login ">Login</a>
+                        <a href="/user/login" class="  btn-login ">Login</a>
                     </div>
                 </div>
 
@@ -31,12 +31,12 @@
             <!--4 mobile -->
             <div class="  m-view-sp">
                 <div class=" mob-view-logo  hide-min">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="/assets/images/logo.PNG" alt="Logo">
                     </a>
                 </div>
                 <div class=" btn-new-for-all  hide-min  ">
-                    <a href="/User/login.html" class="  btn-login ">Login</a>
+                    <a href="/user/login" class="  btn-login ">Login</a>
                 </div>
             </div>
 
@@ -58,44 +58,37 @@
                     </div>
 
                     <form action="/complete_profile2" method="POST" class="m-0">
-                        <div class="form-row text-white  ">
+                         <div class="form-row text-white  ">
                             <div class="col-md-6">
                                 <label for="">Country</label>
                                 <div class="control-group">
-                                    <select name="country" id="countySel" size="1" class="custom-select" required>
+                                    <select id="countySel" size="1" class="custom-select" required>
                                         <option value="" selected="selected">Select Country</option>
-
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">State</label>
                                 <div class="control-group">
-                                    <select name="state" class="custom-select" id="stateSel" size="1">
-
-                                        <option value="" selected="selected">Select State</option>
-
+                                    <select class="custom-select" id="stateSel" size="1"> 
+                                        <option value="" selected="selected">Select State</option> 
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Districts</label>
                                 <div class="control-group">
-                                    {{!-- <select name="district" class="custom-select" id="districtSel" size="1">
+                                    <select class="custom-select" id="districtSel" size="1">
                                         <option value="" selected="selected">Select </option>
-                                    </select> --}}
-                                    <input type="text" value="" name="district" class="form-control" placeholder=""
-                                    required />
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="">Place</label>
                                 <div class="control-group">
-                                    {{!-- <select class="custom-select" name="place" id="placeSel">
+                                    <select class="custom-select" id="placeSel">
                                         <option value="" selected="selected">Select Place</option>
-                                    </select> --}}
-                                    <input type="text" value="" name="place" class="form-control" placeholder=""
-                                    required />
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -291,6 +284,7 @@
 
         {{>footer}}
         <script src="/javascripts/f.js"></script>
+        <script src="../../public/javascripts/country-select.js"></script>
 
 
 </body>
