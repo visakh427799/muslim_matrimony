@@ -98,23 +98,26 @@ exports.Logout = async function (req, res) {
 
 exports.Complete_profile1 = async function (req, res) {
   console.log(req.body);
-  // if (req.cookies) {
-  //   let user_id = req.cookies.userid;
+  if (req.cookies) {
+    let user_id = req.cookies.userid;
 
-  //   user_id = String(user_id);
-  //   let personalData = { ...req.body, user_id };
-  //   console.log(personalData);
+    user_id = String(user_id);
+    let personalData = { ...req.body, user_id };
+    console.log(personalData);
 
-  //   await personal.create(personalData, (err, data) => {
-  //     if (data) {
-  //       console.log(data);
-  //       res.redirect("/user/complete_profile2");
-  //     } else {
-  //       console.log(err);
-  //       res.redirect("/user/complete_profile1");
-  //     }
-  //   });
-  // }
+    await personal.create(personalData, (err, data) => {
+      if (data) {
+        console.log(data);
+        res.redirect("/user/complete_profile2");
+      } else {
+        console.log(err);
+        res.redirect("/user/complete_profile1");
+      }
+    });
+  }
+  else{
+    res.redirect('/user/login');
+  }
 };
 
 exports.Complete_profile2 = async function (req, res) {
@@ -164,10 +167,16 @@ exports.Complete_profile2 = async function (req, res) {
       }
     });
   }
+
+  else{
+    res.redirect('/user/login')
+  }
 };
 
 exports.Profile_photo = function (req, res) {
   //
+  if(re.cookies){
+  if(req.files){
   let { img } = req.files;
 
   img.mv("./public/images/profile_images/" + img.name, (err) => {
@@ -193,8 +202,17 @@ exports.Profile_photo = function (req, res) {
       );
     }
   });
+
+}
+  }
+
+  else{
+    res.redirect('/user/login')
+  }
+
 };
 exports.Partner_preference = function (req, res) {
+  if(req.cookies){
   console.log(req.body);
   let user_id = req.cookies.userid;
   console.log(user_id);
@@ -288,4 +306,9 @@ exports.Partner_preference = function (req, res) {
       console.log(err);
     }
   });
+
+}
+else{
+  res.redirect('/user/login')
+}
 };
