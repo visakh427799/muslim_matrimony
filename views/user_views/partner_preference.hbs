@@ -88,7 +88,7 @@
                                 <label for="">Height</label>
                                 <div class="row  z-control-group ">
                                     <div class="col-md-6 mb-3 ">
-                                        <select class=" form-control" name="height" id="" required>
+                                        <select class=" form-control" name="height_from" id="" required>
                                             <option value="">From</option>
                                             {{#each heights}}
                                             <option value="{{this.height}}">{{this.height}}</option>
@@ -96,7 +96,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 mb-3 ">
-                                        <select class=" form-control" name="height" id="" required>
+                                        <select class=" form-control" name="height_to" id="" required>
                                             <option value="">To</option>
                                             {{#each heights}}
                                             <option value="{{this.height}}">{{this.height}}</option>
@@ -104,26 +104,7 @@
                                         </select>
                                     </div>
 
-                                    <div class=" col-md-6 mb-3  ">
-                                      
-                                        <select class=" form-control" name="weight" id="" required>
-                                            <option value="">From</option>
-                                            {{#each weights}}
-                                            <option value="{{this.weight}}">{{this.weight}}</option>
-                                            {{/each}}
-                                        </select>
-                                    </div>
-
-                                     <div class=" col-md-6 mb-3  ">
-                                        <label for="">Weight</label>
-                                        <select class=" form-control" name="weight" id="" required>
-                                            <option value="">To</option>
-                                            {{#each weights}}
-                                            <option value="{{this.weight}}">{{this.weight}}</option>
-                                            {{/each}}
-                                        </select>
-                                    </div>
-                                    
+                                   
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3 ">

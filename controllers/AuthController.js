@@ -97,24 +97,24 @@ exports.Logout = async function (req, res) {
 };
 
 exports.Complete_profile1 = async function (req, res) {
-  // console.log(req.body);
-  if (req.cookies) {
-    let user_id = req.cookies.userid;
+  console.log(req.body);
+  // if (req.cookies) {
+  //   let user_id = req.cookies.userid;
 
-    user_id = String(user_id);
-    let personalData = { ...req.body, user_id };
-    console.log(personalData);
+  //   user_id = String(user_id);
+  //   let personalData = { ...req.body, user_id };
+  //   console.log(personalData);
 
-    await personal.create(personalData, (err, data) => {
-      if (data) {
-        console.log(data);
-        res.redirect("/user/complete_profile2");
-      } else {
-        console.log(err);
-        res.redirect("/user/complete_profile1");
-      }
-    });
-  }
+  //   await personal.create(personalData, (err, data) => {
+  //     if (data) {
+  //       console.log(data);
+  //       res.redirect("/user/complete_profile2");
+  //     } else {
+  //       console.log(err);
+  //       res.redirect("/user/complete_profile1");
+  //     }
+  //   });
+  // }
 };
 
 exports.Complete_profile2 = async function (req, res) {
@@ -156,8 +156,8 @@ exports.Complete_profile2 = async function (req, res) {
     await extra.create(personalData, (err, data) => {
       if (data) {
         console.log(data);
-
-        res.redirect("/user/profile_photo");
+        res.redirect("/user/partner_Preference");
+       
       } else {
         console.log(err);
         res.redirect("/user/complete_profile2");
@@ -186,7 +186,8 @@ exports.Profile_photo = function (req, res) {
         (err, data) => {
           if (err) console.log(err);
           else {
-            res.redirect("/user/partner_Preference");
+            res.redirect("/user/my_profile");
+            
           }
         }
       );
@@ -201,8 +202,8 @@ exports.Partner_preference = function (req, res) {
   const {
     age_from,
     age_to,
-    height,
-    weight,
+    height_from,
+    height_to,
     m1,
     m2,
     m3,
@@ -264,8 +265,8 @@ exports.Partner_preference = function (req, res) {
   let partnerObj = {
     age_from,
     age_to,
-    height,
-    weight,
+    height_from,
+    height_to,
     m_status,
     p_status,
     p_sect,
@@ -282,7 +283,7 @@ exports.Partner_preference = function (req, res) {
   partner.create(partnerObj, (err, data) => {
     if (data) {
       console.log(data);
-      res.redirect("/user/my_profile");
+      res.redirect("/user/profile_photo");
     } else {
       console.log(err);
     }

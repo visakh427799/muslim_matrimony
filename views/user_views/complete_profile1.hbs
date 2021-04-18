@@ -71,10 +71,40 @@
 
                                 </select>
                             </div>
+                            <script>
+                                let mar=document.getElementById("mar");
+                              
+                                mar.addEventListener('input', func1);
+                               
+                           
+
+                                function func1(){
+                                    console.log(mar.value)
+                                   if(mar.value=="Unmarried"||mar.value=="Nikah Divorce"){
+                                        let chil=document.getElementById("col1");
+                                       let num=document.getElementById("col2");
+                                          document.getElementById('chil').required=false;
+                                          document.getElementById('num').required=false;
+                                        chil.style.display = "none";
+                                        num.style.display = "none";
+                                   }
+                                   else{
+                                       let chil=document.getElementById("col1");
+                                       let num=document.getElementById("col2");
+                                        chil.style.display = "block";
+                                        num.style.display = "block";
+                                        document.getElementById('chil').required=true;
+                                          document.getElementById('num').required=true;
+                                       
+  
+                                }
+                                } 
+                                
+                            </script>
                         </div>
                         <div class="col-md-6">
                             <div class="row">
-                                <div class="col-md-6   ">
+                                <div class="col-md-6   " id="col1">
                                     <label for="">Children</label>
                                     <div class="control-group">
                                         <select name="children"  class="custom-select" id="chil" required>
@@ -85,7 +115,26 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6   ">
+                                <script>
+                                      let  chil=document.getElementById("chil");
+                                       chil.addEventListener('input', func2);
+                                function func2(){
+                                    console.log(chil.value);
+                                   if(chil.value=="No"){
+                                        
+                                       let num=document.getElementById("col2");
+                                          document.getElementById("num").required=false;
+                                        num.style.display = "none";
+                                   }
+                                   else{
+                                     
+                                       let num=document.getElementById("col2");
+                                       document.getElementById("num").required=true;
+                                        num.style.display = "block";
+                                   }
+                                }
+                                </script>
+                                <div class="col-md-6   " id="col2">
                                     <label for="">Number of Children</label>
                                     <div class="control-group">
                                         <select name="no_children" class="custom-select" id="num" required>

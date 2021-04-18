@@ -7,8 +7,8 @@ const partnerShema=new Schema({
 
     age_from:{type:String,default:'18'},
     age_to:{type:String,default:'35'},
-    height:{type:String,default:'5.5ft -167cm'},
-    weight:{type:String,default:'60'},
+    height_from:{type:String,default:'40'},
+    height_to:{type:String,default:'80'},
     m_status:{type:Array,default:['Any']},
     p_status:{type:Array,default:['Any']},
     p_sect:{type:Array,default:['Any']},
