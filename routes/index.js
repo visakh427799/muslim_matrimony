@@ -23,11 +23,7 @@ router.get("/user/login", Verify, function (req, res, next) {
 });
 router.get("/user/my_profile", Verify, ShowProf.ShowProfile);
 router.get("/user/profile/:id",Verify,ShowProf.showUserProfile);
-router.get("/user/edit_profile",Verify,(req,res)=>{
-  let img=req.cookies.user_img;
-  let pr_id=req.cookies.pr_id;
-  res.render("user_views/edit_profile",{heights,weights,img,pr_id,newArr});
-})
+router.get("/user/edit_profile",Verify,EditProf.editProfile);
 
 router.get("/user/complete_profile1", function (req, res, next) {
  
@@ -75,7 +71,7 @@ router.post("/complete_profile1", Auth.Complete_profile1);
 router.post("/complete_profile2", Auth.Complete_profile2);
 router.post("/partner_preference", Auth.Partner_preference);
 router.post("/profile_photo",Auth.Profile_photo);
-router.post("/edit_profile",EditProf.EditProfile);
+router.post("/edit_profile",Verify,EditProf.EditProfile);
 router.post("/edit_profile_pic",Verify,EditProf.EditProfilePic);
 router.post("/delete_account",Verify,EditProf.deleteAccount);
 router.post("/change_password",EditProf.changePassword);

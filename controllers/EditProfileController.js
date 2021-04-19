@@ -6,9 +6,53 @@ const shortlist = require('../models/shortlisted_profiles');
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
+var C_Codes = require("../utils/datas");
+const newArr = C_Codes.CountryCodes();
+const heights = C_Codes.Heights();
+const weights = C_Codes.Weights();
 
-exports.EditProfile = function (req, res) {
+exports.EditProfile = async function (req, res) {
   console.log(req.body);
+    if(res.user){
+
+     let u_id=res.user.id;
+     console.log(u_id)
+
+     let {marital_status,children,no_children,dob,height,weight,religion,sect,complexion,body_type,physical_status,mother_tongue,education,job}=req.body;
+     let pers={
+      marital_status:marital_status ,
+      children:children,
+      no_children:no_children ,
+      dob:dob ,
+      height:height ,
+      weight:weight ,
+      religion: religion,
+      sect:sect ,
+      complexion: complexion,
+      body_type:body_type ,
+      physical_status:physical_status ,
+      mother_tongue:mother_tongue ,
+      education:education ,
+      job:job ,
+      user_id:u_id,
+     }
+
+     console.log(pers);
+
+     let d1=await personal.findOneAndReplace({user_id:u_id},pers);
+     if(d1){
+       console.log(d1);
+     }
+
+    }
+  
+
+
+
+
+
+
+
 };
 exports.EditProfilePic = async function (req, res) {
   console.log(req.files);
@@ -287,4 +331,110 @@ exports.deleteShortlist=async function(req,res){
 
 
   
+}
+
+exports.editProfile=async (req,res)=>{
+
+  if (res.user) {
+    console.log(res.user);
+    let id = res.user.id;
+    let data = await user.findOne({ _id: id });
+    let { _id, role, uname, gender, phone, email, profile_id } = data;
+    let data2 = await personal.findOne({ user_id: id });
+    let data3 = await extra.findOne({ user_id: id });
+    let data4 = await partner.findOne({ user_id: id });
+    const {
+      dob,
+      religion,
+      sect,
+      height,
+      weight,
+      marital_status,
+      children,
+      no_children,
+      complexion,
+      body_type,
+      job,
+      physical_status,
+      mother_tongue,
+      education,
+    } = data2;
+    let {
+      age,
+      username,
+      profile_pic,
+      profile_pic_status,
+      country,
+      state,
+      place,
+      district,
+      financial_status,
+      home_type,
+      father_details,
+      mother_details,
+      no_sisters,
+      no_brothers,
+      address,
+      about,
+    } = data3;
+    let pro_img = profile_pic;
+    // if(profile_pic_status=="Inactive"){
+    //   profile_pic=""
+    // }
+
+    let userObj = {
+      _id: _id,
+      uname: uname,
+      role: role,
+      dob: dob,
+      gender: gender,
+      phone: phone,
+      religion: religion,
+      email: email,
+      sect: sect,
+      profile_id: profile_id,
+      profile_pic: profile_pic,
+      height: height,
+      weight: weight,
+      marital_status: marital_status,
+      children: children,
+      no_children: no_children,
+      complexion: complexion,
+      body_type: body_type,
+      physical_status: physical_status,
+      mother_tongue: mother_tongue,
+      education: education,
+      job: job,
+      age: age,
+    };
+
+    let userExtra = {
+      about: about,
+      country: country,
+      state: state,
+      place: place,
+      district: district,
+      financial_status: financial_status,
+      home_type: home_type,
+      father_details: father_details,
+      mother_details: mother_details,
+      no_sisters: no_sisters,
+      no_brothers: no_brothers,
+      address: address,
+    };
+
+    let userPrefer = { ...data4 };
+    userPrefer = userPrefer._doc;
+console.log(userExtra)
+    
+  let img=req.cookies.user_img;
+  let pr_id=req.cookies.pr_id;
+  res.render("user_views/edit_profile",{heights,weights,img,pr_id,newArr,userObj,
+    userExtra,
+    userPrefer,});
+
+  }
+
+
+
 }
