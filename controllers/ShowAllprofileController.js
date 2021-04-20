@@ -100,6 +100,8 @@ exports.ShowProfile = async function (req, res, next) {
     let userPrefer = { ...data4 };
     userPrefer = userPrefer._doc;
     // console.log(userPrefer)
+    console.log(pro_img);
+    console.log(profile_pic_status);
     res.cookie("user_img", pro_img);
     res.cookie("pr_id", profile_id);
 

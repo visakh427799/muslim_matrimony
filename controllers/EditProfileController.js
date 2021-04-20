@@ -12,12 +12,15 @@ const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
 const mongoose = require('mongoose')
 exports.EditProfile = async function (req, res) {
-  console.log(req.body);
+  // console.log(req.body);
     if(res.user){
 
      let u_id=res.user.id;
-     console.log(u_id)
-
+     let id=u_id;
+    //  console.log(u_id)
+     u_id=mongoose.Types.ObjectId(u_id);
+     let d=await extra.findOne({user_id:u_id});
+     let d5=await user.findOne({_id:u_id});
      let {email,role,marital_status,children,no_children,dob,height,weight,religion,sect,complexion,body_type,physical_status,mother_tongue,education,job,country,state,district,place,financial_status,home_type,father_details,mother_details,no_sisters,no_brothers,address,p_code,phone_second,w_code,whatsapp_number,about,uname,phonenum,age,gender,pro_img,pro_img_code}=req.body;
      let pers={
       marital_status:marital_status ,
@@ -40,8 +43,8 @@ exports.EditProfile = async function (req, res) {
   
       age:age,
       gender:gender,
-      profile_pic:pro_img,
-      profile_pic_status:pro_img_code,
+      profile_pic:d.profile_pic,
+      profile_pic_status:d.profile_pic_status,
       username:uname,
       height:height,
       country:country ,
@@ -66,34 +69,42 @@ exports.EditProfile = async function (req, res) {
     let usr={
       role:role,
       uname:uname,
-    
+      gender:gender,
       phone:phonenum,
       email:email,
+      password:d5.password,
+      status:d5.status,
+      profile_id:d5.profile_id,
+      created_at:d5.created_at,
+      deleted_at:d5.deleted_at
 
       
     }
-     console.log(extras);
-    //  let d=await extra.findOne({_id:u_id});
-    //  let d1=await personal.findOneAndReplace({user_id:u_id},pers);
-    //  if(d1){
-    //   //  console.log(d1);
-    //    res.redirect("/user/my_profile");
+     console.log(usr);
+     
+     
 
-    //  }
+
+     let d1=await personal.findOneAndReplace({user_id:id},pers);
+     if(d1){
+      //  console.log(d1);
+      let d2=await extra.findOneAndReplace({user_id:id},extras)
+      if(d2){
+    
+        u_id=mongoose.Types.ObjectId(u_id)
+        let d3=await user.findOneAndReplace({_id:u_id },usr)   
+        if(d3){
+          res.redirect("/user/my_profile");
+   
+            }
+      }
+
+     }
 // console.log(per)
 
-    //  let d2=await extra.findOneAndReplace({user_id:u_id},extras)
-    //      if(d2){
-    //    res.redirect("/user/my_profile");
+    
 
-    //      }
-
-    //   // u_id=mongoose.ObjectID(u_id);
-    //   let d3=await user.findOneAndReplace({_id: mongoose.Types.ObjectId(u_id)},usr)   
-    //   if(d3){
-    //     res.redirect("/user/my_profile");
- 
-    //       }
+    
     
     }
   
@@ -393,7 +404,9 @@ exports.editProfile=async (req,res)=>{
     let { _id, role, uname, gender, phone, email, profile_id } = data;
     let data2 = await personal.findOne({ user_id: id });
     let data3 = await extra.findOne({ user_id: id });
+    console.log(id)
     let data4 = await partner.findOne({ user_id: id });
+    
     const {
       dob,
       religion,
@@ -485,7 +498,7 @@ exports.editProfile=async (req,res)=>{
 
     let userPrefer = { ...data4 };
     userPrefer = userPrefer._doc;
-console.log(userExtra)
+    console.log(userPrefer)
     
   let img=req.cookies.user_img;
   let pr_id=req.cookies.pr_id;

@@ -73,11 +73,10 @@
                     <div class="view-profile-img view-profile mt-3">
                         <h2 class="text-center text-info ">Edit profile</h2>
                         <form action="/edit_profile" method="POST">
-                      <input type="hidden" value={{userObj.profile_pic}} name="pro_img">
-                       <input type="hidden" value={{userObj.profile_pic_status}} name="pro_img_code">
+                     
                             <div class="cnt-test-div border-bottom">
                                 <h3 class="text-primary">About Myself</h3>
-                                <textarea name="" id=""  class="form-control" maxlength="170 " cols="58"
+                                <textarea name="about" id=""  class="form-control" maxlength="170 " cols="58"
                                     rows="3">{{userExtra.about}}</textarea>
                             </div>
                             <div class="cnt-test-div border-top border-bottom">
@@ -90,7 +89,7 @@
                                         <div class="control-group">
                                             <select class="custom-select" name="role" required>
                                                 <option name="role" value={{userObj.role}}>{{userObj.role}}</option>
-                                                <option name="role" value="My self">My Self</option>
+                                                <option name="role" value="My self">My self</option>
                                                 <option name="role" value="Parents">Parents</option>
                                                 <option name="role" value="Sister">Sister</option>
                                                 <option name="role" value="Brother">Brother</option>
@@ -103,7 +102,7 @@
                                         <p>Name</p>
                                     </div>
                                     <div class="col">
-                                        <input class="form-control"  value={{userObj.uname}} type="text" placeholder="Name" id="" name="uname"
+                                        <input class="form-control"  value={{userObj.uname}} type="text"  id="" name="uname"
                                             required>
 
                                     </div>
@@ -690,138 +689,121 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="user-inf">
-                                <div class="col">
-                                    <p><strong>Marital Status</strong></p>
-                                </div>
-                                <div class="col">
-                                    <div class="control-group">
-                                        <ul class="ks-cboxtags">
-                                            <li>
-                                                <input name="m1"  value={{userPrefer.m_status}} type="checkbox" id="ms-any" value="Any" checked>
-                                                <label for="ms-any">Any</label>
-                                            </li>
-                                            <li>
-                                                <input name="m2" type="checkbox" id="unmarried" value="Unmarried">
-                                                <label for="unmarried">Unmarried</label>
-                                            </li>
-                                            <li>
-                                                <input name="m3" type="checkbox" id="n_divorce" value="Nikah Divorce">
-                                                <label for="n_divorce">Nikah Divorce</label>
-                                            </li>
-                                            <li>
-                                                <input name="m4" type="checkbox" id="divorce" value="Divorce">
-                                                <label for="divorce">Divorce</label>
-                                            </li>
-                                            <li>
-                                                <input name="m5" type="checkbox" id="a_divorce"
-                                                    value="Awaiting Divorce">
-                                                <label for="a_divorce">Awaiting Divorce</label>
-                                            </li>
-                                            <li>
-                                                <input name="m6" type="checkbox" id="widow" value="Widow/Widows">
-                                                <label for="widow">Widow/Widower</label>
-                                            </li>
-
-
-
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-inf">
-                                <div class="col">
-                                    <p><strong>Physical Status</strong></p>
-                                </div>
-                                <div class="col">
-                                    <div class="control-group">
-                                        <ul class="ks-cboxtags">
-                                            <li>
-                                                <input type="checkbox" id="ps-any" value={{userPrefer.p_status}} name="p1" checked>
-                                                <label for="ps-any">Any</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="ps-normal_person" value="Normal person"
-                                                    name="p2">
-                                                <label for="ps-normal_person">Normal Person</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="ps-unnormal_person"
-                                                    value="Physically Challenged Person" name="p3">
-                                                <label for="ps-unnormal_person">Physically Challenged
-                                                    Person</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-inf">
-                                <div class="col">
-                                    <p>Sect</p>
-                                </div>
-                                <div class="col">
-                                    <div class="control-group">
-                                        <ul class="ks-cboxtags">
-                                            <li>
-                                                <input type="checkbox" id="sect-any" value={{userPrefer.p_sect}} name="s1" checked>
-                                                <label for="sect-any">Any</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-sunni" value="Sunni" name="s2">
-                                                <label for="sect-sunni">Sunni</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-sunni_ek" value="Sunni-Ek" name="s3">
-                                                <label for="sect-sunni_ek">Sunni-Ek</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-sunni_ap" value="Sunni-AP" name="s4">
-                                                <label for="sect-sunni_ap">Sunni-AP</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-shafisunni" value="Shafi-Sunni"
-                                                    name="s5">
-                                                <label for="sect-shafisunni">Shafi-Sunni</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-hanafisunni" value="Hanafi-Sunni"
-                                                    name="s6">
-                                                <label for="sect-hanafisunni">Hanafi-Sunni</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-hanafi" value="Hanafi" name="s7">
-                                                <label for="sect-hanafi">Hanafi</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-shafi" value="Shafi" name="s8">
-                                                <label for="sect-shafi">Shafi</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-slafi" value="Salafi" name='s9'>
-                                                <label for="sect-slafi">Salafi</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-j_e_islami" value="Jamaat e Islami"
-                                                    name="s10">
-                                                <label for="sect-j_e_islami">Jamaat e Islami</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="sect-tablighi" value="Tablighi Jamaat"
-                                                    name="s11">
-                                                <label for="sect-tablighi">Tablighi Jamaat</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user-inf">
-                                <div class="col">
-                                    <p>Education</p>
-                                </div>
-                                <div class="col">
+                            <div class="col-md-6 mb-3 ">
+                                <label for="">Marital Status</label>
+                                <div class="control-group">
                                     <ul class="ks-cboxtags">
                                         <li>
-                                            <input type="checkbox" id="education-any" value={{userPrefer.education}}  name="e1" checked>
+                                            <input name="m1" type="checkbox" id="ms-any" value="Any" checked>
+                                            <label for="ms-any">Any</label>
+                                        </li>
+                                        <li>
+                                            <input name="m2" type="checkbox" id="unmarried" value="Unmarried">
+                                            <label for="unmarried">Unmarried</label>
+                                        </li>
+                                        <li>
+                                            <input name="m3" type="checkbox" id="n_divorce" value="Nikah Divorce">
+                                            <label for="n_divorce">Nikah Divorce</label>
+                                        </li>
+                                        <li>
+                                            <input name="m4" type="checkbox" id="divorce" value="Divorce">
+                                            <label for="divorce">Divorce</label>
+                                        </li>
+                                        <li>
+                                            <input name="m5" type="checkbox" id="a_divorce" value="Awaiting Divorce">
+                                            <label for="a_divorce">Awaiting Divorce</label>
+                                        </li>
+                                        <li>
+                                            <input name="m6" type="checkbox" id="widow" value="Widow/Widows">
+                                            <label for="widow">Widow/Widower</label>
+                                        </li>
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3 ">
+                                <label for="">Physical Status</label>
+                                <div class="control-group">
+                                    <ul class="ks-cboxtags">
+                                        <li>
+                                            <input type="checkbox" id="ps-any" value="Any" name="p1" checked>
+                                            <label for="ps-any">Any</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="ps-normal_person" value="Normal person"
+                                                name="p2">
+                                            <label for="ps-normal_person">Normal Person</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="ps-unnormal_person"
+                                                value="Physically Challenged Person" name="p3">
+                                            <label for="ps-unnormal_person">Physically Challenged Person</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3  ">
+                                <label for="">Sect</label>
+                                <div class="control-group">
+                                    <ul class="ks-cboxtags">
+                                        <li>
+                                            <input type="checkbox" id="sect-any" value="Any" name="s1" checked>
+                                            <label for="sect-any">Any</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-sunni" value="Sunni" name="s2">
+                                            <label for="sect-sunni">Sunni</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-sunni_ek" value="Sunni-Ek" name="s3">
+                                            <label for="sect-sunni_ek">Sunni-Ek</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-sunni_ap" value="Sunni-AP" name="s4">
+                                            <label for="sect-sunni_ap">Sunni-AP</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-shafisunni" value="Shafi-Sunni" name="s5">
+                                            <label for="sect-shafisunni">Shafi-Sunni</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-hanafisunni" value="Hanafi-Sunni" name="s6">
+                                            <label for="sect-hanafisunni">Hanafi-Sunni</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-hanafi" value="Hanafi" name="s7">
+                                            <label for="sect-hanafi">Hanafi</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-shafi" value="Shafi" name="s8">
+                                            <label for="sect-shafi">Shafi</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-slafi" value="Salafi" name='s9'>
+                                            <label for="sect-slafi">Salafi</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-j_e_islami" value="Jamaat e Islami"
+                                                name="s10">
+                                            <label for="sect-j_e_islami">Jamaat e Islami</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sect-tablighi" value="Tablighi Jamaat"
+                                                name="s11">
+                                            <label for="sect-tablighi">Tablighi Jamaat</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3  ">
+                                <label for="">Education</label>
+                                <div class="control-group">
+                                    <ul class="ks-cboxtags">
+                                        <li>
+                                            <input type="checkbox" id="education-any" value="Any" name="e1" checked>
                                             <label for="education-any">Any</label>
                                         </li>
                                         <li>
@@ -843,8 +825,7 @@
                                         <li>
                                             <input type="checkbox" id="education-religious_education"
                                                 value="Religious Education" name="e6">
-                                            <label for="education-religious_education">Religious
-                                                Education</label>
+                                            <label for="education-religious_education">Religious Education</label>
                                         </li>
                                         <li>
                                             <input type="checkbox" id="education-plus2" value="Plus Two / Pre Degree"
@@ -863,46 +844,39 @@
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="user-inf">
-                                <div class="col">
-                                    <p>Financial Status</p>
-                                </div>
-                                <div class="col">
-                                    <div class="control-group">
-                                        <ul class="ks-cboxtags">
-                                            <li>
-                                                <input type="checkbox" id="fs-any" value={{userPrefer.fin_status}} name="f1" checked>
-                                                <label for="fs-any">Any</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="fs-rich" value="Rich Family" name="f2">
-                                                <label for="fs-rich">Rich Family</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="fs-upper" value="Upper Middle Class Family"
-                                                    name="f3">
-                                                <label for="fs-upper">Upper Middle Class Family</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="fs-middle" value="Middle Class Family"
-                                                    name="f4">
-                                                <label for="fs-middle">Middle Class Family</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="fs-lower_middle"
-                                                    value="Lower Middle Class Family" name="f5">
-                                                <label for="fs-lower_middle">Lower Middle Class Family</label>
-                                            </li>
-                                            <li>
-                                                <input type="checkbox" id="fs-poor" value="Poor Family" name="f6">
-                                                <label for="fs-poor">Poor Family</label>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            <div class="col-md-6 mb-3  ">
+                                <label for="">Financial Status</label>
+                                <div class="control-group">
+                                    <ul class="ks-cboxtags">
+                                        <li>
+                                            <input type="checkbox" id="fs-any" value="Any" name="f1" checked>
+                                            <label for="fs-any">Any</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="fs-rich" value="Rich Family" name="f2">
+                                            <label for="fs-rich">Rich Family</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="fs-upper" value="Upper Middle Class Family"
+                                                name="f3">
+                                            <label for="fs-upper">Upper Middle Class Family</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="fs-middle" value="Middle Class Family" name="f4">
+                                            <label for="fs-middle">Middle Class Family</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="fs-lower_middle"
+                                                value="Lower Middle Class Family" name="f5">
+                                            <label for="fs-lower_middle">Lower Middle Class Family</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="fs-poor" value="Poor Family" name="f6">
+                                            <label for="fs-poor">Poor Family</label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-
                             <div class="user-inf">
                                 <div class="col">
                                     <p>Present Country</p>
@@ -910,7 +884,7 @@
                                 <div class="col">
                                     <div class="control-group">
                                         <select id="countySel" size="1" class="custom-select" name="country">
-                                            <option value={{userPrefer.country}} selected="selected">country</option>
+                                            <option value={{userPrefer.country}} selected="selected">{{userPrefer.country}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -922,7 +896,7 @@
                                 <div class="col">
                                     <div class="control-group">
                                         <select class="custom-select" id="stateSel" size="1" name="state">
-                                            <option value={{userPrefer.state}} selected="selected">Select</option>
+                                            <option value={{userPrefer.state}} selected="selected">{{userPrefer.state}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -935,7 +909,7 @@
                             </div>
                             <div class="col">
                                 <div class="control-group">
-                                    <select class="custom-select" id="districtSel" multiple name="district">
+                                    <select class="custom-select" id="districtSel" name="district">
                                         <option value={{userPrefer.district}} selected="selected">{{userPrefer.district}}</option>
                                     </select>
                                 </div>
@@ -953,14 +927,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="user-inf">
-                            <div class="col">
-                                <p>Other Preferred Location</p>
-                            </div>
-                            <div class="col">
-                                <input class="form-control" type="text" placeholder=" ">
-                            </div>
-                        </div>
+                        
                         <div class="user-inf">
                             <div class="col">
                                 <p>Tell About your Partner</p>
