@@ -5,7 +5,7 @@ const userDetailSchema_2=new mongoose.Schema(
         gender:{type:String,default:null},
         username:{type: String, default: null},
         profile_pic:{type:String,default:null},
-        profile_pic_status:{ type: String, enum: ['Active', 'Inactive'], default: null },
+        profile_pic_status:{ type: String, enum: ['Active', 'Inactive']},
         height: { type: String, default: null },
         country: { type: String, default: null },
         state: { type: String, default: null },

@@ -32,6 +32,7 @@ exports.ShowProfile = async function (req, res, next) {
     let {
       age,
       username,
+      
       profile_pic,
       profile_pic_status,
       country,
@@ -63,7 +64,8 @@ exports.ShowProfile = async function (req, res, next) {
       email: email,
       sect: sect,
       profile_id: profile_id,
-      profile_pic: profile_pic,
+      profile_pic:pro_img,
+      profile_pic_status:profile_pic_status,
       height: height,
       weight: weight,
       marital_status: marital_status,
@@ -79,6 +81,8 @@ exports.ShowProfile = async function (req, res, next) {
     };
 
     let userExtra = {
+      age:age,
+      gender:gender,
       about: about,
       country: country,
       state: state,

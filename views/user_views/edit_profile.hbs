@@ -73,6 +73,8 @@
                     <div class="view-profile-img view-profile mt-3">
                         <h2 class="text-center text-info ">Edit profile</h2>
                         <form action="/edit_profile" method="POST">
+                      <input type="hidden" value={{userObj.profile_pic}} name="pro_img">
+                       <input type="hidden" value={{userObj.profile_pic_status}} name="pro_img_code">
                             <div class="cnt-test-div border-bottom">
                                 <h3 class="text-primary">About Myself</h3>
                                 <textarea name="" id=""  class="form-control" maxlength="170 " cols="58"
@@ -102,6 +104,27 @@
                                     </div>
                                     <div class="col">
                                         <input class="form-control"  value={{userObj.uname}} type="text" placeholder="Name" id="" name="uname"
+                                            required>
+
+                                    </div>
+                                </div>
+
+                                <div class="  user-inf">
+                                    <div class="col">
+                                        <p>Age</p>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control"  readonly value={{userObj.age}} type="text" placeholder="Name" id="" name="age"
+                                            required>
+
+                                    </div>
+                                </div>
+                                <div class="  user-inf">
+                                    <div class="col">
+                                        <p>Gender</p>
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control"  readonly value={{userObj.gender}} type="text" placeholder="Name" id="" name="gender"
                                             required>
 
                                     </div>
@@ -527,7 +550,7 @@
                                             <label for="" class="mb-0">Country Code</label>
                                             <select class=" form-control" name="code" id="" required>
     
-                                                <option value=""></option>
+                                                <option value={{userExtra.p_code}}>{{userExtra.p_code}}</option>
                                                 {{#each newArr}}
                                                 <option name="code" value="{{this.dial_code}}">{{this.dial_code}}-
                                                     {{this.name}}</option>
@@ -537,7 +560,7 @@
                                         <div class=" col-md-8      ">
                                             <label for="" class="mb-0">Phone Number</label>
 
-                                            <input type="text" name="phonenum"value={{userObj.phone}}  id="" class=" form-control " required>
+                                            <input type="text" name="phonenum" value={{userObj.phone}}  id="" class=" form-control " required>
                                         </div>
                                     </div>
                                 </div>
@@ -546,8 +569,8 @@
                                     <div class=" row  ">
                                         <div class=" col-md-4    ">
                                             <label for="" class="mb-0">Country Code</label>
-                                            <select class=" form-control" name="p_code" id="" required>
-                                                <option value="">select</option>
+                                            <select  class=" form-control" name="p_code" id="" required>
+                                                <option value={{userExtra.p_code}}>{{userExtra.p_code}}</option>
                                                 {{#each newArr}}
                                                 <option name="code" value="{{this.dial_code}}">{{this.dial_code}}-
                                                     {{this.name}}</option>
@@ -556,7 +579,7 @@
                                         </div>
                                         <div class=" col-md-8      ">
                                             <label for="" class="mb-0">Phone Number</label>
-                                            <input type="text" name="phone_second" id="" class=" form-control "
+                                            <input value={{userExtra.phone_second}}  type="text" name="phone_second" id="" class=" form-control "
                                                 required>
 
                                         </div>
@@ -568,7 +591,7 @@
                                         <div class=" col-md-4    ">
                                             <label for="" class="mb-0">Country Code</label>
                                             <select class=" form-control" name="w_code" id="" required>
-                                                <option value="">Code</option>
+                                                <option value={{userExtra.w_code}}>{{userExtra.w_code}}</option>
                                                 <option value="">select</option>
                                                 {{#each newArr}}
                                                 <option name="code" value="{{this.dial_code}}">{{this.dial_code}}-
@@ -578,7 +601,7 @@
                                         </div>
                                         <div class=" col-md-8      ">
                                             <label for="" class="mb-0">Phone Number</label>
-                                            <input type="text" name="whatsapp_number" id="" class=" form-control "
+                                            <input type="text" name="whatsapp_number" value={{userExtra.whatsapp_number}} id="" class=" form-control "
                                                 required>
                                         </div>
                                     </div>
