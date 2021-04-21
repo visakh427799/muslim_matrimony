@@ -12,7 +12,7 @@ const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
 const mongoose = require('mongoose')
 exports.EditProfile = async function (req, res) {
-  // console.log(req.body);
+  console.log(req.body);
     if(res.user){
 
      let u_id=res.user.id;
@@ -74,6 +74,8 @@ exports.EditProfile = async function (req, res) {
       email:email,
       password:d5.password,
       status:d5.status,
+      otp:d5.otp,
+      email_verified:d5.email_verified,
       profile_id:d5.profile_id,
       created_at:d5.created_at,
       deleted_at:d5.deleted_at
@@ -82,7 +84,86 @@ exports.EditProfile = async function (req, res) {
     }
      console.log(usr);
      
-     
+  const {
+    age_from,
+    age_to,
+    height_from,
+    height_to,
+    m1,
+    m2,
+    m3,
+    m4,
+    m5,
+    m6,
+    p1,
+    p2,
+    p3,
+    s1,
+    s2,
+    s3,
+    s4,
+    s5,
+    s6,
+    s7,
+    s8,
+    s9,
+    s10,
+    s11,
+    e1,
+    e2,
+    e3,
+    e4,
+    e5,
+    e6,
+    e7,
+    e8,
+    f1,
+    f2,
+    f3,
+    f4,
+    f5,
+    f6,
+    country_p,
+    state_p,
+    district_p,
+    place_p,
+    about_p,
+  } = req.body;
+  let m_status = [m1, m2, m3, m4, m5, m6].filter(function (element) {
+    return element !== undefined;
+  });
+  let p_status = [p1, p2, p3].filter(function (element) {
+    return element !== undefined;
+  });
+  let p_sect = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11].filter(function (
+    element
+  ) {
+    return element !== undefined;
+  });
+  let edu = [e1, e2, e3, e4, e5, e6, e7, e8].filter(function (element) {
+    return element !== undefined;
+  });
+  let fin_status = [f1, f2, f3, f4, f5, f6].filter(function (element) {
+    return element !== undefined;
+  });
+
+  let partnerObj = {
+    age_from:age_from,
+    age_to:age_to,
+    height_from:height_from,
+    height_to:height_to,
+    m_status:m_status,
+    p_status:p_status,
+    p_sect:p_status,
+    education:edu,
+    fin_status:fin_status,
+    country:country_p,
+    state:state_p,
+    district:district_p,
+    place:place_p,
+    about:about_p,
+    user_id:u_id,
+  };
 
 
      let d1=await personal.findOneAndReplace({user_id:id},pers);
@@ -94,7 +175,10 @@ exports.EditProfile = async function (req, res) {
         u_id=mongoose.Types.ObjectId(u_id)
         let d3=await user.findOneAndReplace({_id:u_id },usr)   
         if(d3){
-          res.redirect("/user/my_profile");
+               let d4=await partner.findOneAndReplace({user_id:u_id},partnerObj)
+               if(d4){
+                res.redirect("/user/my_profile");
+               }
    
             }
       }
@@ -398,13 +482,13 @@ exports.deleteShortlist=async function(req,res){
 exports.editProfile=async (req,res)=>{
 
   if (res.user) {
-    console.log(res.user);
+    // console.log(res.user);
     let id = res.user.id;
     let data = await user.findOne({ _id: id });
     let { _id, role, uname, gender, phone, email, profile_id } = data;
     let data2 = await personal.findOne({ user_id: id });
     let data3 = await extra.findOne({ user_id: id });
-    console.log(id)
+    // console.log(id)
     let data4 = await partner.findOne({ user_id: id });
     
     const {
@@ -498,7 +582,7 @@ exports.editProfile=async (req,res)=>{
 
     let userPrefer = { ...data4 };
     userPrefer = userPrefer._doc;
-    console.log(userPrefer)
+    // console.log(userPrefer)
     
   let img=req.cookies.user_img;
   let pr_id=req.cookies.pr_id;
@@ -511,3 +595,4 @@ exports.editProfile=async (req,res)=>{
 
 
 }
+

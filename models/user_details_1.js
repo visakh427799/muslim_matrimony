@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userDetailSchema_1 = new mongoose.Schema({
   marital_status: { type: String, default: null },
-  children: { type: String, default: null, enum: ["Yes", "No"] },
+  children: { type: String, default: null},
   no_children: { type: String, default: null },
   dob: { type: String, default: null },
   height: { type: String, default: null },

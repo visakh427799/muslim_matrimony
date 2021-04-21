@@ -7,12 +7,14 @@ const C_Codes = require("../utils/datas");
 const tokenCreate = require("../utils/tokeCreate");
 const profileCode = require("../utils/profileCodeGenerator");
 const storage = require("node-sessionstorage");
-
+const nodemailer = require('nodemailer');
+const otp      = require('../utils/otpGenerator');
 exports.Register = async function (req, res) {
   const { role, uname, gender, phonenum, code, email, password } = req.body;
   let phone = code + phonenum;
   let status = "Active";
-
+  let otp="";
+  let email_verified=false;
   let profile_id="MM1000";
 
   await user.find({}, (err, data) => {
@@ -40,6 +42,8 @@ exports.Register = async function (req, res) {
     email,
     password,
     status,
+    otp,
+    email_verified,
     profile_id,
   };
   let newArr = C_Codes.CountryCodes();
@@ -175,8 +179,9 @@ exports.Complete_profile2 = async function (req, res) {
 
 exports.Profile_photo = function (req, res) {
   //
-  if(re.cookies){
+  
   if(req.files){
+    console.log(req.files)
   let { img } = req.files;
 
   img.mv("./public/images/profile_images/" + img.name, (err) => {
@@ -195,7 +200,7 @@ exports.Profile_photo = function (req, res) {
         (err, data) => {
           if (err) console.log(err);
           else {
-            res.redirect("/user/my_profile");
+            res.redirect("/user/email_verification");
             
           }
         }
@@ -204,11 +209,11 @@ exports.Profile_photo = function (req, res) {
   });
 
 }
-  }
+  
 
-  else{
-    res.redirect('/user/login')
-  }
+  // else{
+  //   res.redirect('/user/login')
+  // }
 
 };
 exports.Partner_preference = function (req, res) {
@@ -312,3 +317,94 @@ else{
   res.redirect('/user/login')
 }
 };
+
+
+exports.emailVerify=async function(req,res){
+
+  if(res.user){
+
+     let id=res.user.id;
+     let d=await user.findOne({_id:id});
+
+    
+     let email=d.email;
+     console.log(email);
+     const OTP=otp.generateOTP();
+    
+
+     var mailOptions = {
+      from: "visakhsanthosh69@gmail.com",
+      to: email,
+      subject: "From Muslim Matrimony",
+      text:"Your OTP is-"+OTP
+    };
+
+    var transport = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "visakhsanthosh69@gmail.com",
+        pass: "427799@TVS",
+      },
+    });
+
+    transport.sendMail(mailOptions, async (error, info) => {
+      if (error) {
+        console.log(error);
+        res.render('user_views/email_verification')
+      } else {
+
+    let d4=await user.findOneAndUpdate({_id:id},{otp:OTP}, { useFindAndModify: false })
+    if(d4){
+      res.render('user_views/email_verification')
+    }
+
+       
+      }
+    });
+  } else {
+    res.render('user_views/email_verification')
+  
+
+
+
+
+  }
+  
+
+
+}
+
+
+exports.verifyEmail=async function(req,res){
+
+  console.log(req.body);
+let {otp}=req.body.data;
+    if(res.user){
+      let id=res.user.id;
+      let d5=await user.findOne({_id:id});
+      if(d5){
+
+        console.log(otp ,d5.otp)
+         if(otp==d5.otp){
+                 let d6=await user.findOneAndUpdate({_id:id},{email_verified:true})
+                  if(d6){
+                    res.json({"success":true})
+                  }
+                  else{
+                  res.json({"success":false,"message":"Something went wrong try again later"})
+        
+                  }
+          }
+          
+         
+         else{
+        
+          res.json({"success":false,"message":"Otp is not correct"})
+         }
+      }
+
+      else{
+        res.json({"success":false,"message":"Something went wrong try again later"})
+      }
+    }
+}

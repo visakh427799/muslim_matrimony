@@ -628,10 +628,9 @@
 
                             </div>
                             <div class=" d-flex justify-content-center mt-2 mb-2">
-                                <button type="submit" class="btn  ml-2 mr-2 btn-warning btn-block ">Save</button>
-                                <button type="" class="btn  ml-2 mr-2 btn-light btn-block">Cancel</button>
+                               
                             </div>
-                        </form>
+                       
                         <!-- ----------------------------------------------- -->
                         <!-- ----------Partner Prefrence section------------ -->
                         <!-- ----------------------------------------------- -->
@@ -669,7 +668,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <select class=" form-control" name="height" id="" required>
+                                        <select class=" form-control" name="height_from" id="" required>
                                             <option value={{userPrefer.height_from}}>{{userPrefer.height_from}}</option>
                                             {{#each heights}}
                                             <option value="{{this.height}}">{{this.height}}</option>
@@ -680,7 +679,7 @@
 
                                 <div class="col mt-3">
                                     <div class="control-group">
-                                        <select class=" form-control" name="height" id="" required>
+                                        <select class=" form-control" name="height_to" id="" required>
                                             <option value={{userPrefer.height_to}}>{{userPrefer.height_to}}</option>
                                             {{#each heights}}
                                             <option value="{{this.height}}">{{this.height}}</option>
@@ -883,7 +882,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <select id="countySel" size="1" class="custom-select" name="country">
+                                        <select id="countySel" size="1" class="custom-select" name="country_p">
                                             <option value={{userPrefer.country}} selected="selected">{{userPrefer.country}}</option>
                                         </select>
                                     </div>
@@ -895,7 +894,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="control-group">
-                                        <select class="custom-select" id="stateSel" size="1" name="state">
+                                        <select class="custom-select" id="stateSel" size="1" name="state_p">
                                             <option value={{userPrefer.state}} selected="selected">{{userPrefer.state}}</option>
                                         </select>
                                     </div>
@@ -909,7 +908,7 @@
                             </div>
                             <div class="col">
                                 <div class="control-group">
-                                    <select class="custom-select" id="districtSel" name="district">
+                                    <select class="custom-select" id="districtSel" name="district_p">
                                         <option value={{userPrefer.district}} selected="selected">{{userPrefer.district}}</option>
                                     </select>
                                 </div>
@@ -921,7 +920,7 @@
                             </div>
                             <div class="col">
                                 <div class="control-group">
-                                    <select class="custom-select" id="placeSel" name="place">
+                                    <select class="custom-select" id="placeSel" name="place_p">
                                         <option value={{userPrefer.place}} selected="selected">{{userPrefer.place}} </option>
                                     </select>
                                 </div>
@@ -933,7 +932,7 @@
                                 <p>Tell About your Partner</p>
                             </div>
                             <div class="col ">
-                                <textarea name="about" id="" class="form-control" maxlength="170 " cols="58" rows="1"
+                                <textarea name="about_p" id="" class="form-control" maxlength="170 " cols="58" rows="1"
                                     name="tell">{{userPrefer.about}}</textarea>
                             </div>
                         </div>

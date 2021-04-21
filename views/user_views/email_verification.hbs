@@ -1,0 +1,261 @@
+<body>
+    <div class="wrapper">
+        <!-- Header Start -->
+         
+        <div class="header-top   ">
+            <div class=" row  align-items-center hide-max ">
+                <div class="col-lg-4 col-md-4 col-sm-4   hide-max  ">
+                    <div class="   brand ">
+                        <a href="index.html">
+                            <img src="/assets/images/logo.PNG" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class=" col  menu-links   hide-max    ">
+                    <div class="    btn-new-for-all   ">
+                        <a href="/index.html" class="">Home</a>
+                        <a href="/about.html" class="">About</a>
+                        <a href="/search.html" class="">Search</a>
+                        <a href="/contact.html" class="">Contact us</a>
+                    </div>
+
+                </div>
+                <div class=" col-2  ">
+                    <div class=" btn-new-for-all  ">
+                        <a href="/User/login.html" class="  btn-login ">Login</a>
+                    </div>
+                </div>
+
+            </div>
+            <!--4 mobile -->
+            <div class="  m-view-sp">
+                <div class=" mob-view-logo  hide-min">
+                    <a href="index.html">
+                        <img src="/assets/images/logo.PNG" alt="Logo">
+                    </a>
+                </div>
+                <div class=" btn-new-for-all  hide-min  ">
+                    <a href="/User/login.html" class="  btn-login ">Login</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- Header End -->
+
+
+
+
+        <div class="container ">
+            <!-- Instructions -->
+
+            <div class="row mt-5">
+                <div class="alert alert-success col-md-6" id="notes">
+
+                    <p>
+                        A OTP (One Time Passcode) has been sent to E-mail
+                        Please enter the OTP in the field below to verify
+                        (entered a wrong Email?
+                        <a href="" style="text-decoration: underline;"> Please edit your Email</a>)if you did not receive OTP; 
+                        <a href="" style="text-decoration: underline;">click here</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Verification Entry Jumbotron -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron text-center">
+                        <h2>Enter the verification code</h2>
+                       
+                            <div class="col-md-9 col-sm-12">
+                                <div class="form-group form-group-lg">
+                                    <input type="text" id="otp" class="form-control col-md-6 col-sm-6 " name="verifyCode"
+                                        required>
+                                    <button class="btn btn-info" onclick="emailVerify()">Verify</button> 
+
+                                     <script>
+                                        async function emailVerify(){
+                                           let otp=document.getElementById("otp").value;
+                                           let data={
+                                               otp:otp
+                                           }
+                                           let res=await axios.post('https://muslim-matrimony.herokuapp.com/verify_email',{data})
+                                        if(res.data.success){
+
+                                             Swal.fire('Success...', 'Email Verified', 'success');
+                                             location.href="/user/my_profile";
+                                        }
+                                        else{
+                                           Swal.fire({
+                                            icon: 'error',
+                                            title: res.data.message||'Something went wrong',
+                                            text: res.data.message,
+                                            
+                                        })
+
+                                        }
+                                        
+                                         }
+                                     </script>
+                                </div>
+
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--Team Start -->
+
+    <!-- Team End -->
+
+
+    <!-- fill profile details section end -->
+
+    <!-- Call to Action Start -->
+    <div class="call-to-action">
+        <div class="container container-fluid">
+            <div class="align-items-center">
+                <!--  -->
+                <!-- <div class="col-md-12"> -->
+                <div class="">
+                    <h2>Available Free Expert Consulation</h2>
+                    <p>Request a call back from our Personalized Service Team</p>
+                    <form action="">
+                        <div class="form-row mt-3">
+                            <div class="col-md-6 mt-3">
+                                <label for="" style="color: white">Name</label>
+                                <input type="text" class="form-control" placeholder="Name" />
+                            </div>
+                            <div class="col-md-6 mt-3">
+                                <label for="" style="color: white">Contact Number</label>
+                                <input type="text" class="form-control" placeholder="Mobile Number" />
+                            </div>
+                            <div class="col-md-3 mt-3">
+                                <label for="" style="color: white">Time for contact</label>
+                                <input type="text" class="form-control" placeholder="Time" />
+                            </div>
+                            <div class="col-md-6 mt-3">
+                                <label for="" style="color: white">Select a Reson</label>
+                                <select class="custom-select">
+                                    <option selected>Reson A</option>
+                                    <option value="1">Reson A</option>
+                                    <option value="2">Reson A</option>
+                                    <option value="3">Reson A</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn req-call-btn btn-block">Request a call</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call to Action End -->
+
+    <!-- Footer Start -->
+    <div class="footer hide-max">
+        <div class="container">
+            <div class="row  ">
+                <div class="d-flex justify-content-around col-md-6 col-lg-3 ">
+                    <div class="footer-form  ft-logo-sec ">
+                        <img src="/assets/images/ft_logo.PNG" class="ftr-img" alt="Footer Logo"> <br>
+                        <h6 class="ft-align-center text-small">The Complete Muslim Matrimony</h6>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around col-md-6 col-lg-3 ">
+                    <div class="hide-ft">
+                        <div class="footer-link">
+                            <h2>Useful Link</h2>
+                            <a href="/about.html">About Us</a>
+                            <a>Our Services</a>
+                            <a>Our Branchs</a>
+                            <a href="/contact.html">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around col-md-6 col-lg-3  ">
+                    <div class="hide-ft">
+                        <div class="footer-link">
+                            <h2>Useful Link</h2>
+                            <a>Clients Review</a>
+                            <a>Customer Support</a>
+                            <a>FAQs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around col-md-6 col-lg-3">
+                    <div class="footer-contact ft-align-center">
+                        <h2>Get In Touch</h2>
+                        <p><i class="fa fa-map-marker-alt"></i>Padikkal, Malappuram, Kerala</p>
+                        <p><i class="fa fa-phone-alt"></i><a href="https://wa.me/919746900055">+91 97469 00055</a></p>
+                        <p><i class="fa fa-envelope"></i>info@keralamuslimmarry.com</p>
+                        <div class="footer-social">
+                            <a><i class="fab fa-twitter"></i></a>
+                            <a href="https://facebook.com/keralamuslimmarry" target="_blank"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a><i class="fab fa-youtube"></i></a>
+                            <a href="https://instagram.com/keralamuslimmarry/" target="_blank"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container footer-menu">
+            <div class="f-menu">
+                <a href="/terms_and_conditions.html">Terms of use</a>
+                <a href="privacy_policy.html">Privacy policy</a>
+                <a>Cookies</a>
+                <a>Help & FQAs</a>
+                <a href="/contact.html">Contact us</a>
+            </div>
+        </div>
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; <a href="https://keralamuslimmarry.com/">Kerala Muslim Marry</a>- All Right Reserved.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>Theme Designed By <a href="https://htmlcodex .com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer  footer-mv   hide-min">
+
+        <div class="container footer-menu">
+            <div class="f-menu">
+                <a href="terms_and_conditions.html">&nbsp;Terms of use</a>
+                <a href="privacy_policy.html">&nbsp;Privacy policy</a>
+                <a>&nbsp;Cookies</a><br>
+                <a>&nbsp;Help & FQAs</a>
+                <a href="contact.html">&nbsp;Contact us</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer End -->
+
+    <!-- <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a> -->
+    </div>
+
+
+     <!-- JavaScript Libraries -->
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+     <script src="/assets/vendor/easing/easing.min.js"></script>
+     <script src="/assets/vendor/owlcarousel/owl.carousel.min.js"></script>
+     <script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+     <script src="/assets/vendor/lightbox/js/lightbox.min.js"></script>
+     
+     <!-- Template Javascript --> 
+     <script src="/assets/libs/js/main.js"></script>
+</body>

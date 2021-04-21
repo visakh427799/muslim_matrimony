@@ -11,6 +11,8 @@ const UserSchema = new mongoose.Schema({
         password: { type: String, default: null },
         status: { type: String, enum: ['Active', 'Inactive'], default: null },
         profile_id:{type:String,default:null},
+        otp:{type:Number,default:null},
+        email_verified:{type:Boolean,default:false},
         created_at: { type: Date, default: Date.now },
         deleted_at: { type: Date, default: null },
 
