@@ -74,6 +74,9 @@
 
                                      <script>
                                         async function emailVerify(){
+                                            let spn = document.getElementById("spin");
+                                           spn.className = "spinner-border text-primary";
+
                                            let otp=document.getElementById("otp").value;
                                            let data={
                                                otp:otp
@@ -81,10 +84,14 @@
                                            let res=await axios.post('https://muslim-matrimony.herokuapp.com/verify_email',{data})
                                         if(res.data.success){
 
+                                            spn.className=""
+
                                              Swal.fire('Success...', 'Email Verified', 'success');
                                              location.href="/user/complete_profile1";
                                         }
                                         else{
+                                            spn.className=""
+
                                            Swal.fire({
                                             icon: 'error',
                                             title: res.data.message||'Something went wrong',
@@ -100,6 +107,21 @@
 
                             </div>
                         
+
+                                     <div class="row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class=" " role="status" id="spin">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

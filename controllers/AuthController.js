@@ -79,7 +79,8 @@ exports.Login = async function (req, res) {
     });
 
     if (data) {
-
+      console.log(data)
+      res.cookie("userid", data._id);
          if(data.email_verified){
           let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
           await res.cookie("user_token", token);
