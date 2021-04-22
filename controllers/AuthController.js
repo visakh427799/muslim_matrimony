@@ -110,7 +110,7 @@ else if(data.email_verified&&data.s1&&data.s2&&data.s3&&!data.s4){
 
 }
 else if(data.email_verified&&data.s1&&data.s2&&!data.s3&&!data.s4){
-let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
+
 await res.cookie("user_token", token);
 
          res.redirect("/user/partner_Preference");
@@ -223,9 +223,9 @@ exports.Complete_profile2 = async function (req, res) {
     };
     console.log(personalData);
 
-    let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
-    // await res.clearCookie('userid');
-    await res.cookie("user_token", token);
+    // let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
+     
+    // await res.cookie("user_token", token);
     await extra.create(personalData, async(err, data) => {
       if (data) {
         console.log(data);
@@ -278,6 +278,9 @@ exports.Profile_photo = async function (req, res) {
      
       let d=await user.findOneAndUpdate({_id:user_id},{s4:true},{ useFindAndModify: false })
         if(d){
+         let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
+     
+       await res.cookie("user_token", token);
       res.redirect("/user/my_profile");
 
          
