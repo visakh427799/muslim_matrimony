@@ -81,7 +81,7 @@
                                            let data={
                                                otp:otp
                                            }
-                                           let res=await axios.post('http://localhost:8000/verify_email',{data})
+                                           let res=await axios.post('https://muslim-matrimony.herokuapp.com/verify_email',{data})
                                         if(res.data.success){
 
                                             spn.className=""
