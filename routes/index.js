@@ -63,7 +63,7 @@ router.get('/user/forgot_password/:id/:token',(req,res)=>{
 })
 router.get("/user/shortlist",Verify,ShowProf.shortlisted);
 
-router.get("/user/email_verification",Verify,Auth.emailVerify);
+router.get("/user/email_verification",Auth.emailVerify);
 //post routes
 router.post("/register", Auth.Register);
 router.post("/login", Auth.Login);
@@ -78,5 +78,5 @@ router.post("/change_password",EditProf.changePassword);
 router.post("/forgot_password",EditProf.forgotPassword);
 router.post("/shortlist",Verify,EditProf.shortList);
 router.post("/delete_shortlist",Verify,EditProf.deleteShortlist);
-router.post('/verify_email',Verify,Auth.verifyEmail);
+router.post('/verify_email',Auth.verifyEmail);
 module.exports = router;

@@ -78,11 +78,11 @@
                                            let data={
                                                otp:otp
                                            }
-                                           let res=await axios.post('https://muslim-matrimony.herokuapp.com/verify_email',{data})
+                                           let res=await axios.post('http://localhost:8000/verify_email',{data})
                                         if(res.data.success){
 
                                              Swal.fire('Success...', 'Email Verified', 'success');
-                                             location.href="/user/my_profile";
+                                             location.href="/user/complete_profile1";
                                         }
                                         else{
                                            Swal.fire({

@@ -141,6 +141,8 @@
                                             <p><strong>:&nbsp;</strong>{{userObj.marital_status}}</p>
                                         </div>
                                     </div>
+
+                                    {{#if userObj.children}}
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Children</p>
@@ -149,14 +151,17 @@
                                             <p><strong>:&nbsp;</strong>{{userObj.children}}</p>
                                         </div>
                                     </div>
-                                    <div class="row user-inf">
-                                        <div class="col">
-                                            <p>Number of Children</p>
-                                        </div>
-                                        <div class="col">
-                                            <p><strong>:&nbsp;</strong>{{userObj.no_children}}</p>
-                                        </div>
-                                    </div>
+                                          {{#if userObj.no_children}}
+                                                <div class="row user-inf">
+                                                    <div class="col">
+                                                        <p>Number of Children</p>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p><strong>:&nbsp;</strong>{{userObj.no_children}}</p>
+                                                    </div>
+                                                </div>
+                                            {{/if}}
+                                    {{/if}}
                                     <div class="row user-inf">
                                         <div class="col">
                                             <p>Complexion</p>

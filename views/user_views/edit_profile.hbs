@@ -233,7 +233,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="control-group">
-                                            <select name="marital_status" class="custom-select" required>
+                                            <select id="mar" name="marital_status" class="custom-select" required>
                                                 <option value={{userObj.marital_status}}>{{userObj.marital_status}}</option>
                                                 <option value="Unmarried">Unmarried</option>
                                                 <option value="Nikah Divorce">Nikah Divorce </option>
@@ -245,13 +245,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="user-inf">
+                              
+                                <div class="user-inf " id="col1">
                                     <div class="col">
                                         <p>Children</p>
                                     </div>
                                     <div class="col">
                                         <div class="control-group">
-                                            <select name="children" class="custom-select" required>
+                                            <select name="children" id="chil" class="custom-select" required>
 
                                                 <option value={{userObj.children}}>{{userObj.children}}</option>
                                                 <option value="Yes">Yes</option>
@@ -260,13 +261,43 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="user-inf">
+                                <script>
+                                let mar=document.getElementById("mar");
+                              
+                                mar.addEventListener('input', func1);
+                               
+                           
+
+                                function func1(){
+                                    console.log(mar.value)
+                                   if(mar.value=="Unmarried"||mar.value=="Nikah Divorce"){
+                                        let chil=document.getElementById("col1");
+                                       let num=document.getElementById("col2");
+                                          document.getElementById('chil').required=false;
+                                          document.getElementById('num').required=false;
+                                        chil.style.display = "none";
+                                        num.style.display = "none";
+                                   }
+                                   else{
+                                       let chil=document.getElementById("col1");
+                                       let num=document.getElementById("col2");
+                                        chil.style.display = "block";
+                                        num.style.display = "block";
+                                        document.getElementById('chil').required=true;
+                                          document.getElementById('num').required=true;
+                                       
+  
+                                }
+                                } 
+                                
+                            </script>
+                                <div class="user-inf" id="col2">
                                     <div class="col">
                                         <p>Number of Children</p>
                                     </div>
                                     <div class="col">
                                         <div class="control-group">
-                                            <select name="no_children" class="custom-select" required>
+                                            <select id="num" name="no_children" class="custom-select" required>
                                                 <option value={{userObj.no_children}}>{{userObj.no_children}}</option>
                                                 <option value="nil">nil</option>
                                                 <option value="1">1</option>
@@ -277,6 +308,25 @@
                                         </div>
                                     </div>
                                 </div>
+                                <script>
+                                      let  chil=document.getElementById("chil");
+                                       chil.addEventListener('input', func2);
+                                function func2(){
+                                    console.log(chil.value);
+                                   if(chil.value=="No"){
+                                        
+                                       let num=document.getElementById("col2");
+                                          document.getElementById("num").required=false;
+                                        num.style.display = "none";
+                                   }
+                                   else{
+                                     
+                                       let num=document.getElementById("col2");
+                                       document.getElementById("num").required=true;
+                                        num.style.display = "block";
+                                   }
+                                }
+                                </script>
                                 <div class="user-inf">
                                     <div class="col">
                                         <p>Complexion</p>

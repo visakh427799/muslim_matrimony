@@ -63,7 +63,7 @@ exports.Register = async function (req, res) {
         res.cookie("userid", data._id);
 
         // console.log(token)
-        res.redirect("/user/complete_profile1");
+        res.redirect("/user/email_verification");
       }
     });
   }
@@ -79,9 +79,18 @@ exports.Login = async function (req, res) {
     });
 
     if (data) {
-      let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
-      await res.cookie("user_token", token);
-      await res.redirect("/user/my_profile");
+
+         if(data.email_verified){
+          let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
+          await res.cookie("user_token", token);
+    
+          await res.redirect("/user/my_profile");
+         }
+
+         else{
+          await res.redirect("/user/email_verification");
+         }
+     
     } else {
       let message = "Invalid Credentials...!!! ";
       res.render("user_views/user_login", { message });
@@ -200,7 +209,7 @@ exports.Profile_photo = function (req, res) {
         (err, data) => {
           if (err) console.log(err);
           else {
-            res.redirect("/user/email_verification");
+            res.redirect("/user/my_profile");
             
           }
         }
@@ -321,9 +330,9 @@ else{
 
 exports.emailVerify=async function(req,res){
 
-  if(res.user){
+  if(req.cookies){
 
-     let id=res.user.id;
+     let id=req.cookies.userid;
      let d=await user.findOne({_id:id});
 
     
@@ -379,8 +388,8 @@ exports.verifyEmail=async function(req,res){
 
   console.log(req.body);
 let {otp}=req.body.data;
-    if(res.user){
-      let id=res.user.id;
+    if(req.cookies){
+      let id=req.cookies.userid;
       let d5=await user.findOne({_id:id});
       if(d5){
 
