@@ -121,7 +121,7 @@ exports.showAllProfile = async function (req, res) {
     console.log(d1.gender)
      data=data.filter((elm)=>{
        console.log(elm.user_id,id)
-      if( elm.user_id!==id&&elm.gender!==d1.gender)
+      if( elm.user_id!==id&&elm.gender!==d1.gender&&elm.s4)
       return elm
     })
     console.log(data);
