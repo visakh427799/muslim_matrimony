@@ -16,7 +16,10 @@ exports.Register = async function (req, res) {
   let otp="";
   let email_verified=false;
   let profile_id="MM1000";
-
+  let s1=false;
+  let s2=false;
+  let s3=false;
+  let s4=false;
   await user.find({}, (err, data) => {
     if (data) {
       data.map((usr) => {
@@ -45,6 +48,10 @@ exports.Register = async function (req, res) {
     otp,
     email_verified,
     profile_id,
+    s1,
+    s2,
+    s3,
+    s4
   };
   let newArr = C_Codes.CountryCodes();
   console.log(newUser);
@@ -81,18 +88,59 @@ exports.Login = async function (req, res) {
     if (data) {
       console.log(data)
       res.cookie("userid", data._id);
-         if(data.email_verified){
-          let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
+        //  if(data.email_verified){
+        //   let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
+        //   await res.cookie("user_token", token);
+    
+        //   await res.redirect("/user/my_profile");
+        //  }
+
+        //  else{
+        //   await res.redirect("/user/email_verification");
+        //  }
+      
+if(data.email_verified&&data.s1&&data.s2&&data.s3&&data.s4){
+  let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
           await res.cookie("user_token", token);
     
           await res.redirect("/user/my_profile");
-         }
+}
+else if(data.s1&&data.s2&&data.email_verified&&data.s3&&!data.s4){
+       await res.redirect("/user/profile_photo");
 
-         else{
-          await res.redirect("/user/email_verification");
-         }
+}
+else if(data.s1&&data.s2&&data.email_verified&&!data.s3&&!data.s4){
+let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
+await res.cookie("user_token", token);
+
+         res.redirect("/user/partner_Preference");
+}  
+else if(!data.s1&&!data.s2&&data.email_verified&&!data.s3&&!data.s4) {
+  res.cookie("userid", data._id);
+  res.redirect("/user/complete_profile1");
+
+    
+  
+}
+else if(data.s1&&!data.s2&&data.email_verified&&!data.s3&&!data.s4){
+  
+  
+  res.redirect("/user/complete_profile2");
+
+}
+else if(data.s1&&!data.s2&&!data.email_verified&&!data.s3&&!data.s4){
+  res.redirect('user/email_verification')
+  
+}
+   else{
+  res.redirect('user/register')
+   
+
+   }
      
-    } else {
+    }
+    
+    else {
       let message = "Invalid Credentials...!!! ";
       res.render("user_views/user_login", { message });
     }
@@ -119,10 +167,18 @@ exports.Complete_profile1 = async function (req, res) {
     let personalData = { ...req.body, user_id };
     console.log(personalData);
 
-    await personal.create(personalData, (err, data) => {
+    await personal.create(personalData, async (err, data) => {
       if (data) {
         console.log(data);
-        res.redirect("/user/complete_profile2");
+        let d=await user.findOneAndUpdate({_id:user_id},{s1:true},{ useFindAndModify: false })
+          if(d){
+            res.redirect("/user/complete_profile2");
+          }
+          else{
+        res.redirect("/user/complete_profile1");
+
+          }
+        
       } else {
         console.log(err);
         res.redirect("/user/complete_profile1");
@@ -170,10 +226,18 @@ exports.Complete_profile2 = async function (req, res) {
     let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
     // await res.clearCookie('userid');
     await res.cookie("user_token", token);
-    await extra.create(personalData, (err, data) => {
+    await extra.create(personalData, async(err, data) => {
       if (data) {
         console.log(data);
-        res.redirect("/user/partner_Preference");
+        let d=await user.findOneAndUpdate({_id:user_id},{s2:true},{ useFindAndModify: false })
+        if(d){
+          res.redirect("/user/partner_Preference");
+        }
+        else{
+      res.redirect("/user/complete_profile2");
+
+        }
+      
        
       } else {
         console.log(err);
@@ -187,7 +251,7 @@ exports.Complete_profile2 = async function (req, res) {
   }
 };
 
-exports.Profile_photo = function (req, res) {
+exports.Profile_photo = async function (req, res) {
   //
   
   if(req.files){
@@ -207,10 +271,22 @@ exports.Profile_photo = function (req, res) {
         { user_id: user_id },
         { profile_pic: img.name },
         { useFindAndModify: false },
-        (err, data) => {
+        async (err, data) => {
           if (err) console.log(err);
           else {
-            res.redirect("/user/my_profile");
+      
+     
+      let d=await user.findOneAndUpdate({_id:user_id},{s4:true},{ useFindAndModify: false })
+        if(d){
+      res.redirect("/user/my_profile");
+
+         
+        }
+        else{
+          res.redirect("/user/profile_photo");
+
+        }
+           
             
           }
         }
@@ -226,7 +302,7 @@ exports.Profile_photo = function (req, res) {
   // }
 
 };
-exports.Partner_preference = function (req, res) {
+exports.Partner_preference = async function (req, res) {
   if(req.cookies){
   console.log(req.body);
   let user_id = req.cookies.userid;
@@ -313,12 +389,23 @@ exports.Partner_preference = function (req, res) {
     user_id,
   };
   console.log(partnerObj);
-  partner.create(partnerObj, (err, data) => {
+  partner.create(partnerObj,async (err, data) => {
     if (data) {
       console.log(data);
+      let d=await user.findOneAndUpdate({_id:user_id},{s3:true},{ useFindAndModify: false })
+        if(d){
       res.redirect("/user/profile_photo");
+
+         
+        }
+        else{
+          res.redirect("/user/partner_Preference");
+
+        }
+     
     } else {
-      console.log(err);
+      res.redirect("/user/partner_Preference");
+
     }
   });
 

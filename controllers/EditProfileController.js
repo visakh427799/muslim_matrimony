@@ -39,6 +39,13 @@ exports.EditProfile = async function (req, res) {
       job:job ,
       user_id:u_id,
      }
+
+     var d7 = new Date();
+     var CurrentYr = d7.getFullYear();
+ 
+     let Yr = dob.slice(0, 4);
+     age = CurrentYr - Number(Yr);
+ 
      let extras={
   
       age:age,
@@ -482,7 +489,7 @@ exports.deleteShortlist=async function(req,res){
 exports.editProfile=async (req,res)=>{
 
   if (res.user) {
-    // console.log(res.user);
+     console.log(res.user);
     let id = res.user.id;
     let data = await user.findOne({ _id: id });
     let { _id, role, uname, gender, phone, email, profile_id } = data;
@@ -534,7 +541,8 @@ exports.editProfile=async (req,res)=>{
     // if(profile_pic_status=="Inactive"){
     //   profile_pic=""
     // }
-
+   
+     
     let userObj = {
       _id: _id,
       uname: uname,

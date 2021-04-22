@@ -15,7 +15,10 @@ const UserSchema = new mongoose.Schema({
         email_verified:{type:Boolean,default:false},
         created_at: { type: Date, default: Date.now },
         deleted_at: { type: Date, default: null },
-
+        s1:{type:Boolean,default:false},
+        s2:{type:Boolean,default:false},
+        s3:{type:Boolean,default:false},
+        s4:{type:Boolean,default:false},
 })
 
 const user=mongoose.model('user',UserSchema);
