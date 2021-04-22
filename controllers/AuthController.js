@@ -105,30 +105,30 @@ if(data.email_verified&&data.s1&&data.s2&&data.s3&&data.s4){
     
           await res.redirect("/user/my_profile");
 }
-else if(data.s1&&data.s2&&data.email_verified&&data.s3&&!data.s4){
+else if(data.email_verified&&data.s1&&data.s2&&data.s3&&!data.s4){
        await res.redirect("/user/profile_photo");
 
 }
-else if(data.s1&&data.s2&&data.email_verified&&!data.s3&&!data.s4){
+else if(data.email_verified&&data.s1&&data.s2&&!data.s3&&!data.s4){
 let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
 await res.cookie("user_token", token);
 
          res.redirect("/user/partner_Preference");
 }  
-else if(!data.s1&&!data.s2&&data.email_verified&&!data.s3&&!data.s4) {
-  res.cookie("userid", data._id);
-  res.redirect("/user/complete_profile1");
+else if(data.email_verified&&data.s1&&!data.s2&&!data.s3&&!data.s4) {
+  
+  res.redirect("/user/complete_profile2");
 
     
   
 }
-else if(data.s1&&!data.s2&&data.email_verified&&!data.s3&&!data.s4){
+else if(data.email_verified&&!data.s1&&!data.s2&&!data.s3&&!data.s4){
   
-  
-  res.redirect("/user/complete_profile2");
+  res.cookie("userid", data._id);
+  res.redirect("/user/complete_profile1");
 
 }
-else if(data.s1&&!data.s2&&!data.email_verified&&!data.s3&&!data.s4){
+else if(!data.email_verified&&!data.s1&&!data.s2&&!data.s3&&!data.s4){
   res.redirect('user/email_verification')
   
 }
