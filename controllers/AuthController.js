@@ -421,7 +421,7 @@ else{
 
 
 exports.emailVerify=async function(req,res){
-
+try{
   if(req.cookies){
 
      let id=req.cookies.userid;
@@ -431,7 +431,7 @@ exports.emailVerify=async function(req,res){
      let email=d.email;
      console.log(email);
      const OTP=otp.generateOTP();
-    
+  
 
      var mailOptions = {
       from: "visakhsanthosh69@gmail.com",
@@ -459,14 +459,22 @@ exports.emailVerify=async function(req,res){
       }
   
        
-      } else {
+      } 
+      
+      
+      
+      
+      else {
 
         console.log(error);
         res.render('user_views/email_verification')
        
       }
  
-  } else {
+  } 
+  
+  
+  else {
     res.render('user_views/email_verification')
   
 
@@ -475,7 +483,11 @@ exports.emailVerify=async function(req,res){
 
   }
   
+}
+catch(error){
 
+  res.send(error)
+}
 
 }
 
