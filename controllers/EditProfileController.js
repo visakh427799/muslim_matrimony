@@ -330,19 +330,20 @@ console.log(mailOptions)
       },
     });
 
-    transport.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.log(error);
+    let info=await transport.sendMail(mailOptions)
+      if (info) {
+        console.log(info)
+        res.json({ success: true });
+       
+      } else {
         res.json({
           success: false,
           message: "Oops something went wrong please try again",
         });
-      } else {
-        res.json({ success: true });
       }
-    });
+    
   } else {
-    console.log("mail send")
+ 
     res.json({
       success: false,
       message: "No account with this email id exist",

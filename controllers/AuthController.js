@@ -447,20 +447,24 @@ exports.emailVerify=async function(req,res){
       },
     });
 
-    transport.sendMail(mailOptions, async (error, info) => {
-      if (error) {
-        console.log(error);
+    let info=await transport.sendMail(mailOptions);
+    if (info) {
+
+
+      let d4=await user.findOneAndUpdate({_id:id},{otp:OTP}, { useFindAndModify: false })
+      if(d4){
+        console.log("mail send")
         res.render('user_views/email_verification')
+      }
+  
+       
       } else {
 
-    let d4=await user.findOneAndUpdate({_id:id},{otp:OTP}, { useFindAndModify: false })
-    if(d4){
-      res.render('user_views/email_verification')
-    }
-
+        console.log(error);
+        res.render('user_views/email_verification')
        
       }
-    });
+ 
   } else {
     res.render('user_views/email_verification')
   
