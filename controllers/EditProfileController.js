@@ -299,7 +299,7 @@ exports.forgotPassword = async function (req, res) {
   //if Success
   // let token='gt4t4ggg3g73h3h';
   let data = req.body.obj;
-  // console.log(data.email);
+  console.log(data.email);
 
   let d1 = await user.findOne({ email: data.email });
 
@@ -321,7 +321,7 @@ exports.forgotPassword = async function (req, res) {
       subject: "From Muslim Matrimony",
       text: `https://muslim-matrimony.herokuapp.com/user/forgot_password/${id}/${token}`,
     };
-
+console.log(mailOptions)
     var transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -342,6 +342,7 @@ exports.forgotPassword = async function (req, res) {
       }
     });
   } else {
+    console.log("mail send")
     res.json({
       success: false,
       message: "No account with this email id exist",
