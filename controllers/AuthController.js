@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer');
 const otp      = require('../utils/otpGenerator');
 exports.Register = async function (req, res) {
   const { role, uname, gender, phonenum, code, email, password } = req.body;
-  let phone = code + phonenum;
+  let phone = phonenum;
   let status = "Active";
   let otp="";
   let email_verified=false;
@@ -42,6 +42,7 @@ exports.Register = async function (req, res) {
     uname,
     gender,
     phone,
+    code,
     email,
     password,
     status,
@@ -511,4 +512,51 @@ let {otp}=req.body.data;
         res.json({"success":false,"message":"Something went wrong try again later"})
       }
     }
+}
+
+
+
+exports.checkPhone=async (req,res)=>{
+  // console.log(req.body);
+  let data=req.body.phone;
+
+
+
+  let data1=await user.findOne({phone:data.phn});
+  if(data1){
+    
+    res.json({
+      "success":true,
+      "message":"This phone number already exist..!!"
+    })
+  }else{
+    res.json({
+      "success":false,
+      "message":""
+    })
+  }
+  
+  
+}
+exports.checkEm=async (req,res)=>{
+  // console.log(req.body);
+  let data=req.body.email;
+
+
+
+  let data1=await user.findOne({email:data.em});
+  if(data1){
+    
+    res.json({
+      "success":true,
+      "message":"This email  already exist..!!"
+    })
+  }else{
+    res.json({
+      "success":false,
+      "message":""
+    })
+  }
+  
+  
 }

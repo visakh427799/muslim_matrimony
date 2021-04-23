@@ -79,4 +79,9 @@ router.post("/forgot_password",EditProf.forgotPassword);
 router.post("/shortlist",Verify,EditProf.shortList);
 router.post("/delete_shortlist",Verify,EditProf.deleteShortlist);
 router.post('/verify_email',Auth.verifyEmail);
+router.post('/check_phone',Auth.checkPhone);
+router.post('/check_em',Auth.checkEm);
+
+
+
 module.exports = router;

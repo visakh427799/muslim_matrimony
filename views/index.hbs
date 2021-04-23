@@ -98,20 +98,71 @@
                 </div>
                 <div class=" col">
                   <label for="" class="mb-0">Phone Number</label>
-                  <input type="text" name="phonenum" id="" class=" form-control " required>
+                  <input type="text" name="phonenum" id="phn" class=" form-control " minlength="10" onchange="checkPhone()" required>
                 </div>
+                 <span id="err-phn" class="text-danger"></span>
               </div>
+             
+               <script>
 
+                         async function checkPhone(){
+                           let phn=document.getElementById("phn").value
+                           let phone={
+                             phn:phn
+                           }
+
+                           let res=await axios.post('https://muslim-matrimony.herokuapp.com/check_phone',{phone})
+                         
+                         if(res.data.success){
+                           document.getElementById("sub_btn").disabled=true;
+                           let spn=document.getElementById("err-phn");
+                           spn.innerHTML=res.data.message;
+                         }
+                         else{
+                           document.getElementById("sub_btn").disabled=false;
+                           let spn=document.getElementById("err-phn");
+                           spn.innerHTML=res.data.message;
+                         }
+                         
+                         }
+
+
+               </script>
+               <div>
               <label for="">Email</label>
-              <input class="form-control" name="email" id="" type="text" placeholder="Enter your Email" required>
- 
-              
-        
+              <input class="form-control" onchange="checkEm()" name="email" id="em" type="text" placeholder="Enter your Email" required>
+                <span id="err-em" class="text-danger"></span>
+              </div>
+            <script>
+
+                         async function checkEm(){
+                           let em=document.getElementById("em").value
+                           let email={
+                             em:em
+                           }
+
+                           let res=await axios.post('https://muslim-matrimony.herokuapp.com/check_em',{email})
+                         
+                         if(res.data.success){
+                           document.getElementById("sub_btn").disabled=true;
+                           let spn=document.getElementById("err-em");
+                           spn.innerHTML=res.data.message;
+                         }
+                         else{
+                           document.getElementById("sub_btn").disabled=false;
+                           let spn=document.getElementById("err-em");
+                           spn.innerHTML=res.data.message;
+                         }
+                         
+                         }
+
+
+               </script>
               <label for="">Create Login Password</label>
               <input class="form-control" name="password" id="" type="password" placeholder="" required minlength="5" maxlength="19">
 
 
-              <button class="btn btn-block" type="submit">Register Now</button>
+              <button class="btn btn-block" type="submit" id="sub_btn">Register Now</button>
 
               <p style="font-size: small;">By clicking Register Now,
                 you agree to our <a href="/terms_and_conditions.html">Terms & Conditions</a> and <a

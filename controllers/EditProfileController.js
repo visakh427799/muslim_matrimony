@@ -78,6 +78,7 @@ exports.EditProfile = async function (req, res) {
       uname:uname,
       gender:gender,
       phone:phonenum,
+      code:d5.code,
       email:email,
       password:d5.password,
       status:d5.status,
@@ -85,7 +86,11 @@ exports.EditProfile = async function (req, res) {
       email_verified:d5.email_verified,
       profile_id:d5.profile_id,
       created_at:d5.created_at,
-      deleted_at:d5.deleted_at
+      deleted_at:d5.deleted_at,
+      s1:d5.s1,
+      s2:d5.s2,
+      s3:d5.s3,
+      s4:d5.s4,
 
       
     }
@@ -494,7 +499,7 @@ exports.editProfile=async (req,res)=>{
      console.log(res.user);
     let id = res.user.id;
     let data = await user.findOne({ _id: id });
-    let { _id, role, uname, gender, phone, email, profile_id } = data;
+    let { _id, role, uname, gender, phone, email, profile_id ,code} = data;
     let data2 = await personal.findOne({ user_id: id });
     let data3 = await extra.findOne({ user_id: id });
     // console.log(id)
@@ -552,6 +557,7 @@ exports.editProfile=async (req,res)=>{
       dob: dob,
       gender: gender,
       phone: phone,
+      code:code,
       religion: religion,
       email: email,
       sect: sect,
