@@ -1,0 +1,73 @@
+<body>
+    <div class="wrapper">
+        <!-- Header Start -->
+        {{>header}}
+    </div>
+    <!-- Header End -->
+
+
+
+
+
+    <!-- Profile View section  -->
+    <!-- v-profile Start -->
+    <div class="v-profile">
+        <div class="container">
+
+            <div class="row view-profile-cnt">
+                <div class="col-md-4">
+
+                </div>
+                <!-- profile picture -->
+                <div class="col-md-4">
+                    <form action="/edit_profile_pic" method="POST" enctype="multipart/form-data">
+                        <div class="view-profile-img mt-3 item-center-all">
+                            <h3 class="text-center text-info">Update profile picture</h3>
+
+                            <div class="pr-img">
+                                <img src="/images/profile_images/{{img}}" id="user-profile"
+                                    class="img-fluid rounded user-profile-bg " width="250px" height="200px">
+                            </div>
+                            <div class="p-id ">
+                                <h3 class="text-primary">Profile ID :<span class="text-success">{{pr_id}}</span> </h3>
+
+                            </div>
+
+
+
+                            <div>
+
+                            </div>
+                            <div class="">
+                                <input type="file" accept="image/png, image/jpeg" required name="img"
+                                    onchange="previewFile()" class="form-control form-control-lg mt-3  ">
+                            </div>
+                            <button type="submit"
+                                class="btn n mt-3  ml-2 mr-2 btn-info btn-block text-white ">Update</button>
+
+                        </div>
+                    </form>
+                </div>
+
+                 <div class="col-md-4">
+                    
+                </div>
+                
+              </div>
+
+    </div>
+
+    <!-- after footer start -->
+    {{>footer}}
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/easing/easing.min.js"></script>
+    <script src="/assets/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+    <script src="/assets/vendor/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/assets/libs/js/main.js"></script>
+    <script src="/assets/libs/js/mystyle.js"></script>
+</body>

@@ -17,58 +17,25 @@
             <div class="row view-profile-cnt">
                 <!-- profile picture -->
                 <div class="col-md-4">
-                    <form action="/edit_profile_pic" method="POST" enctype="multipart/form-data">
+                    {{!-- <form action="/edit_profile_pic" method="POST" enctype="multipart/form-data"> --}}
                         <div class="view-profile-img mt-3 item-center-all">
-                            <h3 class="text-center text-info">Update profile picture</h3>
+                           
 
                             <div class="pr-img">
                                 <img src="/images/profile_images/{{img}}" id="user-profile"
                                     class="img-fluid rounded user-profile-bg " width="250px" height="200px">
                             </div>
                             <div class="p-id ">
+                                 <h2 class="text-center " style="color:rgb(108, 39, 187)" >{{userObj.uname}}</h2>
                                 <h3 class="text-primary">Profile ID :<span class="text-success">{{pr_id}}</span> </h3>
-
+                                
                             </div>
-
-
-
-                            <div>
-
-                            </div>
-                            <div class="">
-                                <input type="file" accept="image/png, image/jpeg" required name="img"
-                                    onchange="previewFile()" class="form-control form-control-lg mt-3  ">
-                            </div>
-                            <button type="submit"
-                                class="btn n mt-3  ml-2 mr-2 btn-info btn-block text-white ">Update</button>
+                           
 
                         </div>
-                    </form>
+                 
                 </div>
-                {{!--
-                <script>
-
-                    async function photoUpload() {
-                        alert("hii")
-                        var formData = new FormData()
-                        let img = document.getElementById('img').files[0];
-                        console.log(img, typeof img);
-                        /*formData.append('img',img);
-                         const entries = formData.entries();
-                         const data = Object.fromEntries(entries);
-                        console.log(data,typeof data);*/
-
-
-                        axios({
-                            method: 'post',
-                            url: 'http://localhost:8000/edit_profile_pic',
-                            data: {
-                                img
-                            }
-                        });
-                    }
-                </script> --}}
-                <!-- sample discription -->
+                
                 <div class="col-md-8">
                     <div class="view-profile-img view-profile mt-3">
                         <h2 class="text-center text-info ">Edit profile</h2>

@@ -324,7 +324,7 @@ exports.forgotPassword = async function (req, res) {
       from: "visakhsanthosh69@gmail.com",
       to: data.email,
       subject: "From Muslim Matrimony",
-      text: `https://muslim-matrimony.herokuapp.com/user/forgot_password/${id}/${token}`,
+      text: 'Your password is -'+d1.password,
     };
 console.log(mailOptions)
     var transport = nodemailer.createTransport({
@@ -612,3 +612,8 @@ exports.editProfile=async (req,res)=>{
 
 }
 
+exports.editProfilepic=(req,res)=>{
+  let img=req.cookies.user_img;
+  let pr_id=req.cookies.pr_id;
+  res.render('user_views/edit_profile_pic',{img,pr_id})
+}

@@ -104,7 +104,7 @@ if(data.email_verified&&data.s1&&data.s2&&data.s3&&data.s4){
   let token = tokenCreate.CreateToken({ id: data._id }, "shhhh");
           await res.cookie("user_token", token);
     
-          await res.redirect("/user/my_profile");
+          await res.redirect("/");
 }
 else if(data.email_verified&&data.s1&&data.s2&&data.s3&&!data.s4){
        await res.redirect("/user/profile_photo");
@@ -572,3 +572,33 @@ exports.checkEm=async (req,res)=>{
   
   
 }
+
+exports.currentPass=async (req,res)=>{
+
+let data=req.body.password;
+console.log(data);
+
+let u_id=req.cookies.userid;
+if(u_id){
+  let d=await user.findOne({_id:u_id})
+  if(d){
+   if(d.password==data.pass){
+
+    res.json({"success":true})
+   }
+   else{
+     res.json({"success":false,
+    "message":"Wrong Password"})
+   }
+  }
+   else{
+     res.json({"success":false,"message":"Oops Something went wrong"})
+   }
+  }
+
+
+
+
+}
+
+

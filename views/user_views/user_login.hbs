@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label for="" style="color:white">Password</label>
-                                    <input type="password" class="form-control text-white " placeholder="" name="password" required>
+                                    <input type="password" class="form-control text-white " placeholder="" name="password" >
                                 </div>
 
 
@@ -109,7 +109,7 @@
                                 <div class="text-center ">
 
                                     <p style="color: black;">Enter your registered
-                                        email id here to reset the password</p>
+                                        email id here to send the password</p>
                                     <div class="panel-body">
                                         <fieldset class="fieldset-fgt-pass">
                                             <div class="form-group  pop-fgt-pass ">
@@ -118,7 +118,7 @@
                                             </div>
                                             <button class="btn btn-lg btn-success btn-block" id="bt"
                                                 onclick="changePassword()">Send
-                                                Password reset link</button>
+                                                Password </button>
                                         </fieldset>
                                         <script>
                                             async function changePassword() {
@@ -134,9 +134,9 @@
                                                     if (res.data.success) {
                                                         spn.className =""
                                                         
-                                                        Swal.fire('Success...', 'Password link has been send successfully ', 'success');
+                                                        Swal.fire('Success...', 'Password  has been send successfully ', 'success');
 
-
+                                                         location.href="/user/login"
                                                     }
                                                     else{
                                                        
@@ -147,6 +147,7 @@
                                                         text: res.data.message,
                                                       
                                                         })
+                                                         location.href="/user/login"
                                                     }
 
                                                 }

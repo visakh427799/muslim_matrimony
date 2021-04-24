@@ -24,6 +24,8 @@ router.get("/user/login", Verify, function (req, res, next) {
 router.get("/user/my_profile", Verify, ShowProf.ShowProfile);
 router.get("/user/profile/:id",Verify,ShowProf.showUserProfile);
 router.get("/user/edit_profile",Verify,EditProf.editProfile);
+router.get("/user/edit_profile_pic",Verify,EditProf.editProfilepic);
+
 
 router.get("/user/complete_profile1", function (req, res, next) {
  
@@ -55,12 +57,12 @@ router.get('/user/change_password',Verify,(req,res)=>{
   res.render("user_views/change_password",{id})
  
 })
-router.get('/user/forgot_password/:id/:token',(req,res)=>{
-  let id=req.params.id;
-  let token=req.params.token;
+// router.get('/user/forgot_password/:id/:token',(req,res)=>{
+//   let id=req.params.id;
+//   let token=req.params.token;
 
-  res.render('user_views/forgot_password',{id,token})
-})
+//   res.render('user_views/forgot_password',{id,token})
+// })
 router.get("/user/shortlist",Verify,ShowProf.shortlisted);
 
 router.get("/user/email_verification",Auth.emailVerify);
@@ -81,6 +83,7 @@ router.post("/delete_shortlist",Verify,EditProf.deleteShortlist);
 router.post('/verify_email',Auth.verifyEmail);
 router.post('/check_phone',Auth.checkPhone);
 router.post('/check_em',Auth.checkEm);
+router.post('/check_pass',Auth.currentPass);
 
 
 
