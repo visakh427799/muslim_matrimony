@@ -112,7 +112,6 @@ else if(data.email_verified&&data.s1&&data.s2&&data.s3&&!data.s4){
 }
 else if(data.email_verified&&data.s1&&data.s2&&!data.s3&&!data.s4){
 
-await res.cookie("user_token", token);
 
          res.redirect("/user/partner_Preference");
 }  
@@ -146,8 +145,8 @@ else if(!data.email_verified&&!data.s1&&!data.s2&&!data.s3&&!data.s4){
       res.render("user_views/user_login", { message });
     }
   } catch (error) {
-    let msg = error;
-    res.render("user_views/user_login", { msg });
+    let message = "Some error has been occured please try ...";
+    res.render("user_views/user_login", {message }); 
   }
 };
 
@@ -454,7 +453,7 @@ try{
 
       let d4=await user.findOneAndUpdate({_id:id},{otp:OTP}, { useFindAndModify: false })
       if(d4){
-        console.log("mail send")
+        // console.log("mail send")
         res.render('user_views/email_verification')
       }
   

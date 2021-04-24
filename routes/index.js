@@ -25,6 +25,8 @@ router.get("/user/my_profile", Verify, ShowProf.ShowProfile);
 router.get("/user/profile/:id",Verify,ShowProf.showUserProfile);
 router.get("/user/edit_profile",Verify,EditProf.editProfile);
 router.get("/user/edit_profile_pic",Verify,EditProf.editProfilepic);
+router.get("/user/edit_partner",Verify,EditProf.editPartner);
+
 
 
 router.get("/user/complete_profile1", function (req, res, next) {
@@ -75,6 +77,7 @@ router.post("/partner_preference", Auth.Partner_preference);
 router.post("/profile_photo",Auth.Profile_photo);
 router.post("/edit_profile",Verify,EditProf.EditProfile);
 router.post("/edit_profile_pic",Verify,EditProf.EditProfilePic);
+router.post("/edit_partner",Verify,EditProf.editPart);
 router.post("/delete_account",Verify,EditProf.deleteAccount);
 router.post("/change_password",EditProf.changePassword);
 router.post("/forgot_password",EditProf.forgotPassword);

@@ -96,86 +96,86 @@ exports.EditProfile = async function (req, res) {
     }
      console.log(usr);
      
-  const {
-    age_from,
-    age_to,
-    height_from,
-    height_to,
-    m1,
-    m2,
-    m3,
-    m4,
-    m5,
-    m6,
-    p1,
-    p2,
-    p3,
-    s1,
-    s2,
-    s3,
-    s4,
-    s5,
-    s6,
-    s7,
-    s8,
-    s9,
-    s10,
-    s11,
-    e1,
-    e2,
-    e3,
-    e4,
-    e5,
-    e6,
-    e7,
-    e8,
-    f1,
-    f2,
-    f3,
-    f4,
-    f5,
-    f6,
-    country_p,
-    state_p,
-    district_p,
-    place_p,
-    about_p,
-  } = req.body;
-  let m_status = [m1, m2, m3, m4, m5, m6].filter(function (element) {
-    return element !== undefined;
-  });
-  let p_status = [p1, p2, p3].filter(function (element) {
-    return element !== undefined;
-  });
-  let p_sect = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11].filter(function (
-    element
-  ) {
-    return element !== undefined;
-  });
-  let edu = [e1, e2, e3, e4, e5, e6, e7, e8].filter(function (element) {
-    return element !== undefined;
-  });
-  let fin_status = [f1, f2, f3, f4, f5, f6].filter(function (element) {
-    return element !== undefined;
-  });
+  // const {
+  //   age_from,
+  //   age_to,
+  //   height_from,
+  //   height_to,
+  //   m1,
+  //   m2,
+  //   m3,
+  //   m4,
+  //   m5,
+  //   m6,
+  //   p1,
+  //   p2,
+  //   p3,
+  //   s1,
+  //   s2,
+  //   s3,
+  //   s4,
+  //   s5,
+  //   s6,
+  //   s7,
+  //   s8,
+  //   s9,
+  //   s10,
+  //   s11,
+  //   e1,
+  //   e2,
+  //   e3,
+  //   e4,
+  //   e5,
+  //   e6,
+  //   e7,
+  //   e8,
+  //   f1,
+  //   f2,
+  //   f3,
+  //   f4,
+  //   f5,
+  //   f6,
+  //   country_p,
+  //   state_p,
+  //   district_p,
+  //   place_p,
+  //   about_p,
+  // } = req.body;
+  // let m_status = [m1, m2, m3, m4, m5, m6].filter(function (element) {
+  //   return element !== undefined;
+  // });
+  // let p_status = [p1, p2, p3].filter(function (element) {
+  //   return element !== undefined;
+  // });
+  // let p_sect = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11].filter(function (
+  //   element
+  // ) {
+  //   return element !== undefined;
+  // });
+  // let edu = [e1, e2, e3, e4, e5, e6, e7, e8].filter(function (element) {
+  //   return element !== undefined;
+  // });
+  // let fin_status = [f1, f2, f3, f4, f5, f6].filter(function (element) {
+  //   return element !== undefined;
+  // });
 
-  let partnerObj = {
-    age_from:age_from,
-    age_to:age_to,
-    height_from:height_from,
-    height_to:height_to,
-    m_status:m_status,
-    p_status:p_status,
-    p_sect:p_status,
-    education:edu,
-    fin_status:fin_status,
-    country:country_p,
-    state:state_p,
-    district:district_p,
-    place:place_p,
-    about:about_p,
-    user_id:u_id,
-  };
+  // let partnerObj = {
+  //   age_from:age_from,
+  //   age_to:age_to,
+  //   height_from:height_from,
+  //   height_to:height_to,
+  //   m_status:m_status,
+  //   p_status:p_status,
+  //   p_sect:p_status,
+  //   education:edu,
+  //   fin_status:fin_status,
+  //   country:country_p,
+  //   state:state_p,
+  //   district:district_p,
+  //   place:place_p,
+  //   about:about_p,
+  //   user_id:u_id,
+  // };
 
 
      let d1=await personal.findOneAndReplace({user_id:id},pers);
@@ -187,10 +187,8 @@ exports.EditProfile = async function (req, res) {
         u_id=mongoose.Types.ObjectId(u_id)
         let d3=await user.findOneAndReplace({_id:u_id },usr)   
         if(d3){
-               let d4=await partner.findOneAndReplace({user_id:u_id},partnerObj)
-               if(d4){
-                res.redirect("/user/my_profile");
-               }
+          res.redirect("/user/my_profile");
+              
    
             }
       }
@@ -265,7 +263,17 @@ exports.deleteAccount = async function (req, res) {
   let d2 = await personal.deleteOne({ user_id: req.body.id });
   let d3 = await extra.deleteOne({ user_id: req.body.id });
   let d4 = await partner.deleteOne({ user_id: req.body.id });
-  console.log(d1);
+  let user_profile_pic=req.cookies.user_img;
+  const pathToFile = `./public/images/profile_images/${user_profile_pic}`;
+  if(user_profile_pic){
+   await fs.unlink(pathToFile, async function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Successfully deleted the file.");
+      }
+    });
+  }
 
   //clear all cookies
 
@@ -604,7 +612,7 @@ exports.editProfile=async (req,res)=>{
   let pr_id=req.cookies.pr_id;
   res.render("user_views/edit_profile",{heights,weights,img,pr_id,newArr,userObj,
     userExtra,
-    userPrefer,});
+  });
 
   }
 
@@ -616,4 +624,102 @@ exports.editProfilepic=(req,res)=>{
   let img=req.cookies.user_img;
   let pr_id=req.cookies.pr_id;
   res.render('user_views/edit_profile_pic',{img,pr_id})
+}
+exports.editPartner=async (req,res)=>{
+  let u_id=req.cookies.userid;
+  let d=await partner.findOne({user_id:u_id});
+
+  if(d){
+
+    res.render('user_views/edit_partner_preference',{heights,weights,newArr,d});
+  
+  }
+}
+exports.editPart=async (req,res)=>{
+
+   console.log(req.body);
+
+   const {
+    age_from,
+    age_to,
+    height_from,
+    height_to,
+    m1,
+    m2,
+    m3,
+    m4,
+    m5,
+    m6,
+    p1,
+    p2,
+    p3,
+    s1,
+    s2,
+    s3,
+    s4,
+    s5,
+    s6,
+    s7,
+    s8,
+    s9,
+    s10,
+    s11,
+    e1,
+    e2,
+    e3,
+    e4,
+    e5,
+    e6,
+    e7,
+    e8,
+    f1,
+    f2,
+    f3,
+    f4,
+    f5,
+    f6,
+    country_p,
+    state_p,
+    district_p,
+    place_p,
+    about_p,
+  } = req.body;
+  let m_status = [m1, m2, m3, m4, m5, m6].filter(function (element) {
+    return element !== undefined;
+  });
+  let p_status = [p1, p2, p3].filter(function (element) {
+    return element !== undefined;
+  });
+  let p_sect = [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11].filter(function (
+    element
+  ) {
+    return element !== undefined;
+  });
+  let edu = [e1, e2, e3, e4, e5, e6, e7, e8].filter(function (element) {
+    return element !== undefined;
+  });
+  let fin_status = [f1, f2, f3, f4, f5, f6].filter(function (element) {
+    return element !== undefined;
+  });
+
+  let partnerObj = {
+    age_from:age_from,
+    age_to:age_to,
+    height_from:height_from,
+    height_to:height_to,
+    m_status:m_status,
+    p_status:p_status,
+    p_sect:p_status,
+    education:edu,
+    fin_status:fin_status,
+    country:country_p,
+    state:state_p,
+    district:district_p,
+    place:place_p,
+    about:about_p,
+    user_id:u_id,
+  };
+
+  console.log(partnerObj)
+
 }

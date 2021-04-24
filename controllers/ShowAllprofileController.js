@@ -115,9 +115,16 @@ exports.ShowProfile = async function (req, res, next) {
 
 exports.showAllProfile = async function (req, res) {
   let data = await extra.find({}).lean();
+ 
+    let id=req.cookies.userid;
+    let d1= await user.findOne({_id:id});
+    let d4= await extra.findOne({user_id:id});
   
-    let id=res.user.id;
-    let d1=await user.findOne({_id:id});
+    console.log(d1)
+      let pro_img=d4.profile_pic;
+      let profile_id=d1.profile_id;
+    res.cookie("user_img", pro_img);
+    res.cookie("pr_id", profile_id);
     console.log(d1.gender)
      data=data.filter((elm)=>{
        console.log(elm.user_id,id)
