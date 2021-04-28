@@ -67,7 +67,7 @@
                             let obj={
                                 id:id
                             }
-                            let res= await axios.post('https://muslim-matrimony.herokuapp.com/shortlist',{obj})
+                            let res= await axios.post('https://muslim-matrimony-app.herokuapp.com/shortlist',{obj})
                             if(res.data.success){
                                  //star.className="text-success"
                                      Swal.fire('Success...', 'Profile added to short list', 'success');

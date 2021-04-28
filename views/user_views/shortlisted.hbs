@@ -59,7 +59,7 @@
                                 id:id
                             }
                             //axios call
-                            let res= await axios.post('https://muslim-matrimony.herokuapp.com/delete_shortlist',{obj})
+                            let res= await axios.post('https://muslim-matrimony-app.herokuapp.com/delete_shortlist',{obj})
                             if(res.data.success){
                                
                                     Swal.fire('Success...', 'Profile removed from short list', 'success');
