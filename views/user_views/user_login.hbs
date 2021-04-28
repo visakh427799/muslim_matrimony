@@ -127,10 +127,11 @@
                                                 spn.className = "spinner-border text-primary";
                                                 let bt = document.getElementById("bt");
                                                 let email = document.getElementById("forgot").value;
+                                                bt.disabled=true;
                                                 let obj = { email }
                                                 
                                                 try {
-                                                    let res = await axios.post('http://localhost:8000/forgot_password', { obj })
+                                                    let res = await axios.post('https://muslim-matrimony.herokuapp.com/forgot_password', { obj })
                                                     if (res.data.success) {
                                                         spn.className =""
                                                         
