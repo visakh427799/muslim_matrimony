@@ -111,7 +111,7 @@
                              phn:phn
                            }
 
-                           let res=await axios.post('https://muslim-matrimony-app.herokuapp.com//check_phone',{phone})
+                           let res=await axios.post('https://muslim-matrimony-app.herokuapp.com/check_phone',{phone})
                          
                          if(res.data.success){
                            document.getElementById("sub_btn").disabled=true;
