@@ -627,18 +627,18 @@ exports.editProfilepic=(req,res)=>{
 }
 exports.editPartner=async (req,res)=>{
   let u_id=req.cookies.userid;
-  let d=await partner.findOne({user_id:u_id});
+  let d=await partner.findOne({user_id:u_id}).lean();
 
   if(d){
-
+console.log(d);
     res.render('user_views/edit_partner_preference',{heights,weights,newArr,d});
   
   }
 }
 exports.editPart=async (req,res)=>{
 
-   console.log(req.body);
-
+  //  console.log(req.body);
+    let u_id=req.cookies.userid
    const {
     age_from,
     age_to,
@@ -720,6 +720,12 @@ exports.editPart=async (req,res)=>{
     user_id:u_id,
   };
 
-  console.log(partnerObj)
+  //  console.log(partnerObj)
+
+
+  let d=await partner.findOneAndReplace({user_id:u_id},partnerObj,{useFindAndModify:false});
+  if(d){
+    res.redirect('/user/my_profile')
+  }
 
 }

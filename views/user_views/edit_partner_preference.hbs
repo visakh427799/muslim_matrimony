@@ -21,7 +21,7 @@
                                     <div class="control-group">
                                         <div class="col ">
                                             <select class=" form-control" name="age_from" id="" required>
-                                                <option value={{userPrefer.age_from}}>{{userPrefer.age_from}}</option>
+                                                <option value={{d.age_from}}>{{d.age_from}}</option>
                                                 <option value="18">18</option>
                                                 <option value="19">19</option>
                                                 <option value="20">20</option>
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class=" col pt-2 ">
                                             <select class=" form-control" name="age_to" id="" required>
-                                                <option value={{userPrefer.age_from}}>{{userPrefer.age_from}}</option>
+                                                <option value={{d.age_to}}>{{d.age_to}}</option>
                                                 <option value="18">18</option>
                                                 <option value="19">19</option>
                                                 <option value="20">20</option>
@@ -51,7 +51,7 @@
                                 <div class="col">
                                     <div class="control-group">
                                         <select class=" form-control" name="height_from" id="" required>
-                                            <option value={{userPrefer.height_from}}>{{userPrefer.height_from}}</option>
+                                            <option value={{d.height_from}}>{{d.height_from}}</option>
                                             {{#each heights}}
                                             <option value="{{this.height}}">{{this.height}}</option>
                                             {{/each}}
@@ -62,7 +62,7 @@
                                 <div class="col mt-3">
                                     <div class="control-group">
                                         <select class=" form-control" name="height_to" id="" required>
-                                            <option value={{userPrefer.height_to}}>{{userPrefer.height_to}}</option>
+                                            <option value={{d.height_to}}>{{d.height_to}}</option>
                                             {{#each heights}}
                                             <option value="{{this.height}}">{{this.height}}</option>
                                             {{/each}}
@@ -265,7 +265,7 @@
                                 <div class="col">
                                     <div class="control-group">
                                         <select id="countySel" size="1" class="custom-select" name="country_p">
-                                            <option value={{userPrefer.country}} selected="selected">{{userPrefer.country}}</option>
+                                            <option value={{d.country}} selected="selected">{{d.country}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -277,7 +277,7 @@
                                 <div class="col">
                                     <div class="control-group">
                                         <select class="custom-select" id="stateSel" size="1" name="state_p">
-                                            <option value={{userPrefer.state}} selected="selected">{{userPrefer.state}}</option>
+                                            <option value={{d.state}} selected="selected">{{d.state}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -291,7 +291,7 @@
                             <div class="col">
                                 <div class="control-group">
                                     <select class="custom-select" id="districtSel" name="district_p">
-                                        <option value={{userPrefer.district}} selected="selected">{{userPrefer.district}}</option>
+                                        <option value={{d.district}} selected="selected">{{d.district}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@
                             <div class="col">
                                 <div class="control-group">
                                     <select class="custom-select" id="placeSel" name="place_p">
-                                        <option value={{userPrefer.place}} selected="selected">{{userPrefer.place}} </option>
+                                        <option value={{d.place}} selected="selected">{{d.place}} </option>
                                     </select>
                                 </div>
                             </div>
@@ -2653,7 +2653,7 @@ districtSel.onchange = function () {
                             </div>
                             <div class="col ">
                                 <textarea name="about_p" id="" class="form-control" maxlength="170 " cols="58" rows="1"
-                                    name="tell">{{userPrefer.about}}</textarea>
+                                    name="tell">{{d.about}}</textarea>
                             </div>
                         </div>
                         <div class=" pt-2 d-flex justify-content-center">
