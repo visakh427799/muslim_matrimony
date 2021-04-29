@@ -434,7 +434,7 @@ try{
   
 
      var mailOptions = {
-      from: "visakhsanthosh69@gmail.com",
+      from: "keralamuslimmarry@gmail.com",
       to: email,
       subject: "From Muslim Matrimony",
       text:"Your OTP is-"+OTP
@@ -443,8 +443,8 @@ try{
     var transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "visakhsanthosh69@gmail.com",
-        pass: "427799@TVS",
+        user: "keralamuslimmarry@gmail.com",
+        pass: "ijas@199618",
       },
     });
 
