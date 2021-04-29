@@ -3,6 +3,7 @@ const user = require("../models/user_model");
 const personal = require("../models/user_details_1");
 const extra = require("../models/user_details_2");
 const partner = require("../models/partner_preference");
+const consult = require("../models/consultations");
 const C_Codes = require("../utils/datas");
 const tokenCreate = require("../utils/tokeCreate");
 const profileCode = require("../utils/profileCodeGenerator");
@@ -601,3 +602,17 @@ if(u_id){
 }
 
 
+exports.consult=async function(req,res){
+
+    console.log(req.body);
+
+let d= await consult.create(req.body.obj);
+if(d){
+  res.json({"success":true})
+}
+else{
+  res.json({"success":false,"message":"Something went wrong...!!!"})
+}
+
+
+}

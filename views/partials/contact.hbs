@@ -5,31 +5,96 @@
                 <p>
                     Request a call back from our Personalized Service Team
                 </p>
-                <form action="">
+                {{!-- <form action=""> --}}
 
                     <div class="form-row  mt-3">
 
                         <div class="col-md-6 mt-3">
                             <label for="" style="color:white">Name</label>
-                            <input type="text" id="" class="form-control" placeholder="Name">
+                            <input type="text" id="nm" name="nm" class="form-control" placeholder="Name">
                         </div>
                         <div class="col-md-6 mt-3">
                             <label for="" style="color:white">Contact Number</label>
-                            <input type="text" id="" class="form-control" placeholder="Mobile Number">
+                            <input type="text" id="ct" name="ct" class="form-control" placeholder="Mobile Number">
                         </div>
                         <div class="col-md-3 mt-3">
                             <label for="" style="color:white">Time for contact</label>
-                            <input type="text" id="" class="form-control" placeholder="Time">
+                            <input type="text" id="tm"  class="form-control" placeholder="Time">
                         </div>
                         <div class="col-md-6 mt-3">
-                            <label for="" style="color:white">Reson</label>
-                            <input type="text" id="" class="form-control" placeholder="How To Register">
+                            <label for="" style="color:white">Reason</label>
+                            <input type="text" id="rs" class="form-control" placeholder="How To Register">
+                        </div>
+                         <div class="row mt-3">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class=" mt-3" role="status" id="spin">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+
+                            </div>
                         </div>
                         <div class="col-md-3   ">
-                            <button type="submit" id="" class="btn req-call-btn  btn-block">Request a call</button>
+                            <button onclick="contact()" id="bt" class="btn req-call-btn  btn-block">Request a call</button>
                         </div>
                     </div>
-                </form>
+                {{!-- </form> --}}
+
+<script>
+  async function contact(){
+      
+      let spn = document.getElementById("spin");
+      let nm=document.getElementById("nm").value;
+      let ct=document.getElementById("ct").value;
+      let rs=document.getElementById("rs").value;
+      let tm=document.getElementById("tm").value;
+      let bt=document.getElementById("bt");
+
+      let obj={
+            name:nm,
+            phone:ct,
+            time:tm,
+            reason:rs,
+
+      }
+    if(nm!==''&&ct!==''&&tm!==''&&rs!==''){
+        bt.disabled=true;
+        spn.className = "spinner-border text-primary";
+
+       // console.log(obj)
+       let res= await axios.post('https://muslim-matrimony-app.herokuapp.com/consult',{obj})
+       if(res.data.success){
+               
+               Swal.fire('Success...', 'Requested ', 'success');
+              
+                     document.getElementById("nm").value=''
+           document.getElementById("ct").value=''
+           document.getElementById("rs").value=''
+    document.getElementById("tm").value=''
+              
+       }
+       else{
+               Swal.fire({
+                        icon: 'error',
+                        text: res.data.message,
+                     })
+               
+       }
+    }
+
+
+
+   }
+
+
+</script>
+
+
+
             </div>
         </div>
     </div>

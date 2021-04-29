@@ -87,6 +87,8 @@ router.post('/verify_email',Auth.verifyEmail);
 router.post('/check_phone',Auth.checkPhone);
 router.post('/check_em',Auth.checkEm);
 router.post('/check_pass',Auth.currentPass);
+router.post('/consult',Auth.consult);
+
 
 
 

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
         
-        role:{type:String,enum: ['My self', 'Parents','Sister','Brother'],default: null},
+        role:{type:String,default: null}, //,enum: ['My self', 'Parents','Sister','Brother']
         uname: { type: String, default: null },
         gender:{type:String,default:null},
         phone: { type: String, default: null },
