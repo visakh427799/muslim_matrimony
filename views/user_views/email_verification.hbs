@@ -70,11 +70,13 @@
                                 <div class="form-group form-group-lg">
                                     <input type="text" id="otp" class="form-control col-md-6 col-sm-6 " name="verifyCode"
                                         required>
-                                    <button class="btn btn-info" onclick="emailVerify()">Verify</button> 
+                                    <button class="btn btn-info" id="bt" onclick="emailVerify()">Verify</button> 
 
                                      <script>
                                         async function emailVerify(){
                                             let spn = document.getElementById("spin");
+                                            let btn= document.getElementById("bt");
+                                            bt.disabled=true;
                                            spn.className = "spinner-border text-primary";
 
                                            let otp=document.getElementById("otp").value;

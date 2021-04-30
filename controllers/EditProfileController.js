@@ -74,6 +74,7 @@ exports.EditProfile = async function (req, res) {
       whatsapp_number:whatsapp_number ,
       about:about ,
       user_id:u_id,
+      profile_completed:d.profile_completed
       
      }
     let usr={

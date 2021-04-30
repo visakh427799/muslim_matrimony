@@ -23,6 +23,7 @@ const userDetailSchema_2=new mongoose.Schema(
         w_code: { type: String, default: null },
         whatsapp_number: { type: String, default: null },
         about: { type: String, default: null },
+        profile_completed:{type:Boolean,default:false},
         user_id:{ type: String, default: null },
       }
        

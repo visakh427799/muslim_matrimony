@@ -215,6 +215,7 @@ exports.Complete_profile2 = async function (req, res) {
     user_id = String(user_id);
     let profile_pic = "";
     let profile_pic_status = "Inactive";
+    profile_completed=false;
     let personalData = {
       ...req.body,
       user_id,
@@ -224,6 +225,7 @@ exports.Complete_profile2 = async function (req, res) {
       height,
       profile_pic,
       profile_pic_status,
+      profile_completed,
     };
     console.log(personalData);
 
@@ -282,10 +284,14 @@ exports.Profile_photo = async function (req, res) {
      
       let d=await user.findOneAndUpdate({_id:user_id},{s4:true},{ useFindAndModify: false })
         if(d){
-         let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
+          let d2=await extra.findOneAndUpdate({user_id:user_id},{profile_completed:true},{ useFindAndModify: false })
+            if(d2){
+              let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
      
-       await res.cookie("user_token", token);
-      res.redirect("/user/my_profile");
+              await res.cookie("user_token", token);
+             res.redirect("/user/my_profile");
+            }
+         
 
          
         }
