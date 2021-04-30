@@ -445,28 +445,19 @@ try{
 
     
 
-    let info=await sgMail.send(message);
-    if (info) {
+   sgMail.send(message).then(async (response)=>{
+     console.log(response);
+     let d4=await user.findOneAndUpdate({_id:id},{otp:OTP}, { useFindAndModify: false })
+     if(d4){
+       // console.log("mail send")
+       res.render('user_views/email_verification')
+     }
+
+   }).catch((error)=>{
+     console.log(error)
+   })
 
 
-      let d4=await user.findOneAndUpdate({_id:id},{otp:OTP}, { useFindAndModify: false })
-      if(d4){
-        // console.log("mail send")
-        res.render('user_views/email_verification')
-      }
-  
-       
-      } 
-      
-      
-      
-      
-      else {
-
-        console.log(error);
-        res.render('user_views/email_verification')
-       
-      }
  
   } 
   
@@ -474,9 +465,6 @@ try{
   else {
     res.render('user_views/email_verification')
   
-
-
-
 
   }
   
@@ -611,5 +599,23 @@ else{
   res.json({"success":false,"message":"Something went wrong...!!!"})
 }
 
+
+}
+
+
+exports.skip=async(req,res)=>{
+
+  if(req.cookies){
+
+    let user_id=req.cookies.userid;
+    console.log(user_id)
+    let token = tokenCreate.CreateToken({ id: user_id }, "shhhh");
+     
+     await res.cookie("user_token", token);
+     res.redirect('/');
+  }
+
+  
+  
 
 }

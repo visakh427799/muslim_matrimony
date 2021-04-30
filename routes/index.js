@@ -88,6 +88,8 @@ router.post('/check_phone',Auth.checkPhone);
 router.post('/check_em',Auth.checkEm);
 router.post('/check_pass',Auth.currentPass);
 router.post('/consult',Auth.consult);
+router.post('/skip',Auth.skip);
+
 
 
 
