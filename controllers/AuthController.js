@@ -10,6 +10,9 @@ const profileCode = require("../utils/profileCodeGenerator");
 const storage = require("node-sessionstorage");
 const nodemailer = require('nodemailer');
 const otp      = require('../utils/otpGenerator');
+const sgMail= require('@sendgrid/mail');
+const api_key='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';
+sgMail.setApiKey(api_key);
 exports.Register = async function (req, res) {
   const { role, uname, gender, phonenum, code, email, password } = req.body;
   let phone = phonenum;
@@ -433,22 +436,16 @@ try{
      const OTP=otp.generateOTP();
   
 
-     var mailOptions = {
+     var message = {
       from: "keralamuslimmarry@gmail.com",
       to: email,
       subject: "From Muslim Matrimony",
       text:"Your OTP is-"+OTP
     };
 
-    var transport = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "keralamuslimmarry@gmail.com",
-        pass: "ijas@199618",
-      },
-    });
+    
 
-    let info=await transport.sendMail(mailOptions);
+    let info=await sgMail.send(message);
     if (info) {
 
 

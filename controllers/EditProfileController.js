@@ -10,7 +10,10 @@ var C_Codes = require("../utils/datas");
 const newArr = C_Codes.CountryCodes();
 const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const sgMail= require('@sendgrid/mail');
+const api_key='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';
+sgMail.setApiKey(api_key);
 exports.EditProfile = async function (req, res) {
   console.log(req.body);
     if(res.user){
@@ -328,22 +331,30 @@ exports.forgotPassword = async function (req, res) {
       expiresIn: "60",
     });
     console.log(token);
-    var mailOptions = {
-      from: "visakhsanthosh69@gmail.com",
-      to: data.email,
-      subject: "From Muslim Matrimony",
-      text: 'Your password is -'+d1.password,
-    };
-console.log(mailOptions)
-    var transport = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "visakhsanthosh69@gmail.com",
-        pass: "427799@TVS",
-      },
-    });
+//     var mailOptions = {
+//       from: "visakhsanthosh69@gmail.com",
+//       to: data.email,
+//       subject: "From Muslim Matrimony",
+//       text: 'Your password is -'+d1.password,
+//     };
+// console.log(mailOptions)
+//     var transport = nodemailer.createTransport({
+//       service: "gmail",
+//       auth: {
+//         user: "visakhsanthosh69@gmail.com",
+//         pass: "427799@TVS",
+//       },
+//     });
 
-    let info=await transport.sendMail(mailOptions)
+   let message={
+          from: "keralamuslimmarry@gmail.com",
+          to: data.email,
+          subject: "From Muslim Matrimony",
+          text: 'Your password is -'+d1.password,
+   }
+
+
+    let info=await sgMail.send(message);
       if (info) {
         console.log(info)
         res.json({ success: true });
