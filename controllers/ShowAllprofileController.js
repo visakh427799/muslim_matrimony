@@ -49,9 +49,9 @@ exports.ShowProfile = async function (req, res, next) {
       about,
     } = data3;
     let pro_img = profile_pic;
-    // if(profile_pic_status=="Inactive"){
-    //   profile_pic=""
-    // }
+    if(profile_pic_status==false){
+      pro_img=""
+    }
 
     let userObj = {
       _id: _id,
@@ -181,7 +181,7 @@ exports.showUserProfile = async function (req, res) {
       address,
       about,
     } = data3;
-    if (profile_pic_status == "Inactive") {
+    if (profile_pic_status == false) {
       profile_pic = "";
     }
 

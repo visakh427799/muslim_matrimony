@@ -194,6 +194,24 @@
                                         </div>
                                     </div>
                                 </div>
+                                <script>
+                                  window.addEventListener('load', (event) => {
+                                     
+                                     let val=document.getElementById("chil");
+                                     let col=document.getElementById("col1");
+                                      let val2=document.getElementById("num");
+                                     let col2=document.getElementById("col2");
+                                     if(val.value===''){
+                                       col.style.display = "none";
+
+                                     }
+                                     if(val2.value===''){
+                                       col2.style.display="none"
+                                     }
+
+
+                                    });
+                              </script>
                                 <div class="user-inf">
                                     <div class="col">
                                         <p>Marital Status</p>
@@ -212,7 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
-                              
+                           
                                 <div class="user-inf " id="col1">
                                     <div class="col">
                                         <p>Children</p>
@@ -228,18 +246,22 @@
                                         </div>
                                     </div>
                                 </div>
+                             
                                 <script>
+                                
                                 let mar=document.getElementById("mar");
                               
                                 mar.addEventListener('input', func1);
-                               
-                           
+                                
 
                                 function func1(){
-                                    console.log(mar.value)
+                                   let chil=document.getElementById("col1");
+                                   let num=document.getElementById("col2");
+                                   chil.style.display = "block"; 
+                                   num.style.display="block" ;                                 console.log(mar.value)
                                    if(mar.value=="Unmarried"||mar.value=="Nikah Divorce"){
-                                        let chil=document.getElementById("col1");
-                                       let num=document.getElementById("col2");
+                                      
+                                   
                                           document.getElementById('chil').required=false;
                                           document.getElementById('num').required=false;
                                         chil.style.display = "none";

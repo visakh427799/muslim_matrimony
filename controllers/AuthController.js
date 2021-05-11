@@ -214,7 +214,7 @@ exports.Complete_profile2 = async function (req, res) {
     let gender=data.gender;
     user_id = String(user_id);
     let profile_pic = "";
-    let profile_pic_status = "Inactive";
+    let profile_pic_status = false;
     profile_completed=false;
     let personalData = {
       ...req.body,
