@@ -12,7 +12,7 @@ const heights = C_Codes.Heights();
 const weights = C_Codes.Weights();
 const mongoose = require('mongoose');
 const sgMail= require('@sendgrid/mail');
-const api_key='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';
+const api_key='';
 sgMail.setApiKey(api_key);
 exports.EditProfile = async function (req, res) {
   console.log(req.body);
